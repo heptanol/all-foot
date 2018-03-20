@@ -1,14 +1,27 @@
-<h1>
-  Journée {{matchDay}}
-</h1>
-<div *ngIf="fixtures" role="list">
-  <div *ngFor="let fixture of fixtures" role="listitem" class="border mt-3 mb-3">
-    <mat-grid-list cols="12" rowHeight="48px">
-      <mat-grid-tile [colspan]="5" [rowspan]="3" >{{fixture.homeTeamName}}</mat-grid-tile>
-      <mat-grid-tile [colspan]="1" [rowspan]="2" >{{fixture.result.goalsHomeTeam}}</mat-grid-tile>
-      <mat-grid-tile [colspan]="1" [rowspan]="2" >{{fixture.result.goalsAwayTeam}}</mat-grid-tile>
-      <mat-grid-tile [colspan]="5" [rowspan]="3" >{{fixture.awayTeamName}}</mat-grid-tile>
-      <mat-grid-tile [colspan]="2" [rowspan]="1" >{{fixture.date | date: 'EEEE dd/MM/yyyy H:mm'}}</mat-grid-tile>
-    </mat-grid-list>
+<ng-container *ngIf="competition">
+  <h1>
+    {{competition.caption}}
+  </h1>
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="getData(competition.id, matchDay - 1)"  *ngIf="matchDay !== 1">
+        <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_left</mat-icon>
+      </button>
+      <span>Journée {{matchDay}}</span>
+      <button mat-icon-button (click)="getData(competition.id, matchDay + 1)" *ngIf="matchDay !== competition.numberOfMatchdays">
+        <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_right</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div *ngIf="fixtures" role="list">
+    <div *ngFor="let fixture of fixtures" role="listitem" class="border mt-3 mb-3">
+      <mat-grid-list cols="12" rowHeight="48px">
+        <mat-grid-tile [colspan]="5" [rowspan]="2" >{{fixture.homeTeamName}}</mat-grid-tile>
+        <mat-grid-tile *ngIf="fixture.status !== 'FINISHED'" [colspan]="2" [rowspan]="2" >{{fixture.date | date: 'EEEE dd/MM/yyyy H:mm'}}</mat-grid-tile>
+        <mat-grid-tile *ngIf="fixture.status === 'FINISHED'" [colspan]="1" [rowspan]="2" >{{fixture.result.goalsHomeTeam}}</mat-grid-tile>
+        <mat-grid-tile *ngIf="fixture.status === 'FINISHED'" [colspan]="1" [rowspan]="2" >{{fixture.result.goalsAwayTeam}}</mat-grid-tile>
+        <mat-grid-tile [colspan]="5" [rowspan]="2" >{{fixture.awayTeamName}}</mat-grid-tile>
+      </mat-grid-list>
+    </div>
   </div>
-</div>
+</ng-container>

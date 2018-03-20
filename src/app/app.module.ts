@@ -17,14 +17,18 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NewsComponent } from './news/news.component';
 import {Routing} from './app.routing';
 import { ResultComponent } from './leagues/result/result.component';
-import {FootApiService} from './shared/foot-api/foot-api.service';
-
+import {FootApiService} from './shared/foot-api.service';
+import { TableComponent } from './leagues/table/table.component';
+import {CompetitionResolver} from './shared/competition.resolve';
+import {GroupByPipe} from './shared/group-by';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsComponent,
-    ResultComponent
+    ResultComponent,
+    TableComponent,
+    GroupByPipe
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FootApiService} from '../../shared/foot-api/foot-api.service';
+import {FootApiService} from '../../shared/foot-api.service';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
+import {Competition} from '../../shared/model';
 
 @Component({
   selector: 'app-result',
@@ -9,10 +10,8 @@ import {Subscription} from 'rxjs/Subscription';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent implements OnInit, OnDestroy {
-
-  league: string;
-  matchDay: string;
-  ranking: any;
+  competition: Competition;
+  matchDay: number;
   fixtures: any[];
   subscribtions: Subscription[] = [];
   constructor(
@@ -21,29 +20,35 @@ export class ResultComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.league = this.route.snapshot.paramMap.get('league');
-    this.getCompetition();
-  }
-
-  getData() {
-    this.subscribtions.push(this.apiService.getFixtures(this.league, this.matchDay).subscribe(data => {
-      this.fixtures = data;
-      console.log(this.fixtures);
+    this.subscribtions.push(this.route.params.subscribe(param => {
+      this.getCompetitions();
+      this.getCompetition(param.leagueId);
     }));
   }
 
-  getCompetition() {
-    this.subscribtions.push(this.apiService.getCompetition(this.league).subscribe(data => {
-      this.matchDay = data['matchday'];
-      this.ranking = data['standing'];
-      this.getData();
+  getCompetition(competitionId): void {
+    this.subscribtions.push(this.apiService.getCompetition(competitionId).subscribe(data => {
+      this.competition = data;
+      this.matchDay = data.currentMatchday;
+      this.getData(competitionId, this.competition.currentMatchday);
     }));
+  }
+
+  getData(competitionId, matchday) {
+    this.matchDay = matchday;
+    this.subscribtions.push(this.apiService.getFixturesBeta(competitionId, matchday)
+      .subscribe(data => {
+        this.fixtures = data;
+        console.log(this.fixtures);
+      }));
+  }
+
+  getCompetitions() {
+    this.subscribtions.push(this.apiService.getCompetitions().subscribe());
   }
 
   ngOnDestroy() {
-    this.subscribtions.forEach((sub) => {
-      sub.unsubscribe();
-    });
+    this.subscribtions.forEach(sub => sub.unsubscribe());
   }
 
 }

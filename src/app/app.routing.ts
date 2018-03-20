@@ -8,7 +8,7 @@ const APP_ROUTES: Routes = [
         path: '',
         component: NewsComponent
     }, {
-        path: 'result/:league',
+        path: 'result/:leagueId',
         component: ResultComponent
     },
     { path: '**', redirectTo: '' }
