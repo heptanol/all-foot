@@ -26,9 +26,7 @@ export class FootApiService {
       .set('X-Response-Control', 'minified');
     return this.http.get(`http://api.football-data.org/v1/competitions/450/fixtures/?matchday=${matchday}`, {headers})
       .pipe(
-        mergeMap(data => data['fixtures'])
-      )
-      .pipe(
+        mergeMap(data => data['fixtures']),
         map(fixture => ({
           id: fixture.id,
           awayTeamId: fixture.awayTeamId,
@@ -38,7 +36,8 @@ export class FootApiService {
           matchday: fixture.matchday,
           date: fixture.date,
           day: this.getDay(fixture.date)
-        }))
+        })),
+        toArray()
       );
   }
 

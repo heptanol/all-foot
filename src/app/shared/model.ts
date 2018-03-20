@@ -9,3 +9,24 @@ export interface Competition {
   numberOfTeams: string;
   year: string;
 }
+
+export interface Fixture {
+  awayTeamId: number;
+  awayTeamName: string;
+  competitionId: number;
+  date: string;
+  homeTeamId: number;
+  homeTeamName: string;
+  id: number;
+  matchday: number;
+  odds: any;
+  result: {
+    goalsHomeTeam: number;
+    goalsAwayTeam: number;
+    halfTime: {
+      goalsHomeTeam: number;
+      goalsAwayTeam: number;
+    }
+  };
+  status: string;
+}

@@ -39,7 +39,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     this.subscribtions.push(this.apiService.getFixturesBeta(competitionId, matchday)
       .subscribe(data => {
         this.fixtures = data;
-        console.log(this.fixtures);
+        console.log(data);
       }));
   }
 
