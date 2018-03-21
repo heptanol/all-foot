@@ -12,6 +12,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AppComponent } from './app.component';
 import { FeedService } from './shared/feed.service';
 import {HttpClientModule} from '@angular/common/http';
@@ -21,9 +22,9 @@ import {Routing} from './app.routing';
 import { ResultComponent } from './leagues/result/result.component';
 import {FootApiService} from './shared/foot-api.service';
 import { TableComponent } from './leagues/table/table.component';
-import {CompetitionResolver} from './shared/competition.resolve';
 import {GroupByPipe} from './shared/group-by';
 import { LeaguesComponent } from './leagues/leagues.component';
+import {CommonService} from './shared/common.service';
 
 @NgModule({
   declarations: [
@@ -48,13 +49,15 @@ import { LeaguesComponent } from './leagues/leagues.component';
     MatGridListModule,
     MatTabsModule,
     MatTableModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     Routing,
     HttpClientModule
   ],
   providers: [
     FeedService,
-    FootApiService
+    FootApiService,
+    CommonService
   ],
   bootstrap: [AppComponent]
 })

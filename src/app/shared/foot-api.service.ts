@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {groupBy, map, mergeMap, toArray} from 'rxjs/operators';
+import {delay, groupBy, map, mergeMap, toArray} from 'rxjs/operators';
 import { from } from 'rxjs/observable/from';
 import {Competition, Ranking} from './model';
 
@@ -47,7 +47,7 @@ export class FootApiService {
     let headers = new HttpHeaders();
     headers = headers.set('X-Auth-Token', 'a7c8f168d2f14f02bd678f24fa05aff0')
       .set('X-Response-Control', 'minified');
-    return this.http.get(`http://api.football-data.org/v1/competitions/${league}`, {headers});
+    return this.http.get<Competition>(`http://api.football-data.org/v1/competitions/${league}`, {headers});
   }
 
   getCompetitionTable(league): Observable<Ranking> {

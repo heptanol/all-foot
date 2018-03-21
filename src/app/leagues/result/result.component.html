@@ -1,7 +1,4 @@
-<ng-container *ngIf="competition">
-  <h1>
-    {{competition.caption}}
-  </h1>
+<ng-container *ngIf="!loading && competition">
   <mat-toolbar>
     <mat-toolbar-row>
       <button mat-icon-button (click)="getData(competition.id, matchDay - 1)"  *ngIf="matchDay !== 1">
@@ -30,3 +27,4 @@
     </div>
   </div>
 </ng-container>
+<mat-spinner *ngIf="loading"></mat-spinner>

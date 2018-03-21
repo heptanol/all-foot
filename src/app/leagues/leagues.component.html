@@ -1,9 +1,14 @@
-<mat-tab-group>
-  <mat-tab label="Resultat" color="accent">
-    <app-result *ngIf="competition" [competition]="competition"></app-result>
-  </mat-tab>
-  <mat-tab label="Classement" color="accent">
-    <app-table *ngIf="competition" [competition]="competition"></app-table>
-  </mat-tab>
-</mat-tab-group>
-
+<ng-container *ngIf="!loading && !error">
+  <h2 *ngIf="competition">
+    {{competition.caption}}
+  </h2>
+  <mat-tab-group>
+    <mat-tab label="Resultat" color="accent">
+      <app-result *ngIf="competition" [competition]="competition"></app-result>
+    </mat-tab>
+    <mat-tab label="Classement" color="accent">
+      <app-table *ngIf="competition" [competition]="competition"></app-table>
+    </mat-tab>
+  </mat-tab-group>
+</ng-container>
+<mat-spinner *ngIf="loading"></mat-spinner>
