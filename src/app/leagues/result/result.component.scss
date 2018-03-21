@@ -1,8 +1,14 @@
+@import '~@angular/material/theming';
+@include mat-core();
 mat-grid-list{
   margin: 2px 0;
 }
-mat-grid-tile{
-  background: lightgray;
+mat-grid-tile.day{
+  font-size: 24px;
+}
+mat-grid-tile.fixture{
+  background: mat-color($mat-blue-grey, 700);
+  color: mat-color($mat-blue-grey, 50);
 }
 mat-toolbar-row{
   display: flex;
