@@ -10,6 +10,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
 import { AppComponent } from './app.component';
 import { FeedService } from './shared/feed.service';
 import {HttpClientModule} from '@angular/common/http';
@@ -21,6 +23,7 @@ import {FootApiService} from './shared/foot-api.service';
 import { TableComponent } from './leagues/table/table.component';
 import {CompetitionResolver} from './shared/competition.resolve';
 import {GroupByPipe} from './shared/group-by';
+import { LeaguesComponent } from './leagues/leagues.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import {GroupByPipe} from './shared/group-by';
     NewsComponent,
     ResultComponent,
     TableComponent,
-    GroupByPipe
+    GroupByPipe,
+    LeaguesComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,8 @@ import {GroupByPipe} from './shared/group-by';
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatGridListModule,
+    MatTabsModule,
+    MatTableModule,
     BrowserAnimationsModule,
     Routing,
     HttpClientModule

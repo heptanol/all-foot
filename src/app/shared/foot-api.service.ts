@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {groupBy, map, mergeMap, toArray} from 'rxjs/operators';
 import { from } from 'rxjs/observable/from';
-import {Competition} from './model';
+import {Competition, Ranking} from './model';
 
 
 @Injectable()
@@ -24,18 +24,20 @@ export class FootApiService {
     let headers = new HttpHeaders();
     headers = headers.set('X-Auth-Token', 'a7c8f168d2f14f02bd678f24fa05aff0')
       .set('X-Response-Control', 'minified');
-    return this.http.get(`http://api.football-data.org/v1/competitions/450/fixtures/?matchday=${matchday}`, {headers})
+    return this.http.get(`http://api.football-data.org/v1/competitions/${league}/fixtures/?matchday=${matchday}`, {headers})
       .pipe(
         mergeMap(data => data['fixtures']),
         map(fixture => ({
-          id: fixture.id,
-          awayTeamId: fixture.awayTeamId,
-          awayTeamName: fixture.awayTeamName,
-          homeTeamId: fixture.homeTeamId,
-          homeTeamName: fixture.homeTeamName,
-          matchday: fixture.matchday,
-          date: fixture.date,
-          day: this.getDay(fixture.date)
+          id: fixture['id'],
+          awayTeamId: fixture['awayTeamId'],
+          awayTeamName: fixture['awayTeamName'],
+          homeTeamId: fixture['homeTeamId'],
+          homeTeamName: fixture['homeTeamName'],
+          matchday: fixture['matchday'],
+          date: fixture['date'],
+          status: fixture['status'],
+          result: fixture['result'],
+          day: this.getDay(fixture['date'])
         })),
         toArray()
       );
@@ -46,6 +48,14 @@ export class FootApiService {
     headers = headers.set('X-Auth-Token', 'a7c8f168d2f14f02bd678f24fa05aff0')
       .set('X-Response-Control', 'minified');
     return this.http.get(`http://api.football-data.org/v1/competitions/${league}`, {headers});
+  }
+
+  getCompetitionTable(league): Observable<Ranking> {
+    let headers = new HttpHeaders();
+    headers = headers.set('X-Auth-Token', 'a7c8f168d2f14f02bd678f24fa05aff0')
+      .set('X-Response-Control', 'minified');
+    return this.http.get(`http://api.football-data.org/v1/competitions/${league}/leagueTable`, {headers})
+      .pipe(map(data => data['standing']));
   }
 
   getCompetitions(): Observable<any> {

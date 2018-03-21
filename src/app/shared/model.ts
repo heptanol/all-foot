@@ -30,3 +30,15 @@ export interface Fixture {
   };
   status: string;
 }
+
+export interface Ranking  {
+  'goalDifference': number;
+  'goals': number;
+  'goalsAgainst': number;
+  'playedGames': number;
+  'points': number;
+  'rank': number;
+  'team': string;
+  'teamId': number;
+}
+

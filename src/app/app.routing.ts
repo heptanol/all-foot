@@ -1,7 +1,7 @@
 // app.routing.ts
 import { Routes, RouterModule } from '@angular/router';
 import {NewsComponent} from './news/news.component';
-import {ResultComponent} from './leagues/result/result.component';
+import {LeaguesComponent} from './leagues/leagues.component';
 
 const APP_ROUTES: Routes = [
     {
@@ -9,7 +9,7 @@ const APP_ROUTES: Routes = [
         component: NewsComponent
     }, {
         path: 'result/:leagueId',
-        component: ResultComponent
+        component: LeaguesComponent
     },
     { path: '**', redirectTo: '' }
 ];

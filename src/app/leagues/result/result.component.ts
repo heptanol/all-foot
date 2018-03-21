@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import {FootApiService} from '../../shared/foot-api.service';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
@@ -9,46 +9,34 @@ import {Competition} from '../../shared/model';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultComponent implements OnInit, OnDestroy {
-  competition: Competition;
+export class ResultComponent implements OnInit, OnDestroy, OnChanges {
+  @Input()competition: Competition;
   matchDay: number;
   fixtures: any[];
-  subscribtions: Subscription[] = [];
+  subscribtion: Subscription;
   constructor(
     private apiService: FootApiService,
-    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.subscribtions.push(this.route.params.subscribe(param => {
-      this.getCompetitions();
-      this.getCompetition(param.leagueId);
-    }));
+    this.getData(this.competition.id, this.competition.currentMatchday);
   }
 
-  getCompetition(competitionId): void {
-    this.subscribtions.push(this.apiService.getCompetition(competitionId).subscribe(data => {
-      this.competition = data;
-      this.matchDay = data.currentMatchday;
-      this.getData(competitionId, this.competition.currentMatchday);
-    }));
+  ngOnChanges() {
+    this.getData(this.competition.id, this.competition.currentMatchday);
   }
 
   getData(competitionId, matchday) {
     this.matchDay = matchday;
-    this.subscribtions.push(this.apiService.getFixturesBeta(competitionId, matchday)
+    this.subscribtion = this.apiService.getFixturesBeta(competitionId, matchday)
       .subscribe(data => {
         this.fixtures = data;
-        console.log(data);
-      }));
-  }
-
-  getCompetitions() {
-    this.subscribtions.push(this.apiService.getCompetitions().subscribe());
+      });
   }
 
   ngOnDestroy() {
-    this.subscribtions.forEach(sub => sub.unsubscribe());
+    this.subscribtion.unsubscribe();
   }
+
 
 }

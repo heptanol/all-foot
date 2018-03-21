@@ -19,9 +19,11 @@
         <mat-grid-tile [colspan]="12" [rowspan]="2" >{{fixture.key  | date: 'EEEE dd/MM/yyyy'}}</mat-grid-tile>
         <ng-container *ngFor="let fix of fixture.value">
           <mat-grid-tile [colspan]="5" [rowspan]="2" >{{fix.homeTeamName}}</mat-grid-tile>
-          <mat-grid-tile *ngIf="fix.status !== 'FINISHED'" [colspan]="2" [rowspan]="2" >{{fix.date | date: 'H:mm'}}</mat-grid-tile>
-          <mat-grid-tile *ngIf="fix.status === 'FINISHED'" [colspan]="1" [rowspan]="2" >{{fix.result.goalsHomeTeam}}</mat-grid-tile>
-          <mat-grid-tile *ngIf="fix.status === 'FINISHED'" [colspan]="1" [rowspan]="2" >{{fix.result.goalsAwayTeam}}</mat-grid-tile>
+          <mat-grid-tile *ngIf="fix.status === 'POSTPONED'" [colspan]="2" [rowspan]="2" >REP</mat-grid-tile>
+          <mat-grid-tile *ngIf="fix.status === 'TIMED'" [colspan]="2" [rowspan]="2" >{{fix.date | date: 'H:mm'}}</mat-grid-tile>
+          <mat-grid-tile *ngIf="fix.status === 'SCHEDULED'" [colspan]="2" [rowspan]="2" >{{fix.date | date: 'H:mm'}}</mat-grid-tile>
+          <mat-grid-tile *ngIf="fix.status === 'FINISHED' && fix.result" [colspan]="1" [rowspan]="2" >{{fix.result.goalsHomeTeam}}</mat-grid-tile>
+          <mat-grid-tile *ngIf="fix.status === 'FINISHED' && fix.result" [colspan]="1" [rowspan]="2" >{{fix.result.goalsAwayTeam}}</mat-grid-tile>
           <mat-grid-tile [colspan]="5" [rowspan]="2" >{{fix.awayTeamName}}</mat-grid-tile>
         </ng-container>
       </mat-grid-list>

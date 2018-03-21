@@ -1,3 +1,14 @@
-<p>
-  table works!
-</p>
+<mat-grid-list cols="10" rowHeight="48px">
+  <mat-grid-tile [colspan]="1" [rowspan]="1" >Rank</mat-grid-tile>
+  <mat-grid-tile [colspan]="6" [rowspan]="1" >team</mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1" >points</mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1" >playedGames</mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1" >goalDifference</mat-grid-tile>
+  <ng-container *ngFor="let table of tables">
+    <mat-grid-tile [colspan]="1" [rowspan]="1" >{{table.rank}}</mat-grid-tile>
+    <mat-grid-tile [colspan]="6" [rowspan]="1" >{{table.team}}</mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1" >{{table.points}}</mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1" >{{table.playedGames}}</mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1" >{{table.goalDifference}}</mat-grid-tile>
+  </ng-container>
+</mat-grid-list>
