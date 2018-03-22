@@ -37,8 +37,8 @@ export interface Ranking  {
   'goalsAgainst': number;
   'playedGames': number;
   'points': number;
-  'rank': number;
-  'team': string;
+  'position': number;
+  'teamName': string;
   'teamId': number;
 }
 
