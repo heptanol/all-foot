@@ -52,8 +52,6 @@ export class FootApiService {
   }
 
   getCompetitions(): Observable<any> {
-    headers = headers.set('X-Auth-Token', 'a7c8f168d2f14f02bd678f24fa05aff0')
-      .set('X-Response-Control', 'minified');
     return this.http.get(`${this.apiUrl}/competitions`);
   }
 

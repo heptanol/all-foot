@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+mat-grid-tile.tab-header{
+  background: mat-color($mat-blue-grey, 700);
+  color: mat-color($mat-blue-grey, 50);
+}
+mat-grid-tile.tab-row{
+  background: mat-color($mat-blue-grey, 400);
+  color: mat-color($mat-blue-grey, 50);
+}

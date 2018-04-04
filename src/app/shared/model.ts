@@ -40,5 +40,8 @@ export interface Ranking  {
   'position': number;
   'teamName': string;
   'teamId': number;
+  'wins': number;
+  'losses': number;
+  'draws': number;
 }
 
