@@ -34,7 +34,7 @@ export class ResultComponent implements OnInit, OnDestroy, OnChanges {
   getData(competitionId, matchday) {
     this.matchDay = matchday;
     this.loading = true;
-    this.subscribtion = this.apiService.getFixturesBeta(competitionId, matchday)
+    this.subscribtion = this.apiService.getFixtures(competitionId, matchday)
       .pipe(
         tap(() => this.loading = false),
         catchError(err => {
