@@ -29,6 +29,7 @@ export interface Fixture {
     }
   };
   status: string;
+  diff: string;
 }
 
 export interface Ranking  {

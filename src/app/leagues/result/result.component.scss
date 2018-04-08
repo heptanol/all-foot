@@ -5,11 +5,22 @@ mat-grid-list{
 mat-grid-tile.day{
   font-size: 24px;
 }
-mat-grid-tile.fixture{
-  background: mat-color($mat-blue-grey, 700);
-  color: mat-color($mat-blue-grey, 50);
-}
 mat-toolbar-row{
   display: flex;
   justify-content: center;
 }
+mat-grid-tile.fixture{
+  background: mat-color($mat-blue-grey, 200);
+  color: mat-color($mat-blue-grey, 50);
+}
+mat-grid-tile.fixture.live{
+  background: mat-color($mat-red, A200);
+  color: mat-color($mat-blue-grey, 50);
+}
+app-fixture{
+  margin-bottom: 4px;
+}
+.day{
+  background: mat-color($mat-blue-grey, 200);
+}
+
