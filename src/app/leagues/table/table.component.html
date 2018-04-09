@@ -1,23 +1,25 @@
-<ng-container *ngIf="!loading">
-  <mat-grid-list cols="12" rowHeight="48px">
-    <mat-grid-tile class="tab-header" [colspan]="1" [rowspan]="1" >Pos</mat-grid-tile>
-    <mat-grid-tile class="tab-header" [colspan]="5" [rowspan]="1" >équipe</mat-grid-tile>
-    <mat-grid-tile class="tab-header" [colspan]="1" [rowspan]="1" >MJ</mat-grid-tile>
-    <mat-grid-tile class="tab-header" [colspan]="1" [rowspan]="1" >G</mat-grid-tile>
-    <mat-grid-tile class="tab-header" [colspan]="1" [rowspan]="1" >N</mat-grid-tile>
-    <mat-grid-tile class="tab-header" [colspan]="1" [rowspan]="1" >P</mat-grid-tile>
-    <mat-grid-tile class="tab-header" [colspan]="1" [rowspan]="1" >Diff</mat-grid-tile>
-    <mat-grid-tile class="tab-header" [colspan]="1" [rowspan]="1" >Pts</mat-grid-tile>
-    <ng-container *ngFor="let table of tables">
-      <mat-grid-tile class="tab-row" [colspan]="1" [rowspan]="1" >{{table.position}}</mat-grid-tile>
-      <mat-grid-tile class="tab-row" [colspan]="5" [rowspan]="1" >{{table.teamName}}</mat-grid-tile>
-      <mat-grid-tile class="tab-row" [colspan]="1" [rowspan]="1" >{{table.playedGames}}</mat-grid-tile>
-      <mat-grid-tile class="tab-row" [colspan]="1" [rowspan]="1" >{{table.wins}}</mat-grid-tile>
-      <mat-grid-tile class="tab-row" [colspan]="1" [rowspan]="1" >{{table.draws}}</mat-grid-tile>
-      <mat-grid-tile class="tab-row" [colspan]="1" [rowspan]="1" >{{table.losses}}</mat-grid-tile>
-      <mat-grid-tile class="tab-row" [colspan]="1" [rowspan]="1" >{{table.goalDifference}}</mat-grid-tile>
-      <mat-grid-tile class="tab-row" [colspan]="1" [rowspan]="1" >{{table.points}}</mat-grid-tile>
-    </ng-container>
-  </mat-grid-list>
-</ng-container>
+<div *ngIf="!loading">
+  <div class="table-item header">
+    <div class="tab-header position"  >Pos</div>
+    <div class="tab-header"  ></div>
+    <div class="tab-header team" >équipe</div>
+    <div class="tab-header"  >MJ</div>
+    <div class="tab-header"  >G</div>
+    <div class="tab-header"  >N</div>
+    <div class="tab-header"  >P</div>
+    <div class="tab-header"  >Diff</div>
+    <div class="tab-header"  >Pts</div>
+  </div>
+  <div class="table-item" *ngFor="let table of tables">
+    <div class="tab-row position"  >{{table.position}}</div>
+    <div class="tab-row"  ><img src="{{table.crestURI}}" alt="" height="32px"></div>
+    <div class="tab-row team">{{table.teamName}}</div>
+    <div class="tab-row"  >{{table.playedGames}}</div>
+    <div class="tab-row"  >{{table.wins}}</div>
+    <div class="tab-row"  >{{table.draws}}</div>
+    <div class="tab-row"  >{{table.losses}}</div>
+    <div class="tab-row"  >{{table.goalDifference}}</div>
+    <div class="tab-row"  >{{table.points}}</div>
+  </div>
+</div>
 <mat-spinner *ngIf="loading"></mat-spinner>
