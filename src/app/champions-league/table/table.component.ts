@@ -1,19 +1,19 @@
 import {Component, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import {FootApiService} from '../../shared/foot-api.service';
+import {Competition, Ranking} from '../../shared/model';
 import {Subscription} from 'rxjs/Subscription';
-import {Competition} from '../../shared/model';
-import {catchError, tap} from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
 import {CommonService} from '../../shared/common.service';
 
 @Component({
-  selector: 'app-result',
-  templateUrl: './result.component.html',
-  styleUrls: ['./result.component.scss']
+  selector: 'app-table-cl',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss']
 })
-export class ResultComponent implements OnInit, OnDestroy, OnChanges {
+export class TableClComponent implements OnInit, OnChanges, OnDestroy {
+
   @Input()competition: Competition;
-  matchDay: number;
-  fixtures: any[];
+  tables: any[];
   subscribtion: Subscription;
   loading = false;
   error = false;
@@ -23,17 +23,16 @@ export class ResultComponent implements OnInit, OnDestroy, OnChanges {
   ) {}
 
   ngOnInit() {
-    this.getData(this.competition.id, this.competition.currentMatchday);
+    this.getData(this.competition.id);
   }
 
   ngOnChanges() {
-    this.getData(this.competition.id, this.competition.currentMatchday);
+    this.getData(this.competition.id);
   }
 
-  getData(competitionId, matchday) {
-    this.matchDay = matchday;
+  getData(competitionId) {
     this.loading = true;
-    this.subscribtion = this.apiService.getFixtures(competitionId, matchday)
+    this.subscribtion = this.apiService.getCompetitionTable(competitionId)
       .pipe(
         tap(() => this.loading = false),
         catchError(err => {
@@ -43,15 +42,15 @@ export class ResultComponent implements OnInit, OnDestroy, OnChanges {
             .openSnackBar('Un problème est survenue lors du chargement', 'fermer');
           return err;
         })
-      )
+      ).pipe(map(data => data['standings']))
       .subscribe(data => {
-        this.fixtures = data;
+        console.log(data);
+        this.tables = data;
       });
   }
 
   ngOnDestroy() {
     this.subscribtion.unsubscribe();
   }
-
 
 }

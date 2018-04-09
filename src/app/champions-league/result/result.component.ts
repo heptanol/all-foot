@@ -6,11 +6,11 @@ import {catchError, tap} from 'rxjs/operators';
 import {CommonService} from '../../shared/common.service';
 
 @Component({
-  selector: 'app-result',
+  selector: 'app-result-cl',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultComponent implements OnInit, OnDestroy, OnChanges {
+export class ResultClComponent implements OnInit, OnDestroy, OnChanges {
   @Input()competition: Competition;
   matchDay: number;
   fixtures: any[];

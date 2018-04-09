@@ -2,7 +2,7 @@ import {Component, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import {FootApiService} from '../../shared/foot-api.service';
 import {Competition, Ranking} from '../../shared/model';
 import {Subscription} from 'rxjs/Subscription';
-import {catchError, tap} from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
 import {CommonService} from '../../shared/common.service';
 
 @Component({
@@ -42,7 +42,7 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
             .openSnackBar('Un problème est survenue lors du chargement', 'fermer');
           return err;
         })
-      )
+      ).pipe(map(data => data['standing']))
       .subscribe(data => {
         this.tables = <Ranking[]>data;
       });

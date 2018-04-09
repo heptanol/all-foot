@@ -25,7 +25,10 @@ import { TableComponent } from './leagues/table/table.component';
 import {GroupByPipe} from './shared/group-by';
 import { LeaguesComponent } from './leagues/leagues.component';
 import {CommonService} from './shared/common.service';
-import { FixtureComponent } from './leagues/fixture/fixture.component';
+import { FixtureComponent } from './leagues/result/fixture/fixture.component';
+import {ChampionsLeaguesComponent} from './champions-league/champions-leagues.component';
+import {ResultClComponent} from './champions-league/result/result.component';
+import {TableClComponent} from './champions-league/table/table.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { FixtureComponent } from './leagues/fixture/fixture.component';
     TableComponent,
     GroupByPipe,
     LeaguesComponent,
+    ChampionsLeaguesComponent,
+    ResultClComponent,
+    TableClComponent,
     FixtureComponent
   ],
   imports: [

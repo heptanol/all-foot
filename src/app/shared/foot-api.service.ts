@@ -22,8 +22,7 @@ export class FootApiService {
   }
 
   getCompetitionTable(league): Observable<Ranking> {
-    return this.http.get(`${this.apiUrl}/competitions/${league}/leagueTable`)
-      .pipe(map(data => data['standing']));
+    return this.http.get(`${this.apiUrl}/competitions/${league}/leagueTable`);
   }
 
   getCompetitions(): Observable<any> {
