@@ -32,7 +32,7 @@ export interface Fixture {
   diff: string;
 }
 
-export interface Ranking  {
+export interface TableTeam  {
   'goalDifference': number;
   'goals': number;
   'goalsAgainst': number;

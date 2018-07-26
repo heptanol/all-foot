@@ -1,6 +1,6 @@
 <div *ngIf="!loading">
   <div class="table-item header">
-    <div class="tab-header position"  >Pos</div>
+    <div class="tab-header position">Pos</div>
     <div class="tab-header"  ></div>
     <div class="tab-header team" >équipe</div>
     <div class="tab-header"  >MJ</div>
@@ -10,16 +10,6 @@
     <div class="tab-header"  >Diff</div>
     <div class="tab-header"  >Pts</div>
   </div>
-  <div class="table-item" *ngFor="let table of tables">
-    <div class="tab-row position"  >{{table.position}}</div>
-    <div class="tab-row"  ><img src="{{table.crestURI}}" alt="" height="32px"></div>
-    <div class="tab-row team">{{table.teamName}}</div>
-    <div class="tab-row"  >{{table.playedGames}}</div>
-    <div class="tab-row"  >{{table.wins}}</div>
-    <div class="tab-row"  >{{table.draws}}</div>
-    <div class="tab-row"  >{{table.losses}}</div>
-    <div class="tab-row"  >{{table.goalDifference}}</div>
-    <div class="tab-row"  >{{table.points}}</div>
-  </div>
+  <app-table-team *ngFor="let table of tables" [team]="table"></app-table-team>
 </div>
 <mat-spinner *ngIf="loading"></mat-spinner>

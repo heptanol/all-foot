@@ -6,5 +6,6 @@
   <div class="status" *ngIf="fixture.status === 'TIMED'">{{fixture.date | date: 'H:mm'}}</div>
   <div class="status in-play" *ngIf="fixture.status === 'IN_PLAY'">{{fixture.diff}}'</div>
   <div class="status rep" *ngIf="fixture.status === 'POSTPONED'">REP</div>
+  <div class="status rep" *ngIf="fixture.status === 'CANCELED'">ANN</div>
   <div class="status finished" *ngIf="fixture.status === 'FINISHED'">FINI</div>
 </div>

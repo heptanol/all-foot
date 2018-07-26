@@ -45,8 +45,9 @@ export class LeaguesComponent implements OnInit, OnDestroy {
         })
         )
       .subscribe(data => {
+        console.log(data);
         this.competition = <Competition>data;
-        this.matchDay = data['currentMatchday'];
+        this.matchDay = data['currentSeason']['currentMatchday'];
       }));
   }
 

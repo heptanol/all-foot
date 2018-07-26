@@ -7,22 +7,11 @@ mat-grid-tile.tab-row{
   background: mat-color($mat-blue-grey, 400);
   color: mat-color($mat-blue-grey, 50);
 }
-.table-item{
+.table-item.header{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 48px;
-  background: mat-color($mat-blue-grey, 50);
-  .tab-row{
-    flex: 2;
-    text-align: center;
-  }
-  .team{
-    flex: 7;
-    text-align: left;
-  }
-}
-.table-item.header{
   color: mat-color($mat-blue-grey, 50);
   background: mat-color($mat-blue-grey, 900);
   .tab-header{
