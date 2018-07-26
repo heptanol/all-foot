@@ -12,8 +12,8 @@ export class FootApiService {
     private http: HttpClient
   ) { }
 
-  getFixtures(league, matchday): Observable<any> {
-    return this.http.get(`${this.apiUrl}/competitions/${league}/fixtures?matchday=${matchday}`);
+  getMatches(league, matchday): Observable<any> {
+    return this.http.get(`${this.apiUrl}/competitions/${league}/matches?matchday=${matchday}`);
   }
 
   getCompetition(league): Observable<Competition> {

@@ -4,9 +4,6 @@
       <mat-toolbar-row>
         <a  href="" mat-button>News</a>
       </mat-toolbar-row>
-      <mat-toolbar-row>
-        <a  href="" mat-button [routerLink]="['/chamions-league/2001']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >{{leagueList.champions_league}}</a>
-      </mat-toolbar-row>
       <mat-toolbar-row *ngFor="let league of leagueList">
         <a  href="" mat-button [routerLink]="['/result/' + league.id]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >{{league.name}}</a>
       </mat-toolbar-row>

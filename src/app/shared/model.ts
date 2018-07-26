@@ -1,35 +1,39 @@
 export interface Competition {
-  id: string;
-  caption: string;
-  currentMatchday: number;
+  id: number;
   lastUpdated: string;
-  league: string;
-  numberOfGames: string;
-  numberOfMatchdays: number;
-  numberOfTeams: string;
-  year: string;
+  currentSeason: CurrentSeason;
+  area: any;
+  name: string;
+}
+
+export interface CurrentSeason {
+  currentMatchday: number;
 }
 
 export interface Fixture {
-  awayTeamId: number;
-  awayTeamName: string;
-  competitionId: number;
-  date: string;
-  homeTeamId: number;
-  homeTeamName: string;
+  homeTeam: Team;
+  awayTeam: Team;
+  score: Score;
+  diff: string;
+  utcDate: string;
+  status: string;
   id: number;
   matchday: number;
-  odds: any;
-  result: {
-    goalsHomeTeam: number;
-    goalsAwayTeam: number;
-    halfTime: {
-      goalsHomeTeam: number;
-      goalsAwayTeam: number;
-    }
-  };
-  status: string;
-  diff: string;
+}
+
+export interface Team {
+  id: number;
+  name: string;
+}
+export interface Score {
+  fullTime: Goals;
+  halfTime: Goals;
+  extraTime: Goals;
+  penalties: Goals;
+}
+export interface Goals {
+  homeTeam: number;
+  awayTeam: number;
 }
 
 export interface TableTeam  {

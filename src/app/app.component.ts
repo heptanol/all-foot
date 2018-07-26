@@ -16,9 +16,7 @@ export class AppComponent implements OnInit {
   }
 
   getLeagues(): void {
-    console.log(this.leagues);
     Object.values(this.leagues).map((val) => {
-      console.log(val);
       return this.leagueList.push({id: val.id, name: val.name});
     });
   }
