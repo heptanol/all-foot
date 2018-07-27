@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Leagues, LeaguesSS} from './shared/enum';
+import {Leagues} from './shared/enum';
 
 @Component({
   selector: 'app-root',

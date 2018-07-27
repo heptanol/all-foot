@@ -1,13 +1,11 @@
 export interface Competition {
   id: number;
   lastUpdated: string;
-  currentSeason: CurrentSeason;
+  currentSeason: {
+    currentMatchday: number;
+  };
   area: any;
   name: string;
-}
-
-export interface CurrentSeason {
-  currentMatchday: number;
 }
 
 export interface Fixture {
@@ -16,7 +14,7 @@ export interface Fixture {
   score: Score;
   diff: string;
   utcDate: string;
-  status: string;
+  status: StatusType;
   id: number;
   matchday: number;
 }
@@ -24,6 +22,7 @@ export interface Fixture {
 export interface Team {
   id: number;
   name: string;
+  crestURI?: string;
 }
 export interface Score {
   fullTime: Goals;
@@ -37,16 +36,26 @@ export interface Goals {
 }
 
 export interface TableTeam  {
-  'goalDifference': number;
-  'goals': number;
-  'goalsAgainst': number;
-  'playedGames': number;
-  'points': number;
-  'position': number;
-  'teamName': string;
-  'teamId': number;
-  'wins': number;
-  'losses': number;
-  'draws': number;
+  position: number;
+  team: Team;
+  playedGames: number;
+  won: number;
+  draw: number;
+  lost: number;
+  points: number;
+  goalsFor: number;
+  goalsAgainst: number;
+  goalDifference: number;
+}
+
+export enum StatusType {
+  SCHEDULED = 'SCHEDULED',
+  LIVE = 'LIVE',
+  IN_PLAY = 'IN_PLAY',
+  PAUSED = 'PAUSED',
+  FINISHED = 'FINISHED',
+  POSTPONED = 'POSTPONED',
+  SUSPENDED = 'SUSPENDED',
+  CANCELED = 'CANCELED'
 }
 

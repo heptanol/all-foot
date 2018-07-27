@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {TableTeam} from '../model';
 
 @Component({
@@ -8,7 +8,8 @@ import {TableTeam} from '../model';
 })
 export class TableTeamComponent {
 
-  @Input()team: TableTeam;
-  constructor() { }
+  @Input() teamTable: TableTeam;
+  constructor() {}
 
 }
+

@@ -1,9 +1,12 @@
 export const Leagues = {
   LIGUE1 : {id: '2015', name: 'Ligue 1'},
-  SERIA : {id: '2019', name: 'Serie A'},
+  LIGA : {id: '2014', name: 'Liga'},
   PRIMERLEAGE : {id: '2021', name: 'Premier League'},
-  BUNDESLIGA : {id: '2012', name: 'Bundesliga'},
-  LIGA : {id: '2014', name: 'Liga'}
+  SERIA : {id: '2019', name: 'Serie A'},
+  BUNDESLIGA : {id: '2002', name: 'Bundesliga'},
+  PRIMERA : {id: '2017', name: 'Primeira Liga'},
+  EREDIVISIE : {id: '2003', name: 'Eredivisie'},
+  SERIABRA : {id: '2013', name: 'Série A'},
 };
 
 

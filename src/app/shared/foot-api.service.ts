@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {Competition, Ranking} from './model';
+import {Competition} from './model';
 
 
 @Injectable()
@@ -21,10 +21,6 @@ export class FootApiService {
   }
 
   getCompetitionTable(league, matchday): Observable<any> {
-    return this.http.get(`${this.apiUrl}/competitions/${league}/leagueTable?matchday=${matchday}`);
-  }
-
-  getCompetitions(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/competitions`);
+    return this.http.get(`${this.apiUrl}/competitions/${league}/standings`);
   }
 }

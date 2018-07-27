@@ -23,17 +23,17 @@ export class ResultClComponent implements OnInit, OnDestroy, OnChanges {
   ) {}
 
   ngOnInit() {
-    this.getData(this.competition.id, this.competition.currentMatchday);
+    this.getData(this.competition.id, this.competition.currentSeason.currentMatchday);
   }
 
   ngOnChanges() {
-    this.getData(this.competition.id, this.competition.currentMatchday);
+    this.getData(this.competition.id, this.competition.currentSeason.currentMatchday);
   }
 
   getData(competitionId, matchday) {
     this.matchDay = matchday;
     this.loading = true;
-    this.subscribtion = this.apiService.getFixtures(competitionId, matchday)
+    this.subscribtion = this.apiService.getMatches(competitionId, matchday)
       .pipe(
         tap(() => this.loading = false),
         catchError(err => {

@@ -30,6 +30,7 @@ import {ResultClComponent} from './champions-league/result/result.component';
 import {TableClComponent} from './champions-league/table/table.component';
 import {FixtureComponent} from './shared/fixture/fixture.component';
 import { TableTeamComponent } from './shared/table-team/table-team.component';
+import {MatMenuModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { TableTeamComponent } from './shared/table-team/table-team.component';
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatGridListModule,
+    MatMenuModule,
     MatTabsModule,
     MatTableModule,
     MatSnackBarModule,

@@ -15,7 +15,6 @@ import {CommonService} from '../shared/common.service';
 export class LeaguesComponent implements OnInit, OnDestroy {
 
   competition: Competition;
-  matchDay: number;
   subscribtions: Subscription[] = [];
   loading = false;
   error = false;
@@ -45,14 +44,8 @@ export class LeaguesComponent implements OnInit, OnDestroy {
         })
         )
       .subscribe(data => {
-        console.log(data);
         this.competition = <Competition>data;
-        this.matchDay = data['currentSeason']['currentMatchday'];
       }));
-  }
-
-  getAllCompetitions() {
-    this.subscribtions.push(this.apiService.getCompetitions().subscribe());
   }
 
   ngOnDestroy() {

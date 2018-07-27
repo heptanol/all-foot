@@ -32,7 +32,7 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
 
   getData(competitionId) {
     this.loading = true;
-    this.subscribtion = this.apiService.getCompetitionTable(competitionId, this.competition.currentMatchday)
+    this.subscribtion = this.apiService.getCompetitionTable(competitionId, this.competition.currentSeason.currentMatchday)
       .pipe(
         tap(() => this.loading = false),
         catchError(err => {
@@ -42,8 +42,7 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
             .openSnackBar('Un problème est survenue lors du chargement', 'fermer');
           return err;
         })
-      ).pipe(map(data => data['standing']))
-      .subscribe(data => {
+      ).subscribe(data => {
         this.tables = <TableTeam[]>data;
       });
   }

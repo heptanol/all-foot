@@ -13,6 +13,7 @@ import {CommonService} from '../../shared/common.service';
 export class ResultComponent implements OnInit, OnDestroy, OnChanges {
   @Input()competition: Competition;
   matchDay: number;
+  totalMatchDay: number;
   fixtures: any[];
   subscribtion: Subscription;
   loading = false;
@@ -30,7 +31,8 @@ export class ResultComponent implements OnInit, OnDestroy, OnChanges {
     this.getData(this.competition.id, this.competition.currentSeason.currentMatchday);
   }
 
-  getData(competitionId, matchday) {
+  getData(competitionId, matchday?: number) {
+    matchday = !matchday ? 1 : matchday;
     this.matchDay = matchday;
     this.loading = true;
     this.subscribtion = this.apiService.getMatches(competitionId, matchday)
@@ -45,7 +47,8 @@ export class ResultComponent implements OnInit, OnDestroy, OnChanges {
         })
       )
       .subscribe(data => {
-        this.fixtures = data;
+        this.fixtures = data.matches;
+        this.totalMatchDay = data.totalMatchDays;
       });
   }
 

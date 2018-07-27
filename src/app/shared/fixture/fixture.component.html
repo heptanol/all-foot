@@ -1,11 +1,14 @@
 <div class="fixture" *ngIf="fixture">
-  <div class="team home">{{fixture.homeTeamName}}</div>
-  <div class="result">{{fixture.result.goalsHomeTeam}} - {{fixture.result.goalsAwayTeam}}</div>
-  <div class="team away">{{fixture.awayTeamName}}</div>
-  <div class="status" *ngIf="fixture.status === 'SCHEDULED'">{{fixture.date | date: 'H:mm'}}</div>
-  <div class="status" *ngIf="fixture.status === 'TIMED'">{{fixture.date | date: 'H:mm'}}</div>
-  <div class="status in-play" *ngIf="fixture.status === 'IN_PLAY'">{{fixture.diff}}'</div>
-  <div class="status rep" *ngIf="fixture.status === 'POSTPONED'">REP</div>
-  <div class="status rep" *ngIf="fixture.status === 'CANCELED'">ANN</div>
-  <div class="status finished" *ngIf="fixture.status === 'FINISHED'">FINI</div>
+  <div class="team home">{{fixture.homeTeam.name}}</div>
+  <div class="result">{{fixture.score.fullTime.homeTeam}} - {{fixture.score.fullTime.awayTeam}}</div>
+  <div class="team away">{{fixture.awayTeam.name}}</div>
+
+  <div class="status" *ngIf="fixture.status === statusType.SCHEDULED">{{fixture.utcDate | date: 'HH:mm'}}</div>
+  <div class="status in-play" *ngIf="fixture.status === statusType.IN_PLAY">{{fixture.diff}}'</div>
+  <div class="status in-play" *ngIf="fixture.status === statusType.LIVE">{{fixture.diff}}'</div>
+  <div class="status rep" *ngIf="fixture.status === statusType.POSTPONED">REP</div>
+  <div class="status rep" *ngIf="fixture.status === statusType.CANCELED">ANN</div>
+  <div class="status rep" *ngIf="fixture.status === statusType.SUSPENDED">SUS</div>
+  <div class="status rep" *ngIf="fixture.status === statusType.PAUSED">PAUSED</div>
+  <div class="status finished" *ngIf="fixture.status === statusType.FINISHED">FINI</div>
 </div>
