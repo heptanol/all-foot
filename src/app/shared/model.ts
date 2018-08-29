@@ -22,7 +22,7 @@ export interface Fixture {
 export interface Team {
   id: number;
   name: string;
-  crestURI?: string;
+  crestUrl?: string;
 }
 export interface Score {
   fullTime: Goals;

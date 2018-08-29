@@ -2,20 +2,14 @@
   <mat-sidenav mode="side" #sidenav [fixedInViewport]="true" [fixedTopGap]="0" [fixedBottomGap]="0">
     <mat-toolbar>
       <mat-toolbar-row>
-        <a  href="" mat-button>News</a>
+        <a  href="" mat-button>
+          <i class="material-icons">public</i> News</a>
       </mat-toolbar-row>
-      <mat-toolbar-row>
-        <a mat-button [matMenuTriggerFor]="leagues">Leagues <mat-icon>keyboard_arrow_right</mat-icon></a>
+      <mat-toolbar-row *ngFor="let league of leagueList" [routerLink]="['/result/' + league.id]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+        <a class="menu-item" mat-button >
+          <app-icon [type]="league.country"></app-icon> <span>{{league.name}}</span>
+        </a>
       </mat-toolbar-row>
-      <mat-menu [yPosition]="'below'" [xPosition]="'after'" [overlapTrigger]="false" #leagues="matMenu">
-        <a mat-menu-item *ngFor="let league of leagueList" [routerLink]="['/result/' + league.id]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >{{league.name}}</a>
-      </mat-menu>
-      <!--<mat-toolbar-row>-->
-        <!--<a  href="" mat-button [routerLink]="['/chamions-league/2001']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >UEFA Champions League</a>-->
-      <!--</mat-toolbar-row>-->
-      <!--<mat-toolbar-row *ngFor="let league of leagueList">-->
-        <!--<a  href="" mat-button [routerLink]="['/result/' + league.id]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >{{league.name}}</a>-->
-      <!--</mat-toolbar-row>-->
     </mat-toolbar>
   </mat-sidenav>
   <mat-sidenav-content>

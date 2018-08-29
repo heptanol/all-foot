@@ -32,7 +32,7 @@ export class TableClComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   getData(competitionId) {
-    this.matchDay = (this.competition.currentMatchday > 6) ? 6 : this.competition.currentMatchday;
+    this.matchDay = (this.competition.currentSeason.currentMatchday > 6) ? 6 : this.competition.currentSeason.currentMatchday;
     this.loading = true;
     this.subscribtion = this.apiService.getCompetitionTable(competitionId, this.matchDay)
       .pipe(
@@ -46,7 +46,6 @@ export class TableClComponent implements OnInit, OnChanges, OnDestroy {
         })
       ).pipe(map(data => data['standings']))
       .subscribe(data => {
-        console.log(data);
         this.tables = data;
       });
   }

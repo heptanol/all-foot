@@ -1,0 +1,18 @@
+<ng-container *ngIf="!loading">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Matches du jour</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div *ngIf="fixtures" role="list">
+    <div *ngFor="let fixture of fixtures |  groupBy:'status'" role="listitem" class="border mt-3 mb-3">
+      <mat-toolbar class="day">
+        <mat-toolbar-row>
+          {{fixture.key | json}}
+        </mat-toolbar-row>
+      </mat-toolbar>
+        <app-fixture *ngFor="let fix of fixture.value" [fixture]="fix"></app-fixture>
+    </div>
+  </div>
+</ng-container>
+<mat-spinner *ngIf="loading"></mat-spinner>

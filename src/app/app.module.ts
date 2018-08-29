@@ -31,6 +31,8 @@ import {TableClComponent} from './champions-league/table/table.component';
 import {FixtureComponent} from './shared/fixture/fixture.component';
 import { TableTeamComponent } from './shared/table-team/table-team.component';
 import {MatMenuModule} from '@angular/material';
+import {IconComponent} from './shared/nav-menu/icon.component';
+import {TodayComponent} from './today/today.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import {MatMenuModule} from '@angular/material';
     ResultClComponent,
     TableClComponent,
     FixtureComponent,
+    IconComponent,
+    TodayComponent,
     TableTeamComponent
   ],
   imports: [

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FeedService} from '../shared/feed.service';
 import {Observable} from 'rxjs/Observable';
-import {Championat} from '../shared/enum';
 
 @Component({
   selector: 'app-news',
