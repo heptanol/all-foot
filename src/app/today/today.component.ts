@@ -41,7 +41,7 @@ export class TodayComponent implements OnInit, OnDestroy, OnChanges {
         })
       )
       .subscribe(data => {
-        this.fixtures = data.matches;
+        this.fixtures = data;
       });
   }
 
