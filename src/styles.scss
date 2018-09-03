@@ -56,3 +56,14 @@ mat-spinner{
     width: 85%;
   }
 }
+
+app-table-team.odd{
+  .table-item{
+    background: #dfe7ea;
+  }
+}
+app-fixture.odd{
+  .fixture{
+    background: #dfe7ea;
+  }
+}

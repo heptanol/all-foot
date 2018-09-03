@@ -17,7 +17,7 @@
           {{fixture.key  | date: 'EEEE dd/MM/yyyy'}}
         </mat-toolbar-row>
       </mat-toolbar>
-        <app-fixture *ngFor="let fix of fixture.value" [fixture]="fix"></app-fixture>
+        <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [class.odd]="odd"></app-fixture>
     </div>
   </div>
 </ng-container>

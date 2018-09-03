@@ -14,7 +14,7 @@
       <div class="tab-header"  >Diff</div>
       <div class="tab-header"  >Pts</div>
     </div>
-    <app-table-team *ngFor="let tab of table" [teamTable]="tab"></app-table-team>
+    <app-table-team *ngFor="let tab of table; let odd=odd;" [teamTable]="tab" [class.odd]="odd"></app-table-team>
   </ng-container>
 </div>
 <mat-spinner *ngIf="loading"></mat-spinner>
