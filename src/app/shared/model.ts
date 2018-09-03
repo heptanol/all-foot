@@ -1,48 +1,61 @@
 export interface Competition {
-  id: string;
-  caption: string;
-  currentMatchday: number;
+  id: number;
   lastUpdated: string;
-  league: string;
-  numberOfGames: string;
-  numberOfMatchdays: number;
-  numberOfTeams: string;
-  year: string;
+  currentSeason: {
+    currentMatchday: number;
+  };
+  area: any;
+  name: string;
 }
 
 export interface Fixture {
-  awayTeamId: number;
-  awayTeamName: string;
-  competitionId: number;
-  date: string;
-  homeTeamId: number;
-  homeTeamName: string;
+  homeTeam: Team;
+  awayTeam: Team;
+  score: Score;
+  diff: string;
+  utcDate: string;
+  status: StatusType;
   id: number;
   matchday: number;
-  odds: any;
-  result: {
-    goalsHomeTeam: number;
-    goalsAwayTeam: number;
-    halfTime: {
-      goalsHomeTeam: number;
-      goalsAwayTeam: number;
-    }
-  };
-  status: string;
-  diff: string;
 }
 
-export interface Ranking  {
-  'goalDifference': number;
-  'goals': number;
-  'goalsAgainst': number;
-  'playedGames': number;
-  'points': number;
-  'position': number;
-  'teamName': string;
-  'teamId': number;
-  'wins': number;
-  'losses': number;
-  'draws': number;
+export interface Team {
+  id: number;
+  name: string;
+  crestUrl?: string;
+}
+export interface Score {
+  fullTime: Goals;
+  halfTime: Goals;
+  extraTime: Goals;
+  penalties: Goals;
+}
+export interface Goals {
+  homeTeam: number;
+  awayTeam: number;
+}
+
+export interface TableTeam  {
+  position: number;
+  team: Team;
+  playedGames: number;
+  won: number;
+  draw: number;
+  lost: number;
+  points: number;
+  goalsFor: number;
+  goalsAgainst: number;
+  goalDifference: number;
+}
+
+export enum StatusType {
+  SCHEDULED = 'SCHEDULED',
+  LIVE = 'LIVE',
+  IN_PLAY = 'IN_PLAY',
+  PAUSED = 'PAUSED',
+  FINISHED = 'FINISHED',
+  POSTPONED = 'POSTPONED',
+  SUSPENDED = 'SUSPENDED',
+  CANCELED = 'CANCELED'
 }
 

@@ -25,10 +25,14 @@ import { TableComponent } from './leagues/table/table.component';
 import {GroupByPipe} from './shared/group-by';
 import { LeaguesComponent } from './leagues/leagues.component';
 import {CommonService} from './shared/common.service';
-import { FixtureComponent } from './leagues/result/fixture/fixture.component';
 import {ChampionsLeaguesComponent} from './champions-league/champions-leagues.component';
 import {ResultClComponent} from './champions-league/result/result.component';
 import {TableClComponent} from './champions-league/table/table.component';
+import {FixtureComponent} from './shared/fixture/fixture.component';
+import { TableTeamComponent } from './shared/table-team/table-team.component';
+import {MatMenuModule} from '@angular/material';
+import {IconComponent} from './shared/nav-menu/icon.component';
+import {TodayComponent} from './today/today.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import {TableClComponent} from './champions-league/table/table.component';
     ChampionsLeaguesComponent,
     ResultClComponent,
     TableClComponent,
-    FixtureComponent
+    FixtureComponent,
+    IconComponent,
+    TodayComponent,
+    TableTeamComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +62,7 @@ import {TableClComponent} from './champions-league/table/table.component';
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatGridListModule,
+    MatMenuModule,
     MatTabsModule,
     MatTableModule,
     MatSnackBarModule,

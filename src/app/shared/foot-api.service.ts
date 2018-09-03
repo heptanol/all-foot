@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {map, mergeMap, toArray, tap} from 'rxjs/operators';
-import {Competition, Ranking} from './model';
+import {Competition} from './model';
 
 
 @Injectable()
@@ -13,19 +12,19 @@ export class FootApiService {
     private http: HttpClient
   ) { }
 
-  getFixtures(league, matchday): Observable<any> {
-    return this.http.get(`${this.apiUrl}/competitions/${league}/fixtures?matchday=${matchday}`);
+  getMatches(league, matchday): Observable<any> {
+    return this.http.get(`${this.apiUrl}/competitions/${league}/matches?matchday=${matchday}`);
   }
 
   getCompetition(league): Observable<Competition> {
     return this.http.get<Competition>(`${this.apiUrl}/competitions/${league}`);
   }
 
-  getCompetitionTable(league): Observable<Ranking> {
-    return this.http.get(`${this.apiUrl}/competitions/${league}/leagueTable`);
+  getCompetitionTable(league, matchday): Observable<any> {
+    return this.http.get(`${this.apiUrl}/competitions/${league}/standings`);
   }
 
-  getCompetitions(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/competitions`);
+  getTodayMatches(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/matches/today`);
   }
 }

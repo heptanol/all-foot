@@ -10,6 +10,17 @@ mat-toolbar-row{
 }
 mat-toolbar-row a{
   width: 100%;
+  padding: 0 30px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+mat-toolbar-row a app-icon{
+  height: 24px;
+  display: inline-block;
+}
+mat-toolbar-row a app-icon {
+  padding-right: 15px;
 }
 mat-sidenav-container{
   height: 100%;
@@ -17,3 +28,4 @@ mat-sidenav-container{
 mat-sidenav-content{
   //background: linear-gradient(to right, #196c46, #9bd44f, #196c46);
 }
+

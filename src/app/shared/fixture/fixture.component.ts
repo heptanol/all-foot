@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {Fixture} from '../../../shared/model';
+import {Fixture, StatusType} from '../model';
 
 @Component({
   selector: 'app-fixture',
@@ -9,6 +9,7 @@ import {Fixture} from '../../../shared/model';
 export class FixtureComponent {
 
   @Input() fixture: Fixture;
+  statusType = StatusType;
   constructor() { }
 
 }

@@ -1,8 +1,8 @@
 import {Component, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import {FootApiService} from '../../shared/foot-api.service';
-import {Competition, Ranking} from '../../shared/model';
+import {Competition} from '../../shared/model';
 import {Subscription} from 'rxjs/Subscription';
-import {catchError, map, tap} from 'rxjs/operators';
+import {catchError, map, tap, toArray} from 'rxjs/operators';
 import {CommonService} from '../../shared/common.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class TableClComponent implements OnInit, OnChanges, OnDestroy {
   @Input()competition: Competition;
   tables: any[];
   subscribtion: Subscription;
+  matchDay: number;
   loading = false;
   error = false;
   constructor(
@@ -31,8 +32,9 @@ export class TableClComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   getData(competitionId) {
+    this.matchDay = (this.competition.currentSeason.currentMatchday > 6) ? 6 : this.competition.currentSeason.currentMatchday;
     this.loading = true;
-    this.subscribtion = this.apiService.getCompetitionTable(competitionId)
+    this.subscribtion = this.apiService.getCompetitionTable(competitionId, this.matchDay)
       .pipe(
         tap(() => this.loading = false),
         catchError(err => {
@@ -44,7 +46,6 @@ export class TableClComponent implements OnInit, OnChanges, OnDestroy {
         })
       ).pipe(map(data => data['standings']))
       .subscribe(data => {
-        console.log(data);
         this.tables = data;
       });
   }

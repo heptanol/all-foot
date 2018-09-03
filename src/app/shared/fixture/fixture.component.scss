@@ -1,0 +1,35 @@
+@import '~@angular/material/theming';
+.fixture{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  background: mat-color($mat-blue-grey, 50);
+  position: relative;
+  .team{
+    flex: 7;
+  }
+  .home{
+    text-align: right;
+  }
+  .away{
+    text-align: left;
+  }
+  .result{
+    flex: 2;
+    text-align: center;
+  }
+  .status{
+    position: absolute;
+    left: 3%;
+    padding: 5px;
+    color: mat-color($mat-blue-grey, 50);
+    background: mat-color($mat-blue-grey, 900);
+  }
+  .in-play{
+    background: mat-color($mat-red, 300);
+  }
+  .rep{
+    background: mat-color($mat-blue-grey, 500);
+  }
+}
