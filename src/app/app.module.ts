@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
+import localeFr from '@angular/common/locales/fr';
 import { MatListModule } from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -33,6 +34,9 @@ import { TableTeamComponent } from './shared/table-team/table-team.component';
 import {MatMenuModule} from '@angular/material';
 import {IconComponent} from './shared/nav-menu/icon.component';
 import {TodayComponent} from './today/today.component';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeFr);
+
 
 @NgModule({
   declarations: [
@@ -73,7 +77,8 @@ import {TodayComponent} from './today/today.component';
   providers: [
     FeedService,
     FootApiService,
-    CommonService
+    CommonService,
+    { provide: LOCALE_ID, useValue: 'fr' }
   ],
   bootstrap: [AppComponent]
 })
