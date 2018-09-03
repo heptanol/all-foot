@@ -44,7 +44,9 @@ export class TableClComponent implements OnInit, OnChanges, OnDestroy {
             .openSnackBar('Un problème est survenue lors du chargement', 'fermer');
           return err;
         })
-      ).pipe(map(data => data['standings']))
+      ).pipe(
+        map(data => data)
+      )
       .subscribe(data => {
         this.tables = data;
       });

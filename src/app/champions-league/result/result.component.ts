@@ -31,6 +31,7 @@ export class ResultClComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   getData(competitionId, matchday) {
+    matchday = !matchday ? 1 : matchday;
     this.matchDay = matchday;
     this.loading = true;
     this.subscribtion = this.apiService.getMatches(competitionId, matchday)
@@ -45,7 +46,7 @@ export class ResultClComponent implements OnInit, OnDestroy, OnChanges {
         })
       )
       .subscribe(data => {
-        this.fixtures = data;
+        this.fixtures = data.matches;
       });
   }
 
