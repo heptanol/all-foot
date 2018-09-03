@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableTeamComponent } from './table-team.component';
 
-describe('TableTeamComponent', () => {
+describe('TeamLogoComponent', () => {
   let component: TableTeamComponent;
   let fixture: ComponentFixture<TableTeamComponent>;
 
