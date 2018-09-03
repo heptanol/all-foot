@@ -15,6 +15,7 @@ export class ResultClComponent implements OnInit, OnDestroy, OnChanges {
   matchDay: number;
   fixtures: any[];
   subscribtion: Subscription;
+  totalMatchDay: number;
   loading = false;
   error = false;
   constructor(
@@ -47,6 +48,7 @@ export class ResultClComponent implements OnInit, OnDestroy, OnChanges {
       )
       .subscribe(data => {
         this.fixtures = data.matches;
+        this.totalMatchDay = data.totalMatchDays;
       });
   }
 

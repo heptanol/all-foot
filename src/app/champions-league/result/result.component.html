@@ -9,7 +9,7 @@
       <span  *ngIf="matchDay == 8">Quart de finale</span>
       <span  *ngIf="matchDay == 9">Demi finale</span>
       <span  *ngIf="matchDay == 10">finale</span>
-      <button mat-icon-button (click)="getData(competition.id, matchDay + 1)" *ngIf="matchDay !== competition.numberOfMatchdays">
+      <button mat-icon-button (click)="getData(competition.id, matchDay + 1)" *ngIf="matchDay !== totalMatchDay">
         <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_right</mat-icon>
       </button>
     </mat-toolbar-row>
