@@ -43,7 +43,7 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
           return err;
         })
       ).subscribe(data => {
-        this.tables = <TableTeam[]>data;
+        this.tables = <TableTeam[]>data[0];
       });
   }
 

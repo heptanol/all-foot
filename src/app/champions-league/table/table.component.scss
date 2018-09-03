@@ -7,6 +7,12 @@ mat-grid-tile.tab-row{
   background: mat-color($mat-blue-grey, 400);
   color: mat-color($mat-blue-grey, 50);
 }
+.group-head {
+  mat-toolbar-row{
+    display: flex;
+    justify-content: center;
+  }
+}
 .table-item{
   display: flex;
   justify-content: center;
@@ -24,7 +30,7 @@ mat-grid-tile.tab-row{
 }
 .table-item.header{
   color: mat-color($mat-blue-grey, 50);
-  background: mat-color($mat-blue-grey, 900);
+  background: mat-color($mat-blue-grey, 400);
   .tab-header{
     flex: 2;
     text-align: center;

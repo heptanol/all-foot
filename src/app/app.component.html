@@ -1,12 +1,16 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" #sidenav [fixedInViewport]="true" [fixedTopGap]="0" [fixedBottomGap]="0">
+  <mat-sidenav mode="side" #sidenav [fixedInViewport]="true" [fixedTopGap]="0" [fixedBottomGap]="0" opened>
     <mat-toolbar>
       <mat-toolbar-row>
-        <a  href="" mat-button>
-          <i class="material-icons">public</i> News</a>
+        <a  href="" mat-button  [routerLink]="['']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+          <i class="material-icons">public</i>    News</a>
       </mat-toolbar-row>
-      <mat-toolbar-row *ngFor="let league of leagueList" [routerLink]="['/result/' + league.id]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
-        <a class="menu-item" mat-button >
+      <mat-toolbar-row>
+        <a  href="" mat-button  [routerLink]="['/chamions-league/2001']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+          <i class="material-icons">public</i>UEFA Champions League</a>
+      </mat-toolbar-row>
+      <mat-toolbar-row *ngFor="let league of leagueList">
+        <a class="menu-item" mat-button  [routerLink]="['/result/' + league.id]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
           <app-icon [type]="league.country"></app-icon> <span>{{league.name}}</span>
         </a>
       </mat-toolbar-row>
@@ -14,9 +18,6 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <h1>ALL FOOT</h1>
-    <button mat-button (click)="sidenav.toggle()" id="menu-button">
-      <i class="material-icons">menu</i>
-    </button>
     <div class="container">
       <router-outlet></router-outlet>
     </div>
