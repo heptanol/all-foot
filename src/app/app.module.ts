@@ -36,6 +36,8 @@ import {IconComponent} from './shared/nav-menu/icon.component';
 import {TodayComponent} from './today/today.component';
 import { registerLocaleData } from '@angular/common';
 import {TeamLogoComponent} from './shared/team-logo/team-logo.component';
+import {TestComponent} from './test/test.component';
+import {SpriteLogoComponent} from './shared/sprite-logo/sprite-logo.component';
 registerLocaleData(localeFr);
 
 
@@ -54,7 +56,9 @@ registerLocaleData(localeFr);
     IconComponent,
     TodayComponent,
     TableTeamComponent,
-    TeamLogoComponent
+    TeamLogoComponent,
+    SpriteLogoComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
