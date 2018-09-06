@@ -37,7 +37,8 @@ import {TodayComponent} from './today/today.component';
 import { registerLocaleData } from '@angular/common';
 import {TeamLogoComponent} from './shared/team-logo/team-logo.component';
 import {TestComponent} from './test/test.component';
-import {SpriteLogoComponent} from './shared/sprite-logo/sprite-logo.component';
+import {SvgIconComponent} from './shared/svg-icon/svg-icon.component';
+import {SvgDefinitionsComponent} from './shared/svg-definitions/svg-definitions.component';
 registerLocaleData(localeFr);
 
 
@@ -57,7 +58,8 @@ registerLocaleData(localeFr);
     TodayComponent,
     TableTeamComponent,
     TeamLogoComponent,
-    SpriteLogoComponent,
+    SvgDefinitionsComponent,
+    SvgIconComponent,
     TestComponent
   ],
   imports: [
