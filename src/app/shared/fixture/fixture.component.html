@@ -1,6 +1,8 @@
 <div class="fixture" *ngIf="fixture">
   <div class="team home">{{fixture.homeTeam.name}}</div>
+  <div class="logo home"><app-svg-icon [id]="fixture.homeTeam.id"></app-svg-icon></div>
   <div class="result">{{fixture.score.fullTime.homeTeam}} - {{fixture.score.fullTime.awayTeam}}</div>
+  <div class="logo away"><app-svg-icon [id]="fixture.awayTeam.id"></app-svg-icon></div>
   <div class="team away">{{fixture.awayTeam.name}}</div>
 
   <div class="status" *ngIf="fixture.status === statusType.SCHEDULED">{{fixture.utcDate | date: 'HH:mm'}}</div>
