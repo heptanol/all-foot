@@ -10,7 +10,7 @@ import {CommonService} from '../../shared/common.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit, OnChanges, OnDestroy {
+export class TableComponent implements OnInit, OnDestroy {
 
   @Input()competition: Competition;
   tables: TableTeam[];
@@ -23,10 +23,6 @@ export class TableComponent implements OnInit, OnChanges, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.getData(this.competition.id);
-  }
-
-  ngOnChanges() {
     this.getData(this.competition.id);
   }
 

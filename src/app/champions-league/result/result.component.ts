@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {FootApiService} from '../../shared/foot-api.service';
 import {Subscription} from 'rxjs/Subscription';
 import {Competition} from '../../shared/model';
@@ -10,7 +10,7 @@ import {CommonService} from '../../shared/common.service';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultClComponent implements OnInit, OnDestroy, OnChanges {
+export class ResultClComponent implements OnInit, OnDestroy {
   @Input()competition: Competition;
   matchDay: number;
   fixtures: any[];
@@ -24,10 +24,6 @@ export class ResultClComponent implements OnInit, OnDestroy, OnChanges {
   ) {}
 
   ngOnInit() {
-    this.getData(this.competition.id, this.competition.currentSeason.currentMatchday);
-  }
-
-  ngOnChanges() {
     this.getData(this.competition.id, this.competition.currentSeason.currentMatchday);
   }
 

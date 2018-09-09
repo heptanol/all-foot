@@ -35,10 +35,8 @@ import {MatMenuModule} from '@angular/material';
 import {IconComponent} from './shared/nav-menu/icon.component';
 import {TodayComponent} from './today/today.component';
 import { registerLocaleData } from '@angular/common';
-import {TeamLogoComponent} from './shared/team-logo/team-logo.component';
-import {TestComponent} from './test/test.component';
-import {SvgIconComponent} from './shared/svg-icon/svg-icon.component';
-import {SvgDefinitionsComponent} from './shared/svg-definitions/svg-definitions.component';
+import {TeamSvgDefinitionsComponent} from './shared/team-logo/svg-definitions/svg-definitions.component';
+import {TeamSvgIconComponent} from './shared/team-logo/svg-icon/svg-icon.component';
 registerLocaleData(localeFr);
 
 
@@ -57,10 +55,8 @@ registerLocaleData(localeFr);
     IconComponent,
     TodayComponent,
     TableTeamComponent,
-    TeamLogoComponent,
-    SvgDefinitionsComponent,
-    SvgIconComponent,
-    TestComponent
+    TeamSvgDefinitionsComponent,
+    TeamSvgIconComponent,
   ],
   imports: [
     BrowserModule,

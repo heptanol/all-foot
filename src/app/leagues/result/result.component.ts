@@ -10,7 +10,7 @@ import {CommonService} from '../../shared/common.service';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultComponent implements OnInit, OnDestroy, OnChanges {
+export class ResultComponent implements OnInit, OnDestroy {
   @Input()competition: Competition;
   matchDay: number;
   totalMatchDay: number;
@@ -24,10 +24,6 @@ export class ResultComponent implements OnInit, OnDestroy, OnChanges {
   ) {}
 
   ngOnInit() {
-    this.getData(this.competition.id, this.competition.currentSeason.currentMatchday);
-  }
-
-  ngOnChanges() {
     this.getData(this.competition.id, this.competition.currentSeason.currentMatchday);
   }
 
