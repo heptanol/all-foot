@@ -16,7 +16,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AppComponent } from './app.component';
 import { FeedService } from './shared/feed.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NewsComponent } from './news/news.component';
 import {Routing} from './app.routing';
@@ -38,7 +38,16 @@ import {TeamSvgDefinitionsComponent} from './shared/team-logo/svg-definitions/sv
 import {TeamSvgIconComponent} from './shared/team-logo/svg-icon/svg-icon.component';
 import {IconComponent} from './shared/nav-menu/icon/icon.component';
 import { MenuComponent } from './shared/nav-menu/menu/menu.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+
 registerLocaleData(localeFr);
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+export const lang = navigator.language.slice(0, 2);
 
 
 @NgModule({
@@ -78,13 +87,20 @@ registerLocaleData(localeFr);
     MatSnackBarModule,
     BrowserAnimationsModule,
     Routing,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     FeedService,
     FootApiService,
     CommonService,
-    { provide: LOCALE_ID, useValue: 'fr' }
+    { provide: LOCALE_ID, useValue: lang }
   ],
   bootstrap: [AppComponent]
 })
