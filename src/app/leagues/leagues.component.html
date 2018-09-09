@@ -1,7 +1,9 @@
 <ng-container *ngIf="!loading && !error">
-  <h2 *ngIf="competition">
-    {{competition.name}}
-  </h2>
+  <mat-toolbar color="primary" *ngIf="competition">
+    <mat-toolbar-row>
+      <h2>{{competition.name}}</h2>
+    </mat-toolbar-row>
+  </mat-toolbar>
   <mat-tab-group>
     <mat-tab label="Resultat" color="accent">
       <app-result *ngIf="competition" [competition]="competition"></app-result>

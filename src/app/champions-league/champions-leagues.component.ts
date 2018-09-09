@@ -26,7 +26,7 @@ export class ChampionsLeaguesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscribtions.push(this.route.params.subscribe(param => {
-      this.getCompetition(param.leagueId);
+      this.getCompetition(2001);
     }));
   }
 

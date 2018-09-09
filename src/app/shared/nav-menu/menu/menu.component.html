@@ -1,0 +1,16 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <a  href="" mat-button  [routerLink]="['']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+      <i class="material-icons">public</i>    News</a>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <a  href="" mat-button  [routerLink]="['/chamions-league']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+      <app-icon [type]="'champions_league'"></app-icon><span>UEFA Champions League</span>
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngFor="let league of leagueList">
+    <a class="menu-item" mat-button  [routerLink]="['/league/' + league.path]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+      <app-icon [type]="league.country"></app-icon> <span>{{league.name}}</span>
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -4,8 +4,8 @@ import {FootApiService} from '../shared/foot-api.service';
 import {Competition} from '../shared/model';
 import {Subscription} from 'rxjs/Subscription';
 import {catchError, tap} from 'rxjs/operators';
-import {MatSnackBar} from '@angular/material';
 import {CommonService} from '../shared/common.service';
+import {Leagues} from '../shared/enum';
 
 @Component({
   selector: 'app-leagues',
@@ -16,6 +16,7 @@ export class LeaguesComponent implements OnInit, OnDestroy {
 
   competition: Competition;
   subscribtions: Subscription[] = [];
+  leagues = Leagues;
   loading = false;
   error = false;
   constructor(
@@ -26,7 +27,8 @@ export class LeaguesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscribtions.push(this.route.params.subscribe(param => {
-      this.getCompetition(param.leagueId);
+      const comp = Object.values(this.leagues).find((val) => val.path === param.leaguePath);
+      this.getCompetition(comp.id);
     }));
   }
 

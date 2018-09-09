@@ -1,20 +1,6 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav mode="side" #sidenav [fixedInViewport]="true" [fixedTopGap]="0" [fixedBottomGap]="0" opened>
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <a  href="" mat-button  [routerLink]="['']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
-          <i class="material-icons">public</i>    News</a>
-      </mat-toolbar-row>
-      <mat-toolbar-row>
-        <a  href="" mat-button  [routerLink]="['/chamions-league/2001']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
-          <i class="material-icons">public</i>UEFA Champions League</a>
-      </mat-toolbar-row>
-      <mat-toolbar-row *ngFor="let league of leagueList">
-        <a class="menu-item" mat-button  [routerLink]="['/result/' + league.id]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
-          <app-icon [type]="league.country"></app-icon> <span>{{league.name}}</span>
-        </a>
-      </mat-toolbar-row>
-    </mat-toolbar>
+    <app-nav-menu></app-nav-menu>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="container">

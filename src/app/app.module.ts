@@ -32,11 +32,12 @@ import {TableClComponent} from './champions-league/table/table.component';
 import {FixtureComponent} from './shared/fixture/fixture.component';
 import { TableTeamComponent } from './shared/table-team/table-team.component';
 import {MatMenuModule} from '@angular/material';
-import {IconComponent} from './shared/nav-menu/icon.component';
 import {TodayComponent} from './today/today.component';
 import { registerLocaleData } from '@angular/common';
 import {TeamSvgDefinitionsComponent} from './shared/team-logo/svg-definitions/svg-definitions.component';
 import {TeamSvgIconComponent} from './shared/team-logo/svg-icon/svg-icon.component';
+import {IconComponent} from './shared/nav-menu/icon/icon.component';
+import { MenuComponent } from './shared/nav-menu/menu/menu.component';
 registerLocaleData(localeFr);
 
 
@@ -57,6 +58,7 @@ registerLocaleData(localeFr);
     TableTeamComponent,
     TeamSvgDefinitionsComponent,
     TeamSvgIconComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Leagues} from './shared/enum';
 
 @Component({
   selector: 'app-root',
@@ -7,17 +6,8 @@ import {Leagues} from './shared/enum';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  leagueList = [];
-  leagues = Leagues;
   constructor() {}
 
-  ngOnInit(): void {
-    this.getLeagues();
-  }
-
-  getLeagues(): void {
-    Object.values(this.leagues).map((val) => {
-      return this.leagueList.push(val);
-    });
+  ngOnInit() {
   }
 }
