@@ -5,10 +5,10 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-tab-group>
-    <mat-tab label="Resultat" color="accent">
+    <mat-tab label="{{'result.label' | translate}}" color="accent">
       <app-result-cl *ngIf="competition" [competition]="competition"></app-result-cl>
     </mat-tab>
-    <mat-tab label="Classement" color="accent">
+    <mat-tab label="{{'table.label' | translate}}" color="accent">
       <app-table-cl *ngIf="competition" [competition]="competition"></app-table-cl>
     </mat-tab>
   </mat-tab-group>

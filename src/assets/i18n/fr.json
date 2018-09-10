@@ -1,0 +1,28 @@
+{
+  "home": {
+    "hello": "Bonjour"
+  },
+  "meta": {
+    "description": "Foot in français"
+  },
+  "result": {
+    "label": "Resultat",
+    "matchDay": "Journée",
+    "8th_finals": "8e de finale",
+    "quarterfinal": "Quart de finale",
+    "semifinal": "Demi finale",
+    "final": "finale"
+  },
+  "table": {
+    "group": "Groupe",
+    "label": "Classement",
+    "ranking": "Pos",
+    "team": "équipe",
+    "played": "Joué",
+    "win": "G",
+    "draw": "N",
+    "lost": "P",
+    "diff": "Diff",
+    "points": "Pts"
+  }
+}

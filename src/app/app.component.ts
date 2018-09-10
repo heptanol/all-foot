@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Meta, Title} from '@angular/platform-browser';
+import {CustomTranslateService} from './shared/translate/translate.service';
+import {HeaderService} from './shared/header/header.service';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,14 @@ import {Meta, Title} from '@angular/platform-browser';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(meta: Meta, title: Title) {
-    title.setTitle('Footpaper');
 
-    meta.addTags([
-      { name: 'author',   content: 'Footpaper.com'},
-      { name: 'keywords', content: 'Footpaper, Football, foot'},
-      { name: 'description', content: '' }
-    ]);
+  constructor(
+    private translate: CustomTranslateService,
+    private header: HeaderService,
+  ) {
+    translate.setLangue();
+    header.setTitle();
+    header.setMeta();
   }
 
   ngOnInit() {
