@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Meta, Title} from '@angular/platform-browser';
-import {TranslateService} from '@ngx-translate/core';
-import {CommonService} from './shared/common.service';
+import {CustomTranslateService} from './shared/translate/translate.service';
+import {HeaderService} from './shared/header/header.service';
 
 @Component({
   selector: 'app-root',
@@ -9,25 +8,16 @@ import {CommonService} from './shared/common.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(
-    private meta: Meta,
-    private title: Title,
-    private translate: TranslateService,
-    private commonService: CommonService
-  ) {
-    commonService.setLangue();
-    title.setTitle('Footpaper');
 
-    meta.addTags([
-      { name: 'author',   content: 'Footpaper.com'},
-      { name: 'keywords', content: 'Footpaper, Football, foot'},
-      { name: 'description', content: '' }
-    ]);
+  constructor(
+    private translate: CustomTranslateService,
+    private header: HeaderService,
+  ) {
+    translate.setLangue();
+    header.setTitle();
+    header.setMeta();
   }
 
   ngOnInit() {
-    this.translate.get('HOME.HELLO', ).subscribe((res: string) => {
-      console.log(res);
-    });
   }
 }

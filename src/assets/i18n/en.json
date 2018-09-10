@@ -1,5 +1,27 @@
 {
-  "HOME": {
-    "HELLO": "hello"
+  "home": {
+    "hello": "hello"
+  },
+  "meta": {
+    "description": "Foot in english"
+  },
+  "result": {
+    "label": "Result",
+    "matchDay": "Matchday",
+    "8th_finals": "8th finals",
+    "quarterfinal": "quarterfinal",
+    "semifinal": "semifinal",
+    "final": "final"
+  },
+  "table": {
+    "label": "Table",
+    "ranking": "Rank",
+    "team": "Team",
+    "played": "Played",
+    "win": "Win",
+    "draw": "Draw",
+    "lost": "Lost",
+    "diff": "Diff",
+    "points": "Pts"
   }
 }

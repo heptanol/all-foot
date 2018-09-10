@@ -4,11 +4,11 @@
       <button mat-icon-button (click)="getData(competition.id, matchDay - 1)"  *ngIf="matchDay !== 1">
         <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_left</mat-icon>
       </button>
-      <span *ngIf="matchDay < 7">Journée {{matchDay}}</span>
-      <span  *ngIf="matchDay == 7">8e de finale</span>
-      <span  *ngIf="matchDay == 8">Quart de finale</span>
-      <span  *ngIf="matchDay == 9">Demi finale</span>
-      <span  *ngIf="matchDay == 10">finale</span>
+      <span *ngIf="matchDay < 7">{{'result.matchDay' | translate}} {{matchDay}}</span>
+      <span  *ngIf="matchDay == 7">{{'result.8th_finals' | translate}}</span>
+      <span  *ngIf="matchDay == 8">{{'result.quarterfinal' | translate}}</span>
+      <span  *ngIf="matchDay == 9">{{'result.semifinal' | translate}}</span>
+      <span  *ngIf="matchDay == 10">{{'result.final' | translate}}</span>
       <button mat-icon-button (click)="getData(competition.id, matchDay + 1)" *ngIf="matchDay !== totalMatchDay">
         <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_right</mat-icon>
       </button>

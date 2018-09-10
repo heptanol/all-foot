@@ -40,6 +40,8 @@ import {IconComponent} from './shared/nav-menu/icon/icon.component';
 import { MenuComponent } from './shared/nav-menu/menu/menu.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {CustomTranslateService} from './shared/translate/translate.service';
+import {HeaderService} from './shared/header/header.service';
 
 
 registerLocaleData(localeFr);
@@ -100,6 +102,8 @@ export const lang = navigator.language.slice(0, 2);
     FeedService,
     FootApiService,
     CommonService,
+    HeaderService,
+    CustomTranslateService,
     { provide: LOCALE_ID, useValue: lang }
   ],
   bootstrap: [AppComponent]

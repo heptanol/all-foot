@@ -4,7 +4,7 @@
       <button mat-icon-button (click)="getData(competition.id, matchDay - 1)"  *ngIf="matchDay !== 1">
         <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_left</mat-icon>
       </button>
-      <span>Journée {{matchDay}}</span>
+      <span>{{'result.matchDay' | translate}} {{matchDay}}</span>
       <button mat-icon-button (click)="getData(competition.id, matchDay + 1)" *ngIf="matchDay !== totalMatchDay">
         <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_right</mat-icon>
       </button>

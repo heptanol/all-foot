@@ -1,14 +1,14 @@
 <div *ngIf="!loading">
   <div class="table-item header">
-    <div class="tab-header position">Pos</div>
+    <div class="tab-header position">{{'table.ranking' | translate}}</div>
     <div class="tab-header"  ></div>
-    <div class="tab-header team" >équipe</div>
-    <div class="tab-header"  >MJ</div>
-    <div class="tab-header"  >G</div>
-    <div class="tab-header"  >N</div>
-    <div class="tab-header"  >P</div>
-    <div class="tab-header"  >Diff</div>
-    <div class="tab-header"  >Pts</div>
+    <div class="tab-header team" >{{'table.team' | translate}}</div>
+    <div class="tab-header"  >{{'table.played' | translate}}</div>
+    <div class="tab-header"  >{{'table.win' | translate}}</div>
+    <div class="tab-header"  >{{'table.draw' | translate}}</div>
+    <div class="tab-header"  >{{'table.lost' | translate}}</div>
+    <div class="tab-header"  >{{'table.diff' | translate}}</div>
+    <div class="tab-header"  >{{'table.points' | translate}}</div>
   </div>
   <app-table-team *ngFor="let table of tables; let odd=odd;" [teamTable]="table" [class.odd]="odd"></app-table-team>
 </div>
