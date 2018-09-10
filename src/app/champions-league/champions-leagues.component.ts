@@ -45,7 +45,6 @@ export class ChampionsLeaguesComponent implements OnInit, OnDestroy {
         )
       .subscribe(data => {
         this.competition = <Competition>data;
-        this.matchDay = data.currentSeason.currentMatchday;
       }));
   }
 

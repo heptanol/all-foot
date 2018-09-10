@@ -1,11 +1,16 @@
 export interface Competition {
-  id: number;
-  lastUpdated: string;
-  currentSeason: {
+  competition: {
+    id: number;
+    name: string;
+    area: {
+      id: number;
+      name: string;
+    }
+  };
+  season: {
+    id: number;
     currentMatchday: number;
   };
-  area: any;
-  name: string;
 }
 
 export interface Fixture {

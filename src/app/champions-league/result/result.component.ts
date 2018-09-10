@@ -24,7 +24,7 @@ export class ResultClComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.getData(this.competition.id, this.competition.currentSeason.currentMatchday);
+    this.getData(this.competition.competition.id, this.competition.season.currentMatchday);
   }
 
   getData(competitionId, matchday) {

@@ -24,11 +24,11 @@ export class TableClComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.getData(this.competition.id);
+    this.getData(this.competition.competition.id);
   }
 
   getData(competitionId) {
-    this.matchDay = (this.competition.currentSeason.currentMatchday > 6) ? 6 : this.competition.currentSeason.currentMatchday;
+    this.matchDay = (this.competition.season.currentMatchday > 6) ? 6 : this.competition.season.currentMatchday;
     this.loading = true;
     this.subscribtion = this.apiService.getCompetitionTable(competitionId, this.matchDay)
       .pipe(

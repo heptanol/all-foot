@@ -23,12 +23,12 @@ export class TableComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.getData(this.competition.id);
+    this.getData(this.competition.competition.id);
   }
 
   getData(competitionId) {
     this.loading = true;
-    this.subscribtion = this.apiService.getCompetitionTable(competitionId, this.competition.currentSeason.currentMatchday)
+    this.subscribtion = this.apiService.getCompetitionTable(competitionId, this.competition.season.currentMatchday)
       .pipe(
         tap(() => this.loading = false),
         catchError(err => {
