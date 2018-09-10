@@ -14,6 +14,7 @@
     "final": "final"
   },
   "table": {
+    "group": "Group",
     "label": "Table",
     "ranking": "Rank",
     "team": "Team",

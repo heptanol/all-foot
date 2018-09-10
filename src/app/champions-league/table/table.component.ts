@@ -48,6 +48,11 @@ export class TableClComponent implements OnInit, OnDestroy {
       });
   }
 
+  getGroupLabel(nb): string {
+    const alph = 'ABCDEFGH';
+    return alph[nb];
+  }
+
   ngOnDestroy() {
     this.subscribtion.unsubscribe();
   }
