@@ -1,7 +1,7 @@
 <ng-container *ngIf="!loading && !error">
   <mat-toolbar color="primary" *ngIf="competition">
     <mat-toolbar-row>
-      <h2>{{competition.name}}</h2>
+      <h2>{{competition.competition.name}}</h2>
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-tab-group>
