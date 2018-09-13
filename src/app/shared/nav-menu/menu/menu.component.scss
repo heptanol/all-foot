@@ -1,9 +1,18 @@
 mat-toolbar{
-  height: 100%;
+  background-color: #e2e2e2;
+  min-height: 100%;
+  .logo {
+    text-align: center;
+    margin: 20px 0;
+    img {
+      width: 120px;
+      height: auto;
+    }
+  }
 }
 mat-toolbar-row{
   padding: 0;
-  height: 48px;
+  height: 42px;
 }
 mat-toolbar-row a{
   width: 100%;
@@ -24,4 +33,15 @@ i.material-icons{
 }
 app-icon{
   max-width: 32px;
+}
+.social-links{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  a {
+    text-decoration: none;
+    flex: 1;
+  }
 }

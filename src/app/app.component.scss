@@ -4,6 +4,9 @@ h1{
 mat-sidenav-container{
   height: 100%;
 }
+mat-sidenav{
+  overflow-x: hidden;
+}
 mat-sidenav-content{
   //background: linear-gradient(to right, #196c46, #9bd44f, #196c46);
 }

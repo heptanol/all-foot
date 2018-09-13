@@ -1,8 +1,9 @@
 <mat-toolbar>
-  <mat-toolbar-row>
-    <a  href="" mat-button  [routerLink]="['']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
-      <i class="material-icons">public</i>    News</a>
-  </mat-toolbar-row>
+  <div class="logo">
+    <a href="" [routerLink]="['']">
+      <img src="../../../../assets/img/1181711584_83798049-4d26-47d8-8283-db54ced3427e.png" alt="">
+    </a>
+  </div>
   <mat-toolbar-row>
     <a  href="" mat-button  [routerLink]="['/chamions-league']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
       <app-icon [type]="'champions_league'"></app-icon><span>UEFA Champions League</span>
@@ -13,4 +14,16 @@
       <app-icon [type]="league.country"></app-icon> <span>{{league.name}}</span>
     </a>
   </mat-toolbar-row>
+
+<div class="social-links">
+  <a href="">
+    <app-icon [type]="'facebook'"></app-icon>
+  </a>
+  <a href="">
+    <app-icon [type]="'twitter'"></app-icon>
+  </a>
+  <a href="">
+    <app-icon [type]="'google'"></app-icon>
+  </a>
+</div>
 </mat-toolbar>
