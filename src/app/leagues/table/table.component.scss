@@ -1,19 +1,19 @@
 @import '~@angular/material/theming';
 mat-grid-tile.tab-header{
-  background: mat-color($mat-blue-grey, 700);
-  color: mat-color($mat-blue-grey, 50);
+  background: mat-color($mat-grey, 700);
+  color: mat-color($mat-grey, 50);
 }
 mat-grid-tile.tab-row{
-  background: mat-color($mat-blue-grey, 400);
-  color: mat-color($mat-blue-grey, 50);
+  background: mat-color($mat-grey, 400);
+  color: mat-color($mat-grey, 50);
 }
 .table-item.header{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 48px;
-  color: mat-color($mat-blue-grey, 50);
-  background: mat-color($mat-blue-grey, 900);
+  color: mat-color($mat-grey, 50);
+  background: mat-color($mat-grey, 900);
   .tab-header{
     flex: 2;
     text-align: center;
