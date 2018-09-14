@@ -2,6 +2,12 @@
   "home": {
     "hello": "hello"
   },
+  "menu": {
+    "home": "Home",
+    "today": "Today's Matchs",
+    "news": "News",
+    "competition": "Competition"
+  },
   "meta": {
     "description": "Foot in english"
   },

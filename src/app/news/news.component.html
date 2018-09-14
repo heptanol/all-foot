@@ -1,21 +1,15 @@
-<div>
-  <app-today></app-today>
-</div>
-<div>
-  <div *ngIf="!(feeds$ | async)">
-    Loading...
-  </div>
-  <mat-list role="list">
-    <ng-container *ngFor="let feed of (feeds$ | async)">
-      <mat-list-item role="listitem" class="border mt-3 mb-3">
-        <img *ngIf="feed.enclosure.link" matListAvatar src="{{feed.enclosure.link}}" alt="...">
-        <img *ngIf="!feed.enclosure.link" matListAvatar src="../assets/img/football.jpeg" alt="...">
-        <h3 mat-line>{{feed.title}}</h3>
-        <p mat-line>{{feed.description}}</p>
-        <span mat-line><i class="material-icons">date_range</i> {{feed.pubDate  | date: 'dd/MM/yyyy hh:mm'}}</span>
-        <a mat-button href="{{ feed.link }}" target="_blank">Link</a>
-      </mat-list-item>
-    </ng-container>
-  </mat-list>
-</div>
+<h2>{{'menu.news' | translate}}</h2>
+<mat-spinner *ngIf="!(feeds$ | async)"></mat-spinner>
+<mat-list role="list" *ngIf="(feeds$ | async)">
+  <ng-container *ngFor="let feed of (feeds$ | async)">
+    <mat-list-item role="listitem" class="border mt-3 mb-3">
+      <img *ngIf="feed.enclosure.link" matListAvatar src="{{feed.enclosure.link}}" alt="...">
+      <img *ngIf="!feed.enclosure.link" matListAvatar src="../assets/img/football.jpeg" alt="...">
+      <h3 mat-line>{{feed.title}}</h3>
+      <p mat-line>{{feed.description}}</p>
+      <span mat-line><i class="material-icons">date_range</i> {{feed.pubDate  | date: 'dd/MM/yyyy hh:mm'}}</span>
+      <a mat-button href="{{ feed.link }}" target="_blank">Link</a>
+    </mat-list-item>
+  </ng-container>
+</mat-list>
 

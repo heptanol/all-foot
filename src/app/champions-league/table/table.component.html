@@ -1,6 +1,6 @@
 <div *ngIf="!loading">
   <ng-container *ngFor="let table of tables; let i = index">
-    <mat-toolbar class="group-head" color="primary">
+    <mat-toolbar class="group-head">
       <mat-toolbar-row>{{'table.group' | translate}} {{getGroupLabel(i)}}</mat-toolbar-row>
     </mat-toolbar>
     <div class="table-item header">

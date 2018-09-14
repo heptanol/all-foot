@@ -1,12 +1,22 @@
 <mat-toolbar>
   <div class="logo">
     <a href="" [routerLink]="['']">
-      <img src="../../../../assets/img/1185150318_27258ad6-48c2-414e-9e70-0d218f471454.png" alt="">
+      <img src="../../../../assets/img/1185558713_99093607-daf4-42be-b520-411944171f2a.png" alt="">
     </a>
   </div>
   <mat-toolbar-row>
+    <a mat-button href="" [routerLink]="['/news']" >
+      <span>{{'menu.news' | translate}}</span>
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <a mat-button href="" [routerLink]="['/today']" >
+      <span>{{'menu.today' | translate}}</span>
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
     <a mat-button [matMenuTriggerFor]="menu" >
-      <span>Compet</span>
+      <span>{{'menu.competition' | translate}}</span>
     </a>
   </mat-toolbar-row>
 </mat-toolbar>

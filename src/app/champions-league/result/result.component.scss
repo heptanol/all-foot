@@ -10,7 +10,7 @@ mat-toolbar-row{
   justify-content: center;
 }
 mat-grid-tile.fixture{
-  background: mat-color($mat-grey, 200);
+  background: mat-color($mat-grey, 100);
   color: mat-color($mat-grey, 50);
 }
 mat-grid-tile.fixture.live{
@@ -20,8 +20,14 @@ mat-grid-tile.fixture.live{
 app-fixture{
   margin-bottom: 4px;
 }
-.day, .match-day{
-  font-size: 24px;
+.day{
+  background: mat-color($mat-grey, 100);
   text-transform: uppercase;
+  border-bottom: 1px solid mat-color($mat-gray, 300);
+}
+.match-day {
+  font-size: 2em;
+  text-transform: uppercase;
+  border-bottom: 3px solid mat-color($mat-gray, 900);
 }
 

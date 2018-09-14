@@ -11,6 +11,9 @@ mat-grid-tile.tab-row{
   mat-toolbar-row{
     display: flex;
     justify-content: center;
+    font-size: 2em;
+    text-transform: uppercase;
+    border-bottom: 3px solid mat-color($mat-gray, 900);
   }
 }
 .table-item{
@@ -19,6 +22,7 @@ mat-grid-tile.tab-row{
   align-items: center;
   height: 48px;
   background: mat-color($mat-grey, 50);
+  border-bottom: 1px solid mat-color($mat-gray, 300);
   .tab-row{
     flex: 2;
     text-align: center;
@@ -29,8 +33,6 @@ mat-grid-tile.tab-row{
   }
 }
 .table-item.header{
-  color: mat-color($mat-grey, 50);
-  background: mat-color($mat-grey, 800);
   .tab-header{
     flex: 2;
     text-align: center;
