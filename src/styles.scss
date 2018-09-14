@@ -59,9 +59,47 @@ mat-spinner{
 
 app-table-team.odd{
   .table-item{
+    background-color: mat-color($mat-gray, 200);
   }
 }
 app-fixture.odd{
   .fixture{
+    background-color: mat-color($mat-gray, 200);
+  }
+}
+/**
+* Global style
+ */
+h2{
+  border-bottom: 4px solid mat-color($mat-gray, 900);
+  text-transform: uppercase;
+  font-size: 4em;
+}
+.mat-tab-label {
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+.mat-menu-content {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      a {
+        width: 100%;
+        padding: 0 30px;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        app-icon {
+          height: 24px;
+          display: inline-block;
+          padding-right: 15px;
+          max-width: 32px;
+        }
+      }
+
+    }
   }
 }

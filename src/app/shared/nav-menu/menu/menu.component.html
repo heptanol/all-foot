@@ -1,29 +1,26 @@
 <mat-toolbar>
   <div class="logo">
     <a href="" [routerLink]="['']">
-      <img src="../../../../assets/img/1181711584_83798049-4d26-47d8-8283-db54ced3427e.png" alt="">
+      <img src="../../../../assets/img/1185150318_27258ad6-48c2-414e-9e70-0d218f471454.png" alt="">
     </a>
   </div>
   <mat-toolbar-row>
-    <a  href="" mat-button  [routerLink]="['/chamions-league']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
-      <app-icon [type]="'champions_league'"></app-icon><span>UEFA Champions League</span>
+    <a mat-button [matMenuTriggerFor]="menu" >
+      <span>Compet</span>
     </a>
   </mat-toolbar-row>
-  <mat-toolbar-row *ngFor="let league of leagueList">
-    <a class="menu-item" mat-button  [routerLink]="['/league/' + league.path]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
-      <app-icon [type]="league.country"></app-icon> <span>{{league.name}}</span>
-    </a>
-  </mat-toolbar-row>
-
-<div class="social-links">
-  <a href="">
-    <app-icon [type]="'facebook'"></app-icon>
-  </a>
-  <a href="">
-    <app-icon [type]="'twitter'"></app-icon>
-  </a>
-  <a href="">
-    <app-icon [type]="'google'"></app-icon>
-  </a>
-</div>
 </mat-toolbar>
+<mat-menu #menu="matMenu" [xPosition]="'after'">
+  <ul>
+    <li>
+      <a  href="" mat-button  [routerLink]="['/chamions-league']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+        <app-icon [type]="'champions_league'"></app-icon><span>UEFA Champions League</span>
+      </a>
+    </li>
+    <li *ngFor="let league of leagueList">
+      <a class="menu-item" mat-button  [routerLink]="['/league/' + league.path]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+        <app-icon [type]="league.country"></app-icon> <span>{{league.name}}</span>
+      </a>
+    </li>
+  </ul>
+</mat-menu>

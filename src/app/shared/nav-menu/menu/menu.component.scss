@@ -1,9 +1,10 @@
+@import '~@angular/material/theming';
 mat-toolbar{
-  background-color: #e2e2e2;
+  background-color: mat-color($mat-gray, 800);
   min-height: 100%;
   .logo {
     text-align: center;
-    margin: 20px 0;
+    margin: 40px;
     img {
       width: 120px;
       height: auto;
@@ -21,19 +22,7 @@ mat-toolbar-row a{
   display: flex;
   align-items: center;
 }
-mat-toolbar-row a app-icon{
-  height: 24px;
-  display: inline-block;
-}
-mat-toolbar-row a app-icon {
-  padding-right: 15px;
-}
-i.material-icons{
-  padding-right: 20px;
-}
-app-icon{
-  max-width: 32px;
-}
+
 .social-links{
   position: absolute;
   bottom: 0;
@@ -45,3 +34,4 @@ app-icon{
     flex: 1;
   }
 }
+
