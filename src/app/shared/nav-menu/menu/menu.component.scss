@@ -1,15 +1,15 @@
 @import '~@angular/material/theming';
-mat-toolbar{
-  background-color: mat-color($mat-gray, 800);
-  min-height: 100%;
-  .logo {
-    text-align: center;
-    margin: 40px;
-    img {
-      width: 120px;
-      height: auto;
-    }
+.logo {
+  text-align: center;
+  margin: 40px;
+  img {
+    width: 120px;
+    height: auto;
   }
+}
+mat-toolbar{
+  background: transparent;
+  height: 100%;
 }
 mat-toolbar-row{
   padding: 0;
