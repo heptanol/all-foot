@@ -8,4 +8,9 @@ export const Leagues = {
   EREDIVISIE : {id: '2003', name: 'Eredivisie', path:  'eredivisie', country: 'netherlands'},
 };
 
+export enum FeedsType {
+  SOFOOT_NEWS = 'http://feeds.feedburner.com/SoFoot_news',
+  LEQUIPE = 'https://www.lequipe.fr/rss/actu_rss_Football.xml',
+}
+
 

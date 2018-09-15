@@ -14,14 +14,17 @@ mat-toolbar{
 mat-toolbar-row{
   padding: 0;
   height: 42px;
-}
-mat-toolbar-row a{
-  width: 100%;
-  padding: 0 30px;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  color: mat-color($mat-gray, 400);
+  a {
+    width: 100%;
+    padding: 0 30px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    color: mat-color($mat-gray, 400);
+  }
+  .mat-accent {
+    color: mat-color($mat-gray, 50);
+  }
 }
 
 .social-links{

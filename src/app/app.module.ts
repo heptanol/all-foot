@@ -23,7 +23,7 @@ import {Routing} from './app.routing';
 import { ResultComponent } from './leagues/result/result.component';
 import {FootApiService} from './shared/foot-api.service';
 import { TableComponent } from './leagues/table/table.component';
-import {GroupByPipe} from './shared/group-by';
+import {GroupByPipe} from './shared/pipe/group-by';
 import { LeaguesComponent } from './leagues/leagues.component';
 import {CommonService} from './shared/common.service';
 import {ChampionsLeaguesComponent} from './champions-league/champions-leagues.component';
@@ -31,7 +31,7 @@ import {ResultClComponent} from './champions-league/result/result.component';
 import {TableClComponent} from './champions-league/table/table.component';
 import {FixtureComponent} from './shared/fixture/fixture.component';
 import { TableTeamComponent } from './shared/table-team/table-team.component';
-import {MatMenuModule} from '@angular/material';
+import {MatCardModule, MatMenuModule} from '@angular/material';
 import {TodayComponent} from './today/today.component';
 import { registerLocaleData } from '@angular/common';
 import {TeamSvgDefinitionsComponent} from './shared/team-logo/svg-definitions/svg-definitions.component';
@@ -42,6 +42,8 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {CustomTranslateService} from './shared/translate/translate.service';
 import {HeaderService} from './shared/header/header.service';
+import { NewsItemComponent } from './news/news-item/news-item.component';
+import {OrderByPipe} from './shared/pipe/order-by';
 
 
 registerLocaleData(localeFr);
@@ -59,6 +61,7 @@ export const lang = navigator.language.slice(0, 2);
     ResultComponent,
     TableComponent,
     GroupByPipe,
+    OrderByPipe,
     LeaguesComponent,
     ChampionsLeaguesComponent,
     ResultClComponent,
@@ -70,6 +73,7 @@ export const lang = navigator.language.slice(0, 2);
     TeamSvgDefinitionsComponent,
     TeamSvgIconComponent,
     MenuComponent,
+    NewsItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +91,7 @@ export const lang = navigator.language.slice(0, 2);
     MatTabsModule,
     MatTableModule,
     MatSnackBarModule,
+    MatCardModule,
     BrowserAnimationsModule,
     Routing,
     HttpClientModule,

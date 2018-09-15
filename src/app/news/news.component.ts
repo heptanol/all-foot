@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FeedService} from '../shared/feed.service';
 import {Observable} from 'rxjs/Observable';
+import {FeedsType} from '../shared/enum';
+import {combineLatest} from 'rxjs/operators';
 
 @Component({
   selector: 'app-news',
@@ -19,7 +21,9 @@ export class NewsComponent implements OnInit {
   }
 
   getFeeds() {
-    this.feeds$ = this.feedService.getFeedContent();
+    this.feeds$ = this.feedService.getOneFeedContent(FeedsType.LEQUIPE).pipe(
+      combineLatest(this.feedService.getOneFeedContent(FeedsType.SOFOOT_NEWS), (c, c3) => c.concat(c3))
+    );
   }
 
 }
