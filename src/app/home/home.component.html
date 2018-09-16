@@ -1,8 +1,21 @@
-<mat-grid-list cols="8">
-  <mat-grid-tile>
-    <a href="" [routerLink]="['/chamions-league']" class="league-square" [id]="'league-2001'"></a>
-  </mat-grid-tile>
-  <mat-grid-tile *ngFor="let league of leagues">
-    <a href="" [routerLink]="['/league/' + league.path]" class="league-square" [id]="'league-'+ league.id"></a>
-  </mat-grid-tile>
-</mat-grid-list>
+<h2>{{'home.competitions' | translate}}</h2>
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell--span-12">
+      <mat-grid-list cols="8">
+        <mat-grid-tile>
+          <a href="" [routerLink]="['/chamions-league']" class="league-square" [id]="'league-2001'"></a>
+        </mat-grid-tile>
+        <mat-grid-tile *ngFor="let league of leagues">
+          <a href="" [routerLink]="['/league/' + league.path]" class="league-square" [id]="'league-'+ league.id"></a>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <div class="mdc-layout-grid__cell--span-8">
+      <app-news></app-news>
+    </div>
+    <div class="mdc-layout-grid__cell--span-4">
+      <app-today></app-today>
+    </div>
+  </div>
+</div>
