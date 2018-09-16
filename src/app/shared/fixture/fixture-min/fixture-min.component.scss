@@ -1,0 +1,35 @@
+@import '~@angular/material/theming';
+.fixture{
+  border-bottom: 1px solid mat-color($mat-gray, 300);
+  font-size: 0.9em;
+  .team{
+    text-align: left;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .home{
+  }
+  .away{
+  }
+  .logo{
+  }
+  .result{
+  }
+  .status{
+    color: mat-color($mat-grey, 50);
+    background: mat-color($mat-grey, 900);
+    text-align: center;
+    padding: 10px;
+  }
+  .in-play{
+    background: mat-color($mat-red, 300);
+  }
+  .rep{
+    background: mat-color($mat-grey, 500);
+  }
+}
+.winner{
+  font-weight: bold;
+}
