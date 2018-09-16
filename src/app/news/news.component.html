@@ -1,8 +1,17 @@
-<h2>{{'menu.news' | translate}}</h2>
 <mat-spinner *ngIf="!(feeds$ | async)"></mat-spinner>
-<div role="list" *ngIf="(feeds$ | async)">
-  <ng-container *ngFor="let feed of (feeds$ | async) |  orderBy:'pubDate':'DESC'">
-    <app-news-item [feed]="feed"></app-news-item>
-  </ng-container>
+<div class="mdc-layout-grid" [class.no-padding]="isBloc">
+  <div class="mdc-layout-grid__inner"  *ngIf="(feeds$ | async)">
+    <div class="mdc-layout-grid__cell--span-12">
+      <h2 *ngIf="!isBloc">{{'menu.news' | translate}}</h2>
+      <h3 *ngIf="isBloc">{{'menu.news' | translate}}</h3>
+    </div>
+    <div class="mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone"
+         [class.mdc-layout-grid__cell--span-4-desktop]="!isBloc"
+         [class.mdc-layout-grid__cell--span-6-desktop]="isBloc"
+         *ngFor="let feed of (feeds$ | async) |  orderBy:'pubDate':'DESC'">
+      <app-news-item [feed]="feed"></app-news-item>
+    </div>
+  </div>
 </div>
+
 

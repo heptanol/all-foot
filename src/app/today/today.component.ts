@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import {FootApiService} from '../shared/foot-api.service';
 import {CommonService} from '../shared/common.service';
 import {Subscription} from 'rxjs/Subscription';
@@ -14,6 +14,7 @@ export class TodayComponent implements OnInit, OnDestroy, OnChanges {
   subscribtion: Subscription;
   loading = false;
   error = false;
+  @Input() isBloc = false;
   constructor(
     private apiService: FootApiService,
     private commonService: CommonService

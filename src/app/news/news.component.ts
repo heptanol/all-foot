@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FeedService} from '../shared/feed.service';
 import {Observable} from 'rxjs/Observable';
 import {FeedsType} from '../shared/enum';
@@ -11,6 +11,7 @@ import {combineLatest} from 'rxjs/operators';
 })
 export class NewsComponent implements OnInit {
   feeds$: Observable<any>;
+  @Input() isBloc = false;
 
   constructor(
     private feedService: FeedService
