@@ -1,0 +1,8 @@
+<mat-grid-list cols="8">
+  <mat-grid-tile>
+    <a href="" [routerLink]="['/chamions-league']" class="league-square" [id]="'league-2001'"></a>
+  </mat-grid-tile>
+  <mat-grid-tile *ngFor="let league of leagues">
+    <a href="" [routerLink]="['/league/' + league.path]" class="league-square" [id]="'league-'+ league.id"></a>
+  </mat-grid-tile>
+</mat-grid-list>

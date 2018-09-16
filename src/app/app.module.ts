@@ -44,6 +44,7 @@ import {CustomTranslateService} from './shared/translate/translate.service';
 import {HeaderService} from './shared/header/header.service';
 import { NewsItemComponent } from './news/news-item/news-item.component';
 import {OrderByPipe} from './shared/pipe/order-by';
+import { HomeComponent } from './home/home.component';
 
 
 registerLocaleData(localeFr);
@@ -74,6 +75,7 @@ export const lang = navigator.language.slice(0, 2);
     TeamSvgIconComponent,
     MenuComponent,
     NewsItemComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

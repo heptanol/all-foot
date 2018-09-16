@@ -108,3 +108,8 @@ mat-sidenav {
     }
   }
 }
+
+.main-menu mat-toolbar-row span.mat-button-wrapper {
+  display: block;
+  margin: auto;
+}
