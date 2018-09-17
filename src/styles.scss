@@ -127,3 +127,12 @@ mat-sidenav {
   display: block;
   margin: auto;
 }
+a.overlay-link {
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: initial;
+}

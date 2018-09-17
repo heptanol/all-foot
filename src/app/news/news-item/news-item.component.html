@@ -1,17 +1,14 @@
 <mat-card class="example-card">
+<a class="overlay-link" target="_blank" href="{{feed.link}}">
   <div class="image-wrap">
     <img mat-card-image *ngIf="feed.enclosure.link" [src]="feed.enclosure.link" alt="Photo of a Shiba Inu">
     <img mat-card-image *ngIf="!feed.enclosure.link" [src]="'../assets/img/football.jpeg'" alt="Photo of a Shiba Inu">
   </div>
   <mat-card-header>
     <mat-card-subtitle>{{feed.pubDate | date}}</mat-card-subtitle>
-    <mat-card-title>{{feed.title}}</mat-card-title>
+    <mat-card-title>
+      {{feed.title}}
+    </mat-card-title>
   </mat-card-header>
-  <mat-card-footer>
-    <div>
-      <a mat-icon-button target="_blank" href="{{feed.link}}">
-        <i class="material-icons">link</i>
-      </a>
-    </div>
-  </mat-card-footer>
+</a>
 </mat-card>

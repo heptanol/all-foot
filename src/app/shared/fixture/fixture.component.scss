@@ -27,9 +27,12 @@
     left: 3%;
     padding: 5px;
     color: mat-color($mat-grey, 50);
-    background: mat-color($mat-grey, 900);
+    background: mat-color($mat-grey, 800);
     width: 42px;
     text-align: center;
+  }
+  .finished{
+    background: mat-color($mat-grey, 900);
   }
   .in-play{
     background: mat-color($mat-red, 300);

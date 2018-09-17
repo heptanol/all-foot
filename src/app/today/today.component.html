@@ -1,8 +1,8 @@
 <ng-container *ngIf="!loading">
   <h2 *ngIf="!isBloc">{{'menu.today' | translate}}</h2>
   <h4 *ngIf="isBloc">{{'menu.today' | translate}}</h4>
-  <mat-toolbar>
-    <mat-toolbar-row class="head" [class.isBloc]="isBloc">
+  <mat-toolbar *ngIf="!isBloc">
+    <mat-toolbar-row class="head">
       <span>Matches du jour</span>
     </mat-toolbar-row>
   </mat-toolbar>
