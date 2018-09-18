@@ -1,3 +1,5 @@
+import {Durations} from './enum';
+
 export interface Competition {
   competition: {
     id: number;
@@ -16,7 +18,13 @@ export interface Competition {
 export interface Fixture {
   homeTeam: Team;
   awayTeam: Team;
-  score: Score;
+  score: {
+    duration: Durations;
+    fullTime: Goals;
+    halfTime: Goals;
+    extraTime: Goals;
+    penalties: Goals;
+  };
   diff: string;
   utcDate: string;
   status: StatusType;
@@ -29,12 +37,7 @@ export interface Team {
   name: string;
   crestUrl?: string;
 }
-export interface Score {
-  fullTime: Goals;
-  halfTime: Goals;
-  extraTime: Goals;
-  penalties: Goals;
-}
+
 export interface Goals {
   homeTeam: number;
   awayTeam: number;

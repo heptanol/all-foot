@@ -70,4 +70,10 @@ export enum Breakpoint {
   PHONE = 0
 }
 
+export enum Durations {
+  EXTRA_TIME = 'EXTRA_TIME',
+  PENALTY_SHOOTOUT = 'PENALTY_SHOOTOUT',
+  REGULAR = 'REGULAR'
+}
+
 

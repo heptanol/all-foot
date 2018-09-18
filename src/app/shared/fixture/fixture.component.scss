@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 48px;
+  height: 58px;
   background: mat-color($mat-grey, 100);
   position: relative;
   .team{
@@ -21,6 +21,10 @@
   .result{
     flex: 2;
     text-align: center;
+  }
+  .extra, .peno {
+    color: mat-color($mat-grey, 500);
+    font-size: 12px;
   }
   .status{
     position: absolute;

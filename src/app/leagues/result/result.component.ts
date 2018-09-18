@@ -49,6 +49,7 @@ export class ResultComponent implements OnInit, OnDestroy {
       .subscribe(data => {
         this.fixtures = data.matches;
         this.totalMatchDay = data.totalMatchDays;
+        console.log(data);
       });
   }
 
