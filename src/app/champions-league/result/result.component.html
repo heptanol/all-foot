@@ -21,7 +21,12 @@
           {{fixture.key  | date: 'EEEE dd/MM/yyyy'}}
         </mat-toolbar-row>
       </mat-toolbar>
+      <ng-container *ngIf="device === deviceList.DESKTOP">
         <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [class.odd]="odd"></app-fixture>
+      </ng-container>
+      <ng-container *ngIf="device !== deviceList.DESKTOP">
+        <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [class.odd]="odd"></app-fixture-min>
+      </ng-container>
     </div>
   </div>
 </ng-container>

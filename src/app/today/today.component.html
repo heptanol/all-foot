@@ -13,10 +13,10 @@
           {{fixture.key }}
         </mat-toolbar-row>
       </mat-toolbar>
-      <ng-container *ngIf="!isBloc">
+      <ng-container *ngIf="!isBloc &&  device === deviceList.DESKTOP">
         <app-fixture *ngFor="let fix of fixture.value" [fixture]="fix"></app-fixture>
       </ng-container>
-      <ng-container *ngIf="isBloc">
+      <ng-container *ngIf="isBloc || device !== deviceList.DESKTOP">
         <app-fixture-min *ngFor="let fix of fixture.value" [fixture]="fix"></app-fixture-min>
       </ng-container>
     </div>

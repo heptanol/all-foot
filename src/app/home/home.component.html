@@ -2,7 +2,7 @@
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell--span-12">
     <h3>{{'home.competitions' | translate}}</h3>
-      <mat-grid-list cols="8">
+      <mat-grid-list [cols]="getCompetitionCols()">
         <mat-grid-tile>
           <a href="" [routerLink]="['/chamions-league']" class="league-square" [id]="'league-2001'"></a>
         </mat-grid-tile>
@@ -11,10 +11,10 @@
         </mat-grid-tile>
       </mat-grid-list>
     </div>
-    <div class="mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-12-tablet">
+    <div class="mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone">
       <app-news [isBloc]="true"></app-news>
     </div>
-    <div class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-12-tablet">
+    <div class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone">
       <app-today [isBloc]="true"></app-today>
     </div>
   </div>

@@ -1,8 +1,8 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {FootApiService} from '../../shared/foot-api.service';
 import {Competition} from '../../shared/model';
 import {Subscription} from 'rxjs/Subscription';
-import {catchError, map, tap, toArray} from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
 import {CommonService} from '../../shared/common.service';
 
 @Component({

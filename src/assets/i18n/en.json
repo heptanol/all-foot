@@ -30,5 +30,14 @@
     "lost": "Lost",
     "diff": "Diff",
     "points": "Pts"
+  },
+  "match": {
+    "status": {
+      "POSTPONED": "REP",
+      "CANCELED": "CANC",
+      "PAUSED": "PAUS",
+      "FINISHED": "FIN",
+      "SUSPENDED": "SUS"
+    }
   }
 }

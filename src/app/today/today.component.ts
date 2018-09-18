@@ -1,8 +1,9 @@
-import {Component, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import {FootApiService} from '../shared/foot-api.service';
 import {CommonService} from '../shared/common.service';
 import {Subscription} from 'rxjs/Subscription';
 import {catchError, tap} from 'rxjs/operators';
+import {Devices} from '../shared/enum';
 
 @Component({
   selector: 'app-today',
@@ -14,6 +15,8 @@ export class TodayComponent implements OnInit, OnDestroy, OnChanges {
   subscribtion: Subscription;
   loading = false;
   error = false;
+  device: Devices;
+  deviceList = Devices;
   @Input() isBloc = false;
   constructor(
     private apiService: FootApiService,
@@ -21,6 +24,7 @@ export class TodayComponent implements OnInit, OnDestroy, OnChanges {
   ) {}
 
   ngOnInit() {
+    this.device = this.commonService.detectDevice();
     this.getData();
   }
 
@@ -44,6 +48,11 @@ export class TodayComponent implements OnInit, OnDestroy, OnChanges {
       .subscribe(data => {
         this.fixtures = data;
       });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.device = this.commonService.detectDevice();
   }
 
   ngOnDestroy() {

@@ -26,6 +26,11 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 // that you are using.
 @include angular-material-theme($candy-app-theme);
 
+@viewport {
+  width: device-width; /* largeur du viewport */
+  zoom: 1; /* zoom initial à 1.0 (et clin d'oeil aux fans d'IE6/7) */
+}
+
 html {
   height: 100%;
 }
@@ -135,4 +140,14 @@ a.overlay-link {
   height: 100%;
   text-decoration: none;
   color: initial;
+}
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: mat-color($mat-gray, 400);
+}
+
+
+@media screen and (max-width: 480px) {
+  .phone-no-display {
+    display:none;
+  }
 }
