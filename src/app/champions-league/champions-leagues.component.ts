@@ -5,7 +5,7 @@ import {Competition} from '../shared/model';
 import {Subscription} from 'rxjs/Subscription';
 import {catchError, tap} from 'rxjs/operators';
 import {CommonService} from '../shared/common.service';
-import {OthersLeagues} from '../shared/enum';
+import {Cups} from '../shared/enum';
 
 @Component({
   selector: 'app-champions-leagues',
@@ -27,7 +27,7 @@ export class ChampionsLeaguesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscribtions.push(this.route.params.subscribe(param => {
-      this.getCompetition(OthersLeagues.UEFA_CHAMPIONS_LEAGUE.id);
+      this.getCompetition(Cups.UEFA_CHAMPIONS_LEAGUE.id);
     }));
   }
 

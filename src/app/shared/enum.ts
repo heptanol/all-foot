@@ -44,12 +44,17 @@ export const Leagues = {
   },
 };
 
-export const OthersLeagues = {
+export const Cups = {
   UEFA_CHAMPIONS_LEAGUE: {
     id: '2001',
     name: 'UEFA champions league',
     country: 'europe',
-    currentMatchDay: 1
+    availableStage: [
+      'ROUND_OF_16',
+      'QUARTER_FINALS',
+      'SEMI_FINALS',
+      'FINAL',
+    ]
   }
 };
 

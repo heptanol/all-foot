@@ -35,7 +35,7 @@ export class ResultClComponent implements OnInit, OnDestroy {
     matchday = !matchday ? 1 : matchday;
     this.matchDay = matchday;
     this.loading = true;
-    this.subscribtion = this.apiService.getMatches(competitionId, matchday)
+    this.subscribtion = this.apiService.getMatches(competitionId, matchday, null)
       .pipe(
         tap(() => this.loading = false),
         catchError(err => {
