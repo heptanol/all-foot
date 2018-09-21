@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {environment} from '../../environments/environment';
 
@@ -12,8 +12,12 @@ export class FootApiService {
     private http: HttpClient
   ) { }
 
-  getMatches(league, matchday): Observable<any> {
-    return this.http.get(`${this.apiUrl}/competitions/${league}/matches?matchday=${matchday}`);
+  getMatches(league, matchday, stage): Observable<any> {
+    let params = new HttpParams();
+    params = matchday ? params.set('matchday', matchday) : params;
+    params = stage ? params.set('stage', stage) : params;
+
+    return this.http.get(`${this.apiUrl}/competitions/${league}/matches`, {params});
   }
 
   getCompetitionStandings(league): Observable<any> {
