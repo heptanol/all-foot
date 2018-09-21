@@ -13,6 +13,14 @@ export interface Competition {
     id: number;
     currentMatchday: number;
   };
+  standings: Standing[];
+}
+
+export interface Standing {
+  group: string;
+  stage: any;
+  type: any;
+  table: TableTeam[];
 }
 
 export interface Fixture {

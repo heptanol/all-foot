@@ -16,11 +16,7 @@ export class FootApiService {
     return this.http.get(`${this.apiUrl}/competitions/${league}/matches?matchday=${matchday}`);
   }
 
-  getCompetition(league): Observable<any> {
-    return this.http.get(`${this.apiUrl}/competitions/${league}`);
-  }
-
-  getCompetitionTable(league, matchday): Observable<any> {
+  getCompetitionStandings(league): Observable<any> {
     return this.http.get(`${this.apiUrl}/competitions/${league}/standings`);
   }
 

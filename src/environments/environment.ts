@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://foot.alaeddine-thamine.net/app_dev.php/api'
+  apiUrl: 'http://footpaper.com'
   // apiUrl: 'http://127.0.0.1:15001/app_dev.php/api'
 };

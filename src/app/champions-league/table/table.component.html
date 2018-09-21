@@ -1,7 +1,7 @@
 <div *ngIf="!loading">
-  <ng-container *ngFor="let table of tables; let i = index">
+  <ng-container *ngFor="let groupTable of tables; let i = index">
     <mat-toolbar class="group-head">
-      <mat-toolbar-row>{{'table.group' | translate}} {{getGroupLabel(i)}}</mat-toolbar-row>
+      <mat-toolbar-row>{{groupTable.group}} </mat-toolbar-row>
     </mat-toolbar>
     <div class="table-item header">
       <div class="tab-header position">{{'table.ranking' | translate}}</div>
@@ -14,7 +14,8 @@
       <div class="tab-header"  >{{'table.diff' | translate}}</div>
       <div class="tab-header"  >{{'table.points' | translate}}</div>
     </div>
-    <app-table-team *ngFor="let tab of table; let odd=odd;" [teamTable]="tab" [class.odd]="odd"></app-table-team>
+
+    <app-table-team *ngFor="let tab of groupTable.table; let odd=odd;" [teamTable]="tab" [class.odd]="odd"></app-table-team>
   </ng-container>
 </div>
 <mat-spinner *ngIf="loading"></mat-spinner>

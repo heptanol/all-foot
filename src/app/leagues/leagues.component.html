@@ -5,7 +5,7 @@
       <app-result *ngIf="competition" [competition]="competition"></app-result>
     </mat-tab>
     <mat-tab label="{{'table.label' | translate}}" color="accent">
-      <app-table *ngIf="competition" [competition]="competition"></app-table>
+      <app-table *ngIf="competition" [standings]="competition.standings"></app-table>
     </mat-tab>
   </mat-tab-group>
 </ng-container>

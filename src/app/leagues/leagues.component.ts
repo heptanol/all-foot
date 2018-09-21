@@ -34,7 +34,7 @@ export class LeaguesComponent implements OnInit, OnDestroy {
 
   getCompetition(competitionId): void {
     this.loading = true;
-    this.subscribtions.push(this.apiService.getCompetition(competitionId)
+    this.subscribtions.push(this.apiService.getCompetitionStandings(competitionId)
       .pipe(
         tap(() => this.loading = false),
         catchError(err => {
