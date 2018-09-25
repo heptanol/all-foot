@@ -10,7 +10,7 @@
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
-  <div *ngIf="fixtures" role="list">
+  <div *ngIf="fixtures.length > 0" role="list">
     <div *ngFor="let fixture of fixtures |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
       <mat-toolbar class="day">
         <mat-toolbar-row>
@@ -24,6 +24,9 @@
         <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [class.odd]="odd"></app-fixture-min>
       </ng-container>
     </div>
+  </div>
+  <div *ngIf="fixtures.length === 0">
+    {{'no_matches'| translate}}
   </div>
 </ng-container>
 <mat-spinner *ngIf="loading"></mat-spinner>

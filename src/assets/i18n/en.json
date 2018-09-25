@@ -39,5 +39,18 @@
       "FINISHED": "FIN",
       "SUSPENDED": "SUS"
     }
-  }
+  },
+  "no_matches": "No matches",
+  "ROUND_OF_16": "8th finals",
+  "QUARTER_FINALS": "quarterfinal",
+  "SEMI_FINALS": "semifinal",
+  "FINAL": "final",
+  "GROUP_A": "GROUP A",
+  "GROUP_B": "GROUP B",
+  "GROUP_C": "GROUP C",
+  "GROUP_D": "GROUP D",
+  "GROUP_E": "GROUP E",
+  "GROUP_F": "GROUP F",
+  "GROUP_G": "GROUP G",
+  "GROUP_H": "GROUP H"
 }

@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {FootApiService} from '../shared/foot-api.service';
-import {Competition} from '../shared/model';
+import {Competition, CompetitionConfig} from '../shared/model';
 import {Subscription} from 'rxjs/Subscription';
 import {catchError, tap} from 'rxjs/operators';
 import {CommonService} from '../shared/common.service';
@@ -15,8 +15,10 @@ import {Cups} from '../shared/enum';
 export class ChampionsLeaguesComponent implements OnInit, OnDestroy {
 
   competition: Competition;
+  cometitionConfig: CompetitionConfig;
   matchDay: number;
   subscribtions: Subscription[] = [];
+  cups = Cups;
   loading = false;
   error = false;
   constructor(
@@ -27,7 +29,8 @@ export class ChampionsLeaguesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscribtions.push(this.route.params.subscribe(param => {
-      this.getCompetition(Cups.UEFA_CHAMPIONS_LEAGUE.id);
+      this.cometitionConfig = Object.values(this.cups).find((val) => val.path === param.cupPath);
+      this.getCompetition(this.cometitionConfig.id);
     }));
   }
 

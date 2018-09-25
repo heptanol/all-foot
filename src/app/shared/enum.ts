@@ -1,3 +1,4 @@
+import {CompetitionConfig} from './model';
 
 export const Leagues = {
   LIGA : {
@@ -44,18 +45,38 @@ export const Leagues = {
   },
 };
 
+export enum Stage {
+  ROUND_OF_16 = 'ROUND_OF_16',
+  QUARTER_FINALS = 'QUARTER_FINALS',
+  SEMI_FINALS = 'SEMI_FINALS',
+  FINAL = 'FINAL',
+}
+
 export const Cups = {
-  UEFA_CHAMPIONS_LEAGUE: {
+  UEFA_CHAMPIONS_LEAGUE: <CompetitionConfig>{
+    path: 'champions-league',
     id: '2001',
     name: 'UEFA champions league',
     country: 'europe',
     availableStage: [
-      'ROUND_OF_16',
-      'QUARTER_FINALS',
-      'SEMI_FINALS',
-      'FINAL',
+      Stage.ROUND_OF_16,
+      Stage.QUARTER_FINALS,
+      Stage.SEMI_FINALS,
+      Stage.FINAL
     ]
-  }
+  },
+  // WORLD_CUP: <CompetitionConfig>{
+  //   path: 'world-cup',
+  //   id: 'WC',
+  //   name: 'FIFA World Cup',
+  //   country: 'world',
+  //   availableStage: [
+  //     Stage.ROUND_OF_16,
+  //     Stage.QUARTER_FINALS,
+  //     Stage.SEMI_FINALS,
+  //     Stage.FINAL
+  //   ]
+  // }
 };
 
 export enum FeedsType {
@@ -80,5 +101,4 @@ export enum Durations {
   PENALTY_SHOOTOUT = 'PENALTY_SHOOTOUT',
   REGULAR = 'REGULAR'
 }
-
 

@@ -1,4 +1,4 @@
-import {Durations} from './enum';
+import {Durations, Stage} from './enum';
 
 export interface Competition {
   competition: {
@@ -73,5 +73,13 @@ export enum StatusType {
   POSTPONED = 'POSTPONED',
   SUSPENDED = 'SUSPENDED',
   CANCELED = 'CANCELED'
+}
+
+export interface CompetitionConfig {
+  path: string;
+  id: string;
+  name: string;
+  country: string;
+  availableStage?: any[];
 }
 

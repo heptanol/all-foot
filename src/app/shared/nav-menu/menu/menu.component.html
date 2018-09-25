@@ -31,9 +31,9 @@
 </mat-toolbar>
 <mat-menu #menu="matMenu" [xPosition]="'after'">
   <ul>
-    <li>
-      <a  href="" mat-button  [routerLink]="['/chamions-league']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
-        <app-icon [type]="'champions_league'"></app-icon><span>UEFA Champions League</span>
+    <li *ngFor="let cup of cupList">
+      <a  href="" mat-button  [routerLink]="['/cup/' + cup.path ]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+        <app-icon [type]="'champions_league'"></app-icon><span>{{ cup.name }}</span>
       </a>
     </li>
     <li *ngFor="let league of leagueList">

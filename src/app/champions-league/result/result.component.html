@@ -1,33 +1,73 @@
-<ng-container *ngIf="!loading && competition">
-  <mat-toolbar class="match-day">
-    <mat-toolbar-row>
-      <button mat-icon-button (click)="getData(competition.competition.id, matchDay - 1)"  *ngIf="matchDay !== 1">
-        <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_left</mat-icon>
-      </button>
-      <span *ngIf="matchDay < 7">{{'result.matchDay' | translate}} {{matchDay}}</span>
-      <span  *ngIf="matchDay == 7">{{'result.8th_finals' | translate}}</span>
-      <span  *ngIf="matchDay == 8">{{'result.quarterfinal' | translate}}</span>
-      <span  *ngIf="matchDay == 9">{{'result.semifinal' | translate}}</span>
-      <span  *ngIf="matchDay == 10">{{'result.final' | translate}}</span>
-      <button mat-icon-button (click)="getData(competition.competition.id, matchDay + 1)" *ngIf="matchDay !== totalMatchDay">
-        <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_right</mat-icon>
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  <div *ngIf="fixtures" role="list">
-    <div *ngFor="let fixture of fixtures |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
-      <mat-toolbar class="day">
+
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<mat-tab-group class="mini-tab">
+  <mat-tab label="{{'result.group_stage' | translate}}" color="accent">
+    <ng-container *ngIf="competition">
+      <mat-toolbar class="match-day">
         <mat-toolbar-row>
-          {{fixture.key  | date: 'EEEE dd/MM/yyyy'}}
+          <button mat-icon-button (click)="getGroupStageData(competition.competition.id, matchDay - 1)"  *ngIf="matchDay !== 1">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+          </button>
+          <span>{{'result.matchDay' | translate}} {{matchDay}}</span>
+          <button mat-icon-button (click)="getGroupStageData(competition.competition.id, matchDay + 1)" *ngIf="matchDay !== totalMatchDay">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
         </mat-toolbar-row>
       </mat-toolbar>
-      <ng-container *ngIf="device === deviceList.DESKTOP">
-        <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [class.odd]="odd"></app-fixture>
-      </ng-container>
-      <ng-container *ngIf="device !== deviceList.DESKTOP">
-        <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [class.odd]="odd"></app-fixture-min>
-      </ng-container>
-    </div>
-  </div>
-</ng-container>
-<mat-spinner *ngIf="loading"></mat-spinner>
+      <div *ngIf="groupStageFixtures.length > 0" role="list">
+        <div *ngFor="let fixture of groupStageFixtures |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
+          <mat-toolbar class="day">
+            <mat-toolbar-row>
+              {{fixture.key  | date: 'EEEE dd/MM/yyyy'}}
+            </mat-toolbar-row>
+          </mat-toolbar>
+          <ng-container *ngIf="device === deviceList.DESKTOP">
+            <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [class.odd]="odd"></app-fixture>
+          </ng-container>
+          <ng-container *ngIf="device !== deviceList.DESKTOP">
+            <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [class.odd]="odd"></app-fixture-min>
+          </ng-container>
+        </div>
+      </div>
+      <div *ngIf="groupStageFixtures.length === 0">
+        {{'no_matches'| translate}}
+      </div>
+    </ng-container>
+  </mat-tab>
+  <mat-tab label="{{'result.final_stage' | translate}}" color="accent">
+
+    <ng-container *ngIf="competition">
+      <mat-toolbar class="match-day">
+        <mat-toolbar-row>
+          <button mat-icon-button (click)="previousStage()" *ngIf="actualStage.index !== 0">
+            <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_left</mat-icon>
+          </button>
+          <span>{{ actualStage.stage | translate }}</span>
+          <button mat-icon-button (click)="nextStage()" *ngIf="actualStage.index < avilableStage.length -1">
+            <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_right</mat-icon>
+          </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <div *ngIf="finalStageFixtures.length > 0" role="list">
+        <div *ngFor="let fixture of finalStageFixtures |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
+          <mat-toolbar class="day">
+            <mat-toolbar-row>
+              {{fixture.key  | date: 'EEEE dd/MM/yyyy'}}
+            </mat-toolbar-row>
+          </mat-toolbar>
+          <ng-container *ngIf="device === deviceList.DESKTOP">
+            <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [class.odd]="odd"></app-fixture>
+          </ng-container>
+          <ng-container *ngIf="device !== deviceList.DESKTOP">
+            <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [class.odd]="odd"></app-fixture-min>
+          </ng-container>
+        </div>
+      </div>
+      <div *ngIf="groupStageFixtures.length === 0">
+        {{'no_matches'| translate}}
+      </div>
+    </ng-container>
+
+  </mat-tab>
+</mat-tab-group>

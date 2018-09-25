@@ -11,7 +11,7 @@ const APP_ROUTES: Routes = [
   {path: 'today', component: TodayComponent},
   {path: 'news', component: NewsComponent},
   {path: 'league/:leaguePath', component: LeaguesComponent},
-  {path: 'chamions-league', component: ChampionsLeaguesComponent},
+  {path: 'cup/:cupPath', component: ChampionsLeaguesComponent},
   { path: '**', redirectTo: '' }
 ];
 

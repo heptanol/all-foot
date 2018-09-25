@@ -2,7 +2,7 @@
   <h2>{{competition.competition.name}}</h2>
   <mat-tab-group>
     <mat-tab label="{{'result.label' | translate}}" color="accent">
-      <app-result-cl *ngIf="competition" [competition]="competition"></app-result-cl>
+      <app-result-cl *ngIf="competition" [competition]="competition" [config]="cometitionConfig"></app-result-cl>
     </mat-tab>
     <mat-tab label="{{'table.label' | translate}}" color="accent">
       <app-table-cl *ngIf="competition" [standings]="competition.standings"></app-table-cl>

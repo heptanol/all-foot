@@ -1,7 +1,7 @@
 <div *ngIf="!loading">
   <ng-container *ngFor="let groupTable of tables; let i = index">
     <mat-toolbar class="group-head">
-      <mat-toolbar-row>{{groupTable.group}} </mat-toolbar-row>
+      <mat-toolbar-row>{{groupTable.group | translate}} </mat-toolbar-row>
     </mat-toolbar>
     <div class="table-item header">
       <div class="tab-header position">{{'table.ranking' | translate}}</div>

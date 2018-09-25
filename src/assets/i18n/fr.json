@@ -13,6 +13,8 @@
   },
   "result": {
     "label": "Resultat",
+    "group_stage": "Phase des groupes",
+    "final_stage": "Phase finale",
     "matchDay": "Journée",
     "8th_finals": "8e de finale",
     "quarterfinal": "Quart de finale",
@@ -39,5 +41,18 @@
       "FINISHED": "FINI",
       "SUSPENDED": "SUS"
     }
-  }
+  },
+  "no_matches": "Pas de matches",
+  "ROUND_OF_16": "8e de finale",
+  "QUARTER_FINALS": "Quart de finale",
+  "SEMI_FINALS": "Demi finale",
+  "FINAL": "finale",
+  "GROUP_A": "GROUPE A",
+  "GROUP_B": "GROUPE B",
+  "GROUP_C": "GROUPE C",
+  "GROUP_D": "GROUPE D",
+  "GROUP_E": "GROUPE E",
+  "GROUP_F": "GROUPE F",
+  "GROUP_G": "GROUPE G",
+  "GROUP_H": "GROUPE H"
 }
