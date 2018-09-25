@@ -15,7 +15,7 @@
           </button>
         </mat-toolbar-row>
       </mat-toolbar>
-      <div *ngIf="groupStageFixtures.length > 0" role="list">
+      <div *ngIf="groupStageFixtures" role="list">
         <div *ngFor="let fixture of groupStageFixtures |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
           <mat-toolbar class="day">
             <mat-toolbar-row>
@@ -29,9 +29,6 @@
             <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [class.odd]="odd"></app-fixture-min>
           </ng-container>
         </div>
-      </div>
-      <div *ngIf="groupStageFixtures.length === 0">
-        {{'no_matches'| translate}}
       </div>
     </ng-container>
   </mat-tab>
@@ -49,7 +46,7 @@
           </button>
         </mat-toolbar-row>
       </mat-toolbar>
-      <div *ngIf="finalStageFixtures.length > 0" role="list">
+      <div *ngIf="finalStageFixtures" role="list">
         <div *ngFor="let fixture of finalStageFixtures |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
           <mat-toolbar class="day">
             <mat-toolbar-row>
@@ -63,9 +60,6 @@
             <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [class.odd]="odd"></app-fixture-min>
           </ng-container>
         </div>
-      </div>
-      <div *ngIf="groupStageFixtures.length === 0">
-        {{'no_matches'| translate}}
       </div>
     </ng-container>
 

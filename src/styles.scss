@@ -76,6 +76,11 @@ app-fixture.odd{
     background-color: mat-color($mat-gray, 200);
   }
 }
+app-scorers{
+  .table-item.odd{
+    background-color: mat-color($mat-gray, 200);
+  }
+}
 /**
 * Global style
  */

@@ -83,3 +83,22 @@ export interface CompetitionConfig {
   availableStage?: any[];
 }
 
+export interface Player {
+  countryOfBirth: string;
+  dateOfBirth: string;
+  firstName: string;
+  id: string;
+  lastName: string;
+  lastUpdated: string;
+  name: string;
+  nationality: string;
+  position: string;
+  shirtNumber: number;
+}
+
+export interface ScorerTable {
+  player: Player;
+  team: Team;
+  numberOfGoals: number;
+}
+

@@ -33,11 +33,19 @@
     "diff": "Diff",
     "points": "Pts"
   },
+  "scorers": {
+    "label": "Buteurs",
+    "player": "Joueur",
+    "team": "équipe",
+    "nationality": "Nationalité",
+    "ranking": "Pos",
+    "numberOfGoals": "Buts"
+  },
   "match": {
     "status": {
       "POSTPONED": "REP",
       "CANCELED": "ANN",
-      "PAUSED": "PAUS",
+      "PAUSED": "MT",
       "FINISHED": "FINI",
       "SUSPENDED": "SUS"
     }

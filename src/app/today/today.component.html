@@ -6,7 +6,7 @@
       <span>Matches du jour</span>
     </mat-toolbar-row>
   </mat-toolbar>
-  <div *ngIf="fixtures.length > 0" role="list">
+  <div *ngIf="fixtures && fixtures.length > 0" role="list">
     <div *ngFor="let fixture of fixtures |  groupBy:'competitionName'" role="listitem" class="border mt-3 mb-3">
       <mat-toolbar class="day">
         <mat-toolbar-row>
@@ -21,7 +21,7 @@
       </ng-container>
     </div>
   </div>
-  <div *ngIf="fixtures.length === 0">
+  <div *ngIf="fixtures && fixtures.length === 0">
     {{'no_matches'| translate}}
   </div>
 </ng-container>

@@ -1,0 +1,28 @@
+@import '~@angular/material/theming';
+mat-grid-tile.tab-header{
+  background: mat-color($mat-grey, 700);
+  color: mat-color($mat-grey, 50);
+}
+mat-grid-tile.tab-row{
+  background: mat-color($mat-grey, 400);
+  color: mat-color($mat-grey, 50);
+}
+.table-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  &.header {
+    border-bottom: 3px solid mat-color($mat-gray, 900);
+  }
+  .tab-header, .tab-row{
+    flex: 2;
+    text-align: center;
+  }
+  .player{
+    flex: 7;
+  }
+  .team{
+    flex: 7;
+  }
+}

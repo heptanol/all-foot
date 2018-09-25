@@ -7,6 +7,9 @@
     <mat-tab label="{{'table.label' | translate}}" color="accent">
       <app-table *ngIf="competition" [standings]="competition.standings"></app-table>
     </mat-tab>
+    <mat-tab label="{{'scorers.label' | translate}}" color="accent">
+      <app-scorers *ngIf="competition" [competition]="competition"></app-scorers>
+    </mat-tab>
   </mat-tab-group>
 </ng-container>
 <mat-spinner *ngIf="loading"></mat-spinner>

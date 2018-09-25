@@ -46,6 +46,7 @@ import { NewsItemComponent } from './news/news-item/news-item.component';
 import {OrderByPipe} from './shared/pipe/order-by';
 import { HomeComponent } from './home/home.component';
 import { FixtureMinComponent } from './shared/fixture/fixture-min/fixture-min.component';
+import { ScorersComponent } from './leagues/scorers/scorers.component';
 
 
 registerLocaleData(localeFr);
@@ -78,6 +79,7 @@ export const lang = navigator.language.slice(0, 2);
     NewsItemComponent,
     HomeComponent,
     FixtureMinComponent,
+    ScorersComponent,
   ],
   imports: [
     BrowserModule,

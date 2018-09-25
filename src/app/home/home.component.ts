@@ -1,5 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {Devices, Leagues} from '../shared/enum';
+import {Cups, Devices, Leagues} from '../shared/enum';
 import {CommonService} from '../shared/common.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   device: Devices;
   deviceList = Devices;
   leagues = [];
+  cups = [];
 
   constructor(
     private commonService: CommonService
@@ -20,12 +21,20 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.device = this.commonService.detectDevice();
     this.getLeagues();
+    this.getCups();
   }
 
   getLeagues(): void {
     const leaguesList = Leagues;
     Object.values(leaguesList).map((val) => {
       return this.leagues.push(val);
+    });
+  }
+
+  getCups(): void {
+    const cupsList = Cups;
+    Object.values(cupsList).map((val) => {
+      return this.cups.push(val);
     });
   }
 

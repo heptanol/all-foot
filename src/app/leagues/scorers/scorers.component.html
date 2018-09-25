@@ -1,0 +1,19 @@
+<ng-container *ngIf="!loading && !error">
+  <div class="table-item header">
+    <div class="tab-header position">{{'scorers.ranking' | translate}}</div>
+    <div class="tab-header player" >{{'scorers.player' | translate}}</div>
+    <div class="tab-header team" >{{'scorers.team' | translate}}</div>
+    <div class="tab-header team" >{{'scorers.nationality' | translate}}</div>
+    <div class="tab-header"  >{{'scorers.numberOfGoals' | translate}}</div>
+  </div>
+  <ng-container *ngFor="let scorer of scorers; let i = index; let odd=odd;">
+    <div class="table-item" [class.odd]="odd">
+      <div class="tab-row position">{{i+1}}</div>
+      <div class="tab-row player">{{scorer.player.name}}</div>
+      <div class="tab-row team">{{scorer.team.name}}</div>
+      <div class="tab-row team">{{scorer.player.nationality}}</div>
+      <div class="tab-row">{{scorer.numberOfGoals}}</div>
+    </div>
+  </ng-container>
+</ng-container>
+<mat-spinner *ngIf="loading"></mat-spinner>
