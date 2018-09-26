@@ -27,7 +27,6 @@ export class LeaguesComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    console.log(this.leagueConfig);
     this.subscribtions.push(this.route.params.subscribe(param => {
       const comp = Object.values(this.leagues).find((val) => val.path === param.leaguePath);
       this.getCompetition(comp.id);

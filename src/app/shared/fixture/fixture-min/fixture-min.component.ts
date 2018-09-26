@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, HostListener, Input} from '@angular/core';
 import {Fixture, StatusType} from '../../model';
 import {Durations} from '../../enum';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-fixture-min',
@@ -10,10 +11,17 @@ import {Durations} from '../../enum';
 export class FixtureMinComponent {
 
   @Input() fixture: Fixture;
+  @Input() competition: any;
   statusType = StatusType;
   durationsTypes = Durations;
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
+  @HostListener('click')
+  onClick() {
+    this.router.navigate(['league/' + this.competition.id + '/matche/' + this.fixture.id]);
+  }
 
   isHomeWinner() {
     if (this.fixture.score.fullTime.homeTeam > this.fixture.score.fullTime.awayTeam) {

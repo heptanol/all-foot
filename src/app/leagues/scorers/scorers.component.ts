@@ -40,7 +40,6 @@ export class ScorersComponent implements OnInit {
       )
       .subscribe(data => {
         this.scorers = data.scorers;
-        console.log(this.scorers);
       });
   }
 

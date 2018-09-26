@@ -14,10 +14,10 @@
         </mat-toolbar-row>
       </mat-toolbar>
       <ng-container *ngIf="!isBloc &&  device === deviceList.DESKTOP">
-        <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [class.odd]="odd" [fixture]="fix"></app-fixture>
+        <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [class.odd]="odd" [competition]="fix.competition" [fixture]="fix"></app-fixture>
       </ng-container>
       <ng-container *ngIf="isBloc || device !== deviceList.DESKTOP">
-        <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [class.odd]="odd" [fixture]="fix"></app-fixture-min>
+        <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [class.odd]="odd" [competition]="fix.competition" [fixture]="fix"></app-fixture-min>
       </ng-container>
     </div>
   </div>

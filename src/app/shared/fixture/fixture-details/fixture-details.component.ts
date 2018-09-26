@@ -30,9 +30,9 @@ export class FixtureDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.subscribtions.push(this.route.params.subscribe(param => {
-      const league = Object.values(this.leagues).find((val) => val.path === param.leaguePath);
+      const leagueId = param.leaguePath;
       const matchId =  param.matchId;
-      this.getMatche(league.id, matchId);
+      this.getMatche(leagueId, matchId);
     }));
   }
 

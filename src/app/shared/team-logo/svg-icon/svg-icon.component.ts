@@ -9,9 +9,7 @@ export class TeamSvgIconComponent {
   @Input() id: String;
   @Input() bigSize;
 
-  constructor() {
-    console.log(this.bigSize);
-  }
+  constructor() {}
 
   get absUrl() {
     return window.location.href;

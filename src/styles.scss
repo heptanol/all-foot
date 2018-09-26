@@ -71,6 +71,9 @@ app-table-team.odd{
     background-color: mat-color($mat-gray, 200);
   }
 }
+app-fixture-min{
+  cursor: pointer;
+}
 app-fixture {
   cursor: pointer;
   &.odd {

@@ -1,6 +1,7 @@
 import {Component, HostListener, Input} from '@angular/core';
-import {Fixture, StatusType} from '../model';
+import {Competition, Fixture, StatusType} from '../model';
 import {Durations} from '../enum';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-fixture',
@@ -10,13 +11,16 @@ import {Durations} from '../enum';
 export class FixtureComponent {
 
   @Input() fixture: Fixture;
+  @Input() competition: any;
   statusType = StatusType;
   durationsTypes = Durations;
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   @HostListener('click')
   onClick() {
-    console.log('User Click using Host Listener', this.fixture);
+    this.router.navigate(['league/' + this.competition.id + '/matche/' + this.fixture.id]);
   }
 
   isHomeWinner() {
