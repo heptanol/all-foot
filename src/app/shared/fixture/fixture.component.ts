@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, HostListener, Input} from '@angular/core';
 import {Fixture, StatusType} from '../model';
 import {Durations} from '../enum';
 
@@ -13,6 +13,11 @@ export class FixtureComponent {
   statusType = StatusType;
   durationsTypes = Durations;
   constructor() { }
+
+  @HostListener('click')
+  onClick() {
+    console.log('User Click using Host Listener', this.fixture);
+  }
 
   isHomeWinner() {
     if (this.fixture.score.fullTime.homeTeam > this.fixture.score.fullTime.awayTeam) {

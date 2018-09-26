@@ -47,6 +47,8 @@ import {OrderByPipe} from './shared/pipe/order-by';
 import { HomeComponent } from './home/home.component';
 import { FixtureMinComponent } from './shared/fixture/fixture-min/fixture-min.component';
 import { ScorersComponent } from './leagues/scorers/scorers.component';
+import { FixtureDetailsComponent } from './shared/fixture/fixture-details/fixture-details.component';
+import {LeaguesResolver} from './shared/league-resolver';
 
 
 registerLocaleData(localeFr);
@@ -80,6 +82,7 @@ export const lang = navigator.language.slice(0, 2);
     HomeComponent,
     FixtureMinComponent,
     ScorersComponent,
+    FixtureDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -115,6 +118,7 @@ export const lang = navigator.language.slice(0, 2);
     CommonService,
     HeaderService,
     CustomTranslateService,
+    LeaguesResolver,
     { provide: LOCALE_ID, useValue: lang }
   ],
   bootstrap: [AppComponent]

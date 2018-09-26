@@ -71,11 +71,15 @@ app-table-team.odd{
     background-color: mat-color($mat-gray, 200);
   }
 }
-app-fixture.odd{
-  .fixture{
-    background-color: mat-color($mat-gray, 200);
+app-fixture {
+  cursor: pointer;
+  &.odd {
+    .fixture{
+      background-color: mat-color($mat-gray, 200);
+    }
   }
 }
+
 app-scorers{
   .table-item.odd{
     background-color: mat-color($mat-gray, 200);

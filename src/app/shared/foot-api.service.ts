@@ -20,6 +20,10 @@ export class FootApiService {
     return this.http.get(`${this.apiUrl}/competitions/${league}/matches`, {params});
   }
 
+  getMatche(league, matche): Observable<any> {
+    return this.http.get(`${this.apiUrl}/competitions/${league}/matches/${matche}`);
+  }
+
   getCompetitionStandings(league): Observable<any> {
     return this.http.get(`${this.apiUrl}/competitions/${league}/standings`);
   }

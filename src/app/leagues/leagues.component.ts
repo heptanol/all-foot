@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {FootApiService} from '../shared/foot-api.service';
-import {Competition} from '../shared/model';
+import {Competition, CompetitionConfig} from '../shared/model';
 import {Subscription} from 'rxjs/Subscription';
 import {catchError, tap} from 'rxjs/operators';
 import {CommonService} from '../shared/common.service';
@@ -16,6 +16,7 @@ export class LeaguesComponent implements OnInit, OnDestroy {
 
   competition: Competition;
   subscribtions: Subscription[] = [];
+  leagueConfig: CompetitionConfig;
   leagues = Leagues;
   loading = false;
   error = false;
@@ -26,6 +27,7 @@ export class LeaguesComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    console.log(this.leagueConfig);
     this.subscribtions.push(this.route.params.subscribe(param => {
       const comp = Object.values(this.leagues).find((val) => val.path === param.leaguePath);
       this.getCompetition(comp.id);

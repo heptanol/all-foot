@@ -7,8 +7,11 @@ import {Component, Input} from '@angular/core';
 })
 export class TeamSvgIconComponent {
   @Input() id: String;
+  @Input() bigSize;
 
-  constructor() {}
+  constructor() {
+    console.log(this.bigSize);
+  }
 
   get absUrl() {
     return window.location.href;
