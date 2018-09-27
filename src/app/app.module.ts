@@ -26,9 +26,9 @@ import { TableComponent } from './leagues/table/table.component';
 import {GroupByPipe} from './shared/pipe/group-by';
 import { LeaguesComponent } from './leagues/leagues.component';
 import {CommonService} from './shared/common.service';
-import {ChampionsLeaguesComponent} from './champions-league/champions-leagues.component';
-import {ResultClComponent} from './champions-league/result/result.component';
-import {TableClComponent} from './champions-league/table/table.component';
+import {CupsComponent} from './cups/cups.component';
+import {ResultClComponent} from './cups/result/result.component';
+import {TableClComponent} from './cups/table/table.component';
 import {FixtureComponent} from './shared/fixture/fixture.component';
 import { TableTeamComponent } from './shared/table-team/table-team.component';
 import {MatCardModule, MatMenuModule} from '@angular/material';
@@ -68,7 +68,7 @@ export const lang = navigator.language.slice(0, 2);
     GroupByPipe,
     OrderByPipe,
     LeaguesComponent,
-    ChampionsLeaguesComponent,
+    CupsComponent,
     ResultClComponent,
     TableClComponent,
     FixtureComponent,

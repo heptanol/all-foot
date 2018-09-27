@@ -8,11 +8,11 @@ import {CommonService} from '../shared/common.service';
 import {Cups} from '../shared/enum';
 
 @Component({
-  selector: 'app-champions-leagues',
-  templateUrl: './champions-leagues.component.html',
-  styleUrls: ['./champions-leagues.component.scss']
+  selector: 'app-cups',
+  templateUrl: './cups.component.html',
+  styleUrls: ['./cups.component.scss']
 })
-export class ChampionsLeaguesComponent implements OnInit, OnDestroy {
+export class CupsComponent implements OnInit, OnDestroy {
 
   competition: Competition;
   cometitionConfig: CompetitionConfig;
