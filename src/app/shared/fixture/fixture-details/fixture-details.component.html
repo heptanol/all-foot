@@ -1,4 +1,4 @@
-<ng-container *ngIf="fixture">
+<ng-container *ngIf="!loading && fixture">
   <div class="fixture">
     <div class="team home">
       <div><app-team-svg-icon [bigSize]="true"  [id]="fixture.homeTeam.id"></app-team-svg-icon></div>
@@ -37,18 +37,19 @@
     </div>
   </div>
   <div class="fixture-details">
-    <!--<mat-tab-group>-->
-      <!--<mat-tab label="{{'match.linups' | translate}}" color="accent">-->
-        <!--teams line-ups-->
-      <!--</mat-tab>-->
-      <!--<mat-tab label="{{'match.results' | translate}}" color="accent">-->
-        <!--teams result-->
-      <!--</mat-tab>-->
-      <!--<mat-tab label="{{'match.standing' | translate}}" color="accent">-->
-        <!--teams standings-->
-      <!--</mat-tab>-->
-    <!--</mat-tab-group>-->
+    <div class="mdc-layout-grid">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell--span-8-desktop">
+          test
+        </div>
+        <div class="mdc-layout-grid__cell--span-4-desktop">
+          <app-min-table [homeTeamId]="fixture.homeTeam.id" [awayTeamId]="fixture.awayTeam.id" [competitionId]="leagueId"></app-min-table>
+        </div>
+      </div>
+    </div>
   </div>
 </ng-container>
+<mat-spinner *ngIf="loading"></mat-spinner>
+
 
 

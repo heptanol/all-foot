@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+.table-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  .tab-row{
+    flex: 2;
+    text-align: center;
+  }
+  .team{
+    flex: 7;
+    text-align: left;
+  }
+}

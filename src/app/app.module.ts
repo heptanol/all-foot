@@ -49,6 +49,8 @@ import { FixtureMinComponent } from './shared/fixture/fixture-min/fixture-min.co
 import { ScorersComponent } from './leagues/scorers/scorers.component';
 import { FixtureDetailsComponent } from './shared/fixture/fixture-details/fixture-details.component';
 import {LeaguesResolver} from './shared/league-resolver';
+import { MinTableComponent } from './shared/min-table/min-table.component';
+import {MinTableTeamComponent} from './shared/table-team/min-table-team/min-table-team.component';
 
 
 registerLocaleData(localeFr);
@@ -83,6 +85,8 @@ export const lang = navigator.language.slice(0, 2);
     FixtureMinComponent,
     ScorersComponent,
     FixtureDetailsComponent,
+    MinTableComponent,
+    MinTableTeamComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,8 +17,8 @@ export class FixtureDetailsComponent implements OnInit {
   fixture: Fixture;
   statusType = StatusType;
   durationsTypes = Durations;
+  leagueId: string;
   subscribtions: Subscription[] = [];
-  leagues = Leagues;
   loading = false;
   error = false;
 
@@ -30,9 +30,9 @@ export class FixtureDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.subscribtions.push(this.route.params.subscribe(param => {
-      const leagueId = param.leaguePath;
+      this.leagueId = param.leaguePath;
       const matchId =  param.matchId;
-      this.getMatche(leagueId, matchId);
+      this.getMatche(this.leagueId, matchId);
     }));
   }
 
