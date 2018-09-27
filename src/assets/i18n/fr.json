@@ -42,6 +42,9 @@
     "numberOfGoals": "Buts"
   },
   "match": {
+    "linups": "Compositions",
+    "results": "Resultat",
+    "standing": "Classement",
     "status": {
       "POSTPONED": "REP",
       "CANCELED": "ANN",

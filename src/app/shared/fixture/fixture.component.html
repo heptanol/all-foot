@@ -1,5 +1,5 @@
 <div class="fixture" *ngIf="fixture">
-  <div class="team home"  [class.winner]="fixture.score.fullTime.homeTeam > fixture.score.fullTime.awayTeam">{{fixture.homeTeam.name}}</div>
+  <div class="team home"  [class.winner]="isHomeWinner()">{{fixture.homeTeam.name}}</div>
   <div class="logo home"><app-team-svg-icon [id]="fixture.homeTeam.id"></app-team-svg-icon></div>
   <div class="result">
     <div class="regular">
@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="logo away"><app-team-svg-icon [id]="fixture.awayTeam.id"></app-team-svg-icon></div>
-  <div class="team away" [class.winner]="fixture.score.fullTime.homeTeam < fixture.score.fullTime.awayTeam">{{fixture.awayTeam.name}}</div>
+  <div class="team away" [class.winner]="isAwayWinner()">{{fixture.awayTeam.name}}</div>
 
   <div class="status" *ngIf="fixture.status === statusType.SCHEDULED">{{fixture.utcDate | date: 'HH:mm'}}</div>
   <div class="status in-play" *ngIf="fixture.status === statusType.IN_PLAY">{{fixture.diff}}'</div>

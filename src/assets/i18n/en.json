@@ -40,6 +40,9 @@
     "numberOfGoals": "Goals"
   },
   "match": {
+    "linups": "Linups",
+    "results": "results",
+    "standing": "standing",
     "status": {
       "POSTPONED": "REP",
       "CANCELED": "CANC",
