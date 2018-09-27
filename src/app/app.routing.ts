@@ -12,7 +12,7 @@ const APP_ROUTES: Routes = [
   {path: 'today', component: TodayComponent},
   {path: 'news', component: NewsComponent},
   {path: 'league/:leaguePath', component: LeaguesComponent},
-  {path: 'league/:leaguePath/matche/:matchId', component: FixtureDetailsComponent},
+  {path: 'matche/:leaguePath/:matchId', component: FixtureDetailsComponent},
   {path: 'cup/:cupPath', component: CupsComponent},
   { path: '**', redirectTo: '' }
 ];

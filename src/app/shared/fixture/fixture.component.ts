@@ -20,7 +20,7 @@ export class FixtureComponent {
 
   @HostListener('click')
   onClick() {
-    this.router.navigate(['league/' + this.competition.id + '/matche/' + this.fixture.id]);
+    this.router.navigate(['matche/' + this.competition.id + '/' + this.fixture.id]);
   }
 
   isHomeWinner() {
