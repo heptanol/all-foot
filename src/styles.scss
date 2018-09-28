@@ -176,3 +176,8 @@ a.overlay-link {
     line-height: 42px;
   }
 }
+
+.highlight .table-item{
+  color: mat-color($mat-grey, 50);
+  background: mat-color($mat-grey, 800);
+}

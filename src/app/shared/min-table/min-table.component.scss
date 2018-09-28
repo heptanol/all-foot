@@ -17,6 +17,6 @@
     text-align: left;
   }
 }
-app-min-table-team.highlight {
-  font-weight: bold;
+app-min-table-team.highlight .table-item{
+  background: mat-color($mat-grey, 400);
 }

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Standing} from '../../shared/model';
+import {StandingType} from '../../shared/enum';
 
 @Component({
   selector: 'app-table-cl',
@@ -17,8 +18,8 @@ export class TableClComponent implements OnInit {
   }
 
   getData() {
-    this.standings.filter(value => value.type === 'TOTAL')
-      .map(val => this.tables.push(val));
+    this.standings.filter(value => value.type === StandingType.TOTAL)
+      .map((val: Standing) => this.tables.push(val));
   }
 
 }

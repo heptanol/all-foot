@@ -1,7 +1,7 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {FootApiService} from '../shared/foot-api.service';
-import {Competition, CompetitionConfig} from '../shared/model';
+import {Competition, CompetitionConfig, CompetitionResponse} from '../shared/model';
 import {Subscription} from 'rxjs/Subscription';
 import {catchError, tap} from 'rxjs/operators';
 import {CommonService} from '../shared/common.service';
@@ -14,7 +14,7 @@ import {Leagues} from '../shared/enum';
 })
 export class LeaguesComponent implements OnInit, OnDestroy {
 
-  competition: Competition;
+  competition: CompetitionResponse;
   subscribtions: Subscription[] = [];
   leagues = Leagues;
   loading = false;
@@ -42,8 +42,8 @@ export class LeaguesComponent implements OnInit, OnDestroy {
           return err;
         })
         )
-      .subscribe(data => {
-        this.competition = <Competition>data;
+      .subscribe(competition => {
+        this.competition = competition;
       }));
   }
 

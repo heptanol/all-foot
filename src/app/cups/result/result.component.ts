@@ -1,10 +1,10 @@
 import {Component, HostListener, Input, OnDestroy, OnInit} from '@angular/core';
 import {FootApiService} from '../../shared/foot-api.service';
 import {Subscription} from 'rxjs/Subscription';
-import {Competition, CompetitionConfig} from '../../shared/model';
+import {CompetitionConfig, CompetitionResponse, MatchResponse} from '../../shared/model';
 import {catchError, tap} from 'rxjs/operators';
 import {CommonService} from '../../shared/common.service';
-import {Cups, Devices, Stage} from '../../shared/enum';
+import {Devices, StageType} from '../../shared/enum';
 
 @Component({
   selector: 'app-result-cl',
@@ -12,7 +12,7 @@ import {Cups, Devices, Stage} from '../../shared/enum';
   styleUrls: ['./result.component.scss']
 })
 export class ResultClComponent implements OnInit, OnDestroy {
-  @Input()competition: Competition;
+  @Input()competition: CompetitionResponse;
   @Input()config: CompetitionConfig;
   matchDay: number;
   groupStageFixtures: any[];
@@ -23,7 +23,7 @@ export class ResultClComponent implements OnInit, OnDestroy {
   error = false;
   device: Devices;
   deviceList = Devices;
-  actualStage: {stage: Stage, index: number};
+  actualStage: {stage: StageType, index: number};
   avilableStage: any[];
   constructor(
     private apiService: FootApiService,
@@ -53,7 +53,7 @@ export class ResultClComponent implements OnInit, OnDestroy {
           return err;
         })
       )
-      .subscribe(data => {
+      .subscribe((data: MatchResponse) => {
         this.groupStageFixtures = data.matches;
         this.totalMatchDay = data.totalMatchDays;
       });

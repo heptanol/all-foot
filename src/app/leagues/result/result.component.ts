@@ -1,7 +1,7 @@
 import {Component, HostListener, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import {FootApiService} from '../../shared/foot-api.service';
 import {Subscription} from 'rxjs/Subscription';
-import {Competition} from '../../shared/model';
+import {Competition, CompetitionResponse, MatchResponse} from '../../shared/model';
 import {catchError, tap} from 'rxjs/operators';
 import {CommonService} from '../../shared/common.service';
 import {Devices} from '../../shared/enum';
@@ -12,7 +12,7 @@ import {Devices} from '../../shared/enum';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent implements OnInit, OnDestroy {
-  @Input()competition: Competition;
+  @Input()competition: CompetitionResponse;
   matchDay: number;
   totalMatchDay: number;
   fixtures: any[];
@@ -46,7 +46,7 @@ export class ResultComponent implements OnInit, OnDestroy {
           return err;
         })
       )
-      .subscribe(data => {
+      .subscribe((data: MatchResponse) => {
         this.fixtures = data.matches;
         this.totalMatchDay = data.totalMatchDays;
       });

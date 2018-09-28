@@ -1,54 +1,45 @@
-import {Durations, Stage} from './enum';
+import {DurationType, StageType, StandingType, StatusType} from './enum';
 
+
+/************************
+ *      API Object      *
+ ************************/
+export interface CompetitionResponse {
+  competition: Competition;
+  season: Season;
+  standings: Standing[];
+}
+export interface MatchResponse {
+  competition: Competition;
+  matches: Match[];
+  totalMatchDays: number;
+}
+/************************
+ * Competition Object   *
+ ************************/
 export interface Competition {
-  competition: {
+  id: number;
+  name: string;
+  plan: string;
+  code: string;
+  area: {
     id: number;
     name: string;
-    area: {
-      id: number;
-      name: string;
-    }
   };
-  season: {
-    id: number;
-    currentMatchday: number;
-  };
-  standings: Standing[];
+}
+
+export interface Season {
+  id: number;
+  currentMatchday: number;
+  startDate: string;
+  endDate: string;
 }
 
 export interface Standing {
   group: string;
-  stage: any;
-  type: any;
+  stage: StageType;
+  type: StandingType;
   table: TableTeam[];
-}
-
-export interface Fixture {
-  homeTeam: Team;
-  awayTeam: Team;
-  score: {
-    duration: Durations;
-    fullTime: Goals;
-    halfTime: Goals;
-    extraTime: Goals;
-    penalties: Goals;
-  };
-  diff: string;
-  utcDate: string;
-  status: StatusType;
-  id: number;
-  matchday: number;
-}
-
-export interface Team {
-  id: number;
-  name: string;
-  crestUrl?: string;
-}
-
-export interface Goals {
-  homeTeam: number;
-  awayTeam: number;
 }
 
 export interface TableTeam  {
@@ -64,23 +55,37 @@ export interface TableTeam  {
   goalDifference: number;
 }
 
-export enum StatusType {
-  SCHEDULED = 'SCHEDULED',
-  LIVE = 'LIVE',
-  IN_PLAY = 'IN_PLAY',
-  PAUSED = 'PAUSED',
-  FINISHED = 'FINISHED',
-  POSTPONED = 'POSTPONED',
-  SUSPENDED = 'SUSPENDED',
-  CANCELED = 'CANCELED'
+/************************
+ *    Match Object      *
+ ************************/
+export interface Match {
+  homeTeam: Team;
+  awayTeam: Team;
+  score: {
+    duration: DurationType;
+    fullTime: Goals;
+    halfTime: Goals;
+    extraTime: Goals;
+    penalties: Goals;
+    winner: string;
+  };
+  diff: string;
+  utcDate: string;
+  status: StatusType;
+  stage: StageType;
+  id: number;
+  matchday: number;
 }
 
-export interface CompetitionConfig {
-  path: string;
-  id: string;
+export interface Team {
+  id: number;
   name: string;
-  country: string;
-  availableStage?: any[];
+  crestUrl?: string;
+}
+
+export interface Goals {
+  homeTeam: number;
+  awayTeam: number;
 }
 
 export interface Player {
@@ -101,4 +106,14 @@ export interface ScorerTable {
   team: Team;
   numberOfGoals: number;
 }
+
+
+export interface CompetitionConfig {
+  path: string;
+  id: string;
+  name: string;
+  country: string;
+  availableStage?: any[];
+}
+
 

@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Durations, Leagues} from '../../enum';
-import {Competition, Fixture, StatusType} from '../../model';
+import {Competition, Match} from '../../model';
 import {FootApiService} from '../../foot-api.service';
 import {CommonService} from '../../common.service';
 import {catchError, tap} from 'rxjs/operators';
 import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute} from '@angular/router';
+import {DurationType, StageType, StatusType} from '../../enum';
 
 @Component({
   selector: 'app-fixture-details',
@@ -14,13 +14,14 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class FixtureDetailsComponent implements OnInit {
 
-  fixture: Fixture;
+  fixture: Match;
   statusType = StatusType;
-  durationsTypes = Durations;
+  durationsTypes = DurationType;
   leagueId: string;
   subscribtions: Subscription[] = [];
   loading = false;
   error = false;
+  StageType = StageType;
 
   constructor(
     private apiService: FootApiService,
@@ -50,7 +51,7 @@ export class FixtureDetailsComponent implements OnInit {
         })
       )
       .subscribe(data => {
-        this.fixture = <Fixture>data;
+        this.fixture = <Match>data;
       }));
   }
 

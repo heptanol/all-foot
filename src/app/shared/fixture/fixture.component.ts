@@ -1,7 +1,7 @@
 import {Component, HostListener, Input} from '@angular/core';
-import {Competition, Fixture, StatusType} from '../model';
-import {Durations} from '../enum';
 import {Router} from '@angular/router';
+import {Match} from '../model';
+import {DurationType, StatusType} from '../enum';
 
 @Component({
   selector: 'app-fixture',
@@ -10,10 +10,10 @@ import {Router} from '@angular/router';
 })
 export class FixtureComponent {
 
-  @Input() fixture: Fixture;
+  @Input() fixture: Match;
   @Input() competition: any;
   statusType = StatusType;
-  durationsTypes = Durations;
+  durationsTypes = DurationType;
   constructor(
     private router: Router
   ) { }

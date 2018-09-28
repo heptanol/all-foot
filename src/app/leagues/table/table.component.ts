@@ -4,6 +4,7 @@ import {Competition, Standing, TableTeam} from '../../shared/model';
 import {Subscription} from 'rxjs/Subscription';
 import {catchError, map, tap} from 'rxjs/operators';
 import {CommonService} from '../../shared/common.service';
+import {StandingType} from '../../shared/enum';
 
 @Component({
   selector: 'app-table',
@@ -21,7 +22,8 @@ export class TableComponent implements OnInit {
   }
 
   getData() {
-    this.tables = this.standings[0].table;
+    this.standings.filter(value => value.type === StandingType.TOTAL)
+      .map((val: Standing) => this.tables = val.table);
   }
 
 }

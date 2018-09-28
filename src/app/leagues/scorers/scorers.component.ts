@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Competition, ScorerTable} from '../../shared/model';
+import {Competition, CompetitionResponse, ScorerTable} from '../../shared/model';
 import {FootApiService} from '../../shared/foot-api.service';
 import {catchError, tap} from 'rxjs/operators';
 import {CommonService} from '../../shared/common.service';
@@ -10,7 +10,7 @@ import {CommonService} from '../../shared/common.service';
   styleUrls: ['./scorers.component.scss']
 })
 export class ScorersComponent implements OnInit {
-  @Input()competition: Competition;
+  @Input()competition: CompetitionResponse;
   scorers: ScorerTable[];
   loading = false;
   error = false;

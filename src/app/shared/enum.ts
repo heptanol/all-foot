@@ -45,7 +45,9 @@ export const Leagues = {
   },
 };
 
-export enum Stage {
+export enum StageType {
+  REGULAR_SEASON = 'REGULAR_SEASON',
+  GROUP_STAGE = 'GROUP_STAGE',
   ROUND_OF_16 = 'ROUND_OF_16',
   QUARTER_FINALS = 'QUARTER_FINALS',
   SEMI_FINALS = 'SEMI_FINALS',
@@ -59,24 +61,24 @@ export const Cups = {
     name: 'UEFA champions league',
     country: 'europe',
     availableStage: [
-      Stage.ROUND_OF_16,
-      Stage.QUARTER_FINALS,
-      Stage.SEMI_FINALS,
-      Stage.FINAL
+      StageType.ROUND_OF_16,
+      StageType.QUARTER_FINALS,
+      StageType.SEMI_FINALS,
+      StageType.FINAL
     ]
   },
-  // WORLD_CUP: <CompetitionConfig>{
-  //   path: 'world-cup',
-  //   id: 'WC',
-  //   name: 'FIFA World Cup',
-  //   country: 'world',
-  //   availableStage: [
-  //     Stage.ROUND_OF_16,
-  //     Stage.QUARTER_FINALS,
-  //     Stage.SEMI_FINALS,
-  //     Stage.FINAL
-  //   ]
-  // }
+  WORLD_CUP: <CompetitionConfig>{
+    path: 'world-cup',
+    id: 'WC',
+    name: 'FIFA World Cup',
+    country: 'world',
+    availableStage: [
+      StageType.ROUND_OF_16,
+      StageType.QUARTER_FINALS,
+      StageType.SEMI_FINALS,
+      StageType.FINAL
+    ]
+  }
 };
 
 export enum FeedsType {
@@ -96,9 +98,27 @@ export enum Breakpoint {
   PHONE = 0
 }
 
-export enum Durations {
+export enum DurationType {
   EXTRA_TIME = 'EXTRA_TIME',
   PENALTY_SHOOTOUT = 'PENALTY_SHOOTOUT',
   REGULAR = 'REGULAR'
+}
+
+export enum StandingType {
+  TOTAL = 'TOTAL',
+  HOME = 'HOME',
+  AWAY = 'AWAY',
+}
+
+
+export enum StatusType {
+  SCHEDULED = 'SCHEDULED',
+  LIVE = 'LIVE',
+  IN_PLAY = 'IN_PLAY',
+  PAUSED = 'PAUSED',
+  FINISHED = 'FINISHED',
+  POSTPONED = 'POSTPONED',
+  SUSPENDED = 'SUSPENDED',
+  CANCELED = 'CANCELED'
 }
 

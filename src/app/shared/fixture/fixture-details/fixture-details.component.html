@@ -40,10 +40,10 @@
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell--span-8-desktop">
-          test
+
         </div>
         <div class="mdc-layout-grid__cell--span-4-desktop">
-          <app-min-table [homeTeamId]="fixture.homeTeam.id" [awayTeamId]="fixture.awayTeam.id" [competitionId]="leagueId"></app-min-table>
+          <app-min-table *ngIf="fixture.stage === StageType.REGULAR_SEASON" [homeTeamId]="fixture.homeTeam.id" [awayTeamId]="fixture.awayTeam.id" [competitionId]="leagueId"></app-min-table>
         </div>
       </div>
     </div>

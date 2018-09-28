@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Competition, Standing} from '../model';
 import {catchError, tap} from 'rxjs/operators';
 import {Subscription} from 'rxjs/Subscription';
-import {Leagues} from '../enum';
+import {Leagues, StandingType} from '../enum';
 import {CommonService} from '../common.service';
 import {ActivatedRoute} from '@angular/router';
 import {FootApiService} from '../foot-api.service';
+import {CompetitionResponse, Standing, TableTeam} from '../model';
 
 @Component({
   selector: 'app-min-table',
@@ -14,9 +14,9 @@ import {FootApiService} from '../foot-api.service';
 })
 export class MinTableComponent implements OnInit {
 
-  standings: any[];
+  standings: TableTeam[];
   subscribtions: Subscription[] = [];
-  leagues = Leagues;
+  competitionName: string;
   loading = false;
   error = false;
   @Input()competitionId: string;
@@ -45,13 +45,15 @@ export class MinTableComponent implements OnInit {
           return err;
         })
       )
-      .subscribe(data => {
-        this.standings = data.standings[0].table;
-      }));
+      .subscribe((competition: CompetitionResponse) => {
+        this.competitionName = competition.competition.name;
+        competition.standings.filter(value => value.type === StandingType.TOTAL)
+          .map((val: Standing) => this.standings = val.table);
+        }));
   }
 
   isHighlight(table) {
-    return (table.team.id == this.homeTeamId || table.team.id == this.awayTeamId);
+    return (table.team.id === this.homeTeamId || table.team.id === this.awayTeamId);
   }
 
 }
