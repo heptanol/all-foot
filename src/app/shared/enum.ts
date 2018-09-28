@@ -67,18 +67,18 @@ export const Cups = {
       StageType.FINAL
     ]
   },
-  WORLD_CUP: <CompetitionConfig>{
-    path: 'world-cup',
-    id: 'WC',
-    name: 'FIFA World Cup',
-    country: 'world',
-    availableStage: [
-      StageType.ROUND_OF_16,
-      StageType.QUARTER_FINALS,
-      StageType.SEMI_FINALS,
-      StageType.FINAL
-    ]
-  }
+  // WORLD_CUP: <CompetitionConfig>{
+  //   path: 'world-cup',
+  //   id: 'WC',
+  //   name: 'FIFA World Cup',
+  //   country: 'world',
+  //   availableStage: [
+  //     StageType.ROUND_OF_16,
+  //     StageType.QUARTER_FINALS,
+  //     StageType.SEMI_FINALS,
+  //     StageType.FINAL
+  //   ]
+  // }
 };
 
 export enum FeedsType {
