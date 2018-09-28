@@ -39,10 +39,10 @@
   <div class="fixture-details">
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell--span-8-desktop">
+        <div class="mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-12-tablet">
 
         </div>
-        <div class="mdc-layout-grid__cell--span-4-desktop">
+        <div class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-12-tablet">
           <app-min-table *ngIf="fixture.stage === StageType.REGULAR_SEASON" [homeTeamId]="fixture.homeTeam.id" [awayTeamId]="fixture.awayTeam.id" [competitionId]="leagueId"></app-min-table>
         </div>
       </div>
