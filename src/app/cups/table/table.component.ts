@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Standing} from '../../shared/model';
 import {StandingType} from '../../shared/enum';
+import {CommonService} from '../../shared/common.service';
 
 @Component({
   selector: 'app-table-cl',
@@ -12,8 +13,12 @@ export class TableClComponent implements OnInit {
   @Input()standings: Standing[];
   tables = [];
   loading = false;
+  constructor(
+    private commonService: CommonService
+  ) {}
 
   ngOnInit() {
+    this.standings = this.commonService.getCompetition().standings;
     this.getData();
   }
 

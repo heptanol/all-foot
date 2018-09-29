@@ -1,12 +1,20 @@
 <ng-container *ngIf="!loading && !error">
   <h2>{{competition.competition.name}}</h2>
-  <mat-tab-group>
-    <mat-tab label="{{'result.label' | translate}}" color="accent">
-      <app-result-cl *ngIf="competition" [competition]="competition" [config]="cometitionConfig"></app-result-cl>
-    </mat-tab>
-    <mat-tab label="{{'table.label' | translate}}" color="accent">
-      <app-table-cl *ngIf="competition" [standings]="competition.standings"></app-table-cl>
-    </mat-tab>
-  </mat-tab-group>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+       [routerLink]="['./result']"
+       routerLinkActive #result="routerLinkActive"
+       [active]="result.isActive">
+      {{'result.label' | translate}}
+    </a>
+    <a mat-tab-link
+       [routerLink]="['./standing']"
+       routerLinkActive #standing="routerLinkActive"
+       [active]="standing.isActive">
+      {{'table.label' | translate}}
+    </a>
+  </nav>
+  <router-outlet *ngIf="competition"></router-outlet>
 </ng-container>
 <mat-spinner *ngIf="loading"></mat-spinner>
+

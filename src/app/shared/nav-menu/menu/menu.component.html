@@ -1,6 +1,6 @@
 <div class="logo">
   <a href="" [routerLink]="['']">
-    <img src="../../../../assets/img/logo-white.png" alt="">
+    <img src="../../../../assets/img/logos-white.png" alt="">
   </a>
 </div>
 <mat-toolbar class="main-menu">
@@ -32,12 +32,12 @@
 <mat-menu #menu="matMenu" [xPosition]="'after'">
   <ul>
     <li *ngFor="let cup of cupList">
-      <a  href="" mat-button  [routerLink]="['/cup/' + cup.path ]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+      <a  href="" mat-button  [routerLink]="['/cup/' + cup.path + '/result']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
         <app-icon [type]="'champions_league'"></app-icon><span>{{ cup.name }}</span>
       </a>
     </li>
     <li *ngFor="let league of leagueList">
-      <a class="menu-item" mat-button  [routerLink]="['/league/' + league.path]" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+      <a class="menu-item" mat-button  [routerLink]="['/league/' + league.path + '/result']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
         <app-icon [type]="league.country"></app-icon> <span>{{league.name}}</span>
       </a>
     </li>

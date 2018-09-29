@@ -4,10 +4,10 @@
     <h3>{{'home.competitions' | translate}}</h3>
       <mat-grid-list [cols]="getCompetitionCols()">
         <mat-grid-tile *ngFor="let cup of cups">
-          <a href="" [routerLink]="['/cup/' + cup.path]" class="league-square" [id]="'league-'+ cup.id"></a>
+          <a href="" [routerLink]="['/cup/' + cup.path + '/result']" class="league-square" [id]="'league-'+ cup.id"></a>
         </mat-grid-tile>
         <mat-grid-tile *ngFor="let league of leagues">
-          <a href="" [routerLink]="['/league/' + league.path]" class="league-square" [id]="'league-'+ league.id"></a>
+          <a href="" [routerLink]="['/league/' + league.path + '/result']" class="league-square" [id]="'league-'+ league.id"></a>
         </mat-grid-tile>
       </mat-grid-list>
     </div>

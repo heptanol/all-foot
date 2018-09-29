@@ -22,6 +22,7 @@ export class ScorersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.competition = this.commonService.getCompetition();
     this.getData();
   }
 

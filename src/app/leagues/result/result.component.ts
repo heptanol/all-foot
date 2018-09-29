@@ -27,6 +27,7 @@ export class ResultComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.competition = this.commonService.getCompetition();
     this.device = this.commonService.detectDevice();
     this.getData(this.competition.competition.id, this.competition.season.currentMatchday);
   }

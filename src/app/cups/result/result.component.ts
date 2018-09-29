@@ -31,6 +31,8 @@ export class ResultClComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.competition = this.commonService.getCompetition();
+    this.config = this.commonService.getCompetitionConfig();
     this.avilableStage = this.config.availableStage;
     this.setActualStage();
     this.device = this.commonService.detectDevice();

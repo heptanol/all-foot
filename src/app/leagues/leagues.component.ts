@@ -26,6 +26,7 @@ export class LeaguesComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    console.log('LeaguesComponent');
     this.handlePath();
   }
 
@@ -43,13 +44,16 @@ export class LeaguesComponent implements OnInit, OnDestroy {
         })
         )
       .subscribe(competition => {
+        console.log('competition');
         this.competition = competition;
+        this.commonService.setCompetition(competition);
       }));
   }
 
   handlePath() {
     this.subscribtions.push(this.route.params.subscribe(param => {
       const comp = Object.values(this.leagues).find((val) => val.path === param.leaguePath);
+      console.log('handlepath');
       this.getCompetition(comp.id);
     }));
   }

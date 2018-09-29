@@ -30,6 +30,7 @@ export class CupsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscribtions.push(this.route.params.subscribe(param => {
       this.cometitionConfig = Object.values(this.cups).find((val) => val.path === param.cupPath);
+      this.commonService.setCompetitionConfig(this.cometitionConfig);
       this.getCompetition(this.cometitionConfig.id);
     }));
   }
@@ -49,6 +50,7 @@ export class CupsComponent implements OnInit, OnDestroy {
         )
       .subscribe(competition => {
         this.competition = competition;
+        this.commonService.setCompetition(competition);
       }));
   }
 
