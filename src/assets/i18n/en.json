@@ -43,6 +43,8 @@
     "linups": "Linups",
     "results": "results",
     "standing": "standing",
+    "lineup": "Lineup",
+    "bench": "bench",
     "status": {
       "POSTPONED": "REP",
       "CANCELED": "CANC",

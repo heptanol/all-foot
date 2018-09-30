@@ -45,6 +45,8 @@
     "linups": "Compositions",
     "results": "Resultat",
     "standing": "Classement",
+    "lineup": "Equipes de départ",
+    "bench": "Remplaçants",
     "status": {
       "POSTPONED": "REP",
       "CANCELED": "ANN",

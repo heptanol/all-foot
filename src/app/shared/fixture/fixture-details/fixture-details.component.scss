@@ -52,3 +52,37 @@
   max-height: none;
   width: 100px;
 }
+.lineups-content{
+  display: flex;
+  justify-content: center;
+  .home-lineups{
+    flex: 2;
+    margin-right: 10px;
+  }
+  .away-lineups{
+    flex: 2;
+  }
+  .player{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    &.odd{
+      background-color: mat-color($mat-gray, 200);
+    }
+    .position{
+      flex: 1;
+      padding: 2px;
+      color: mat-color($mat-grey, 50);
+      background: mat-color($mat-grey, 800);
+      text-align: center;
+    }
+    .shirt-number{
+      flex: 1;
+      text-align: center;
+    }
+    .name{
+      flex: 8;
+    }
+  }
+}
