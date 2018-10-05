@@ -12,7 +12,6 @@ export class TableClComponent implements OnInit {
 
   @Input()standings: Standing[];
   tables = [];
-  loading = false;
   constructor(
     private commonService: CommonService
   ) {}
