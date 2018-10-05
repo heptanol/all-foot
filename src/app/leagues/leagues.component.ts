@@ -6,6 +6,7 @@ import {Subscription} from 'rxjs/Subscription';
 import {catchError, tap} from 'rxjs/operators';
 import {CommonService} from '../shared/common.service';
 import {Leagues} from '../shared/enum';
+import {HeaderService} from '../shared/header/header.service';
 
 @Component({
   selector: 'app-leagues',
@@ -22,11 +23,11 @@ export class LeaguesComponent implements OnInit, OnDestroy {
   constructor(
     private apiService: FootApiService,
     private route: ActivatedRoute,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private headerService: HeaderService
   ) { }
 
   ngOnInit() {
-    console.log('LeaguesComponent');
     this.handlePath();
   }
 
@@ -47,6 +48,7 @@ export class LeaguesComponent implements OnInit, OnDestroy {
         console.log('competition');
         this.competition = competition;
         this.commonService.setCompetition(competition);
+        this.headerService.setSubTitle(this.competition.competition.name);
       }));
   }
 

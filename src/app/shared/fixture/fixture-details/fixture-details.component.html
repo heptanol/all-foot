@@ -20,8 +20,7 @@
 
     <div class="result">
       <div class="regular">
-        <span [class.winner]="isHomeWinner()">{{fixture.score.fullTime.homeTeam}}</span> -
-        <span [class.winner]="isAwayWinner()">{{fixture.score.fullTime.awayTeam}}</span>
+        <span [class.winner]="isHomeWinner()">{{fixture.score.fullTime.homeTeam}}</span>-<span [class.winner]="isAwayWinner()">{{fixture.score.fullTime.awayTeam}}</span>
       </div>
       <div class="extra" *ngIf="fixture.score.duration === durationsTypes.EXTRA_TIME">
         EXT (<span [class.winner]="isHomeWinner()">{{fixture.score.extraTime.homeTeam}}</span> -
@@ -52,7 +51,7 @@
   <div class="fixture-details">
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-12-tablet">
+        <div class="mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone">
 
           <mat-tab-group class="mini-tab">
             <mat-tab label="{{'match.linups' | translate}}" color="accent">
@@ -178,8 +177,9 @@
           </mat-tab-group>
 
         </div>
-        <div class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-12-tablet">
+        <div class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone">
           <app-min-table *ngIf="fixture.stage === StageType.REGULAR_SEASON" [homeTeamId]="fixture.homeTeam.id" [awayTeamId]="fixture.awayTeam.id" [competitionId]="leagueId"></app-min-table>
+          <app-min-table [group]="fixture.group" *ngIf="fixture.stage === StageType.GROUP_STAGE" [homeTeamId]="fixture.homeTeam.id" [awayTeamId]="fixture.awayTeam.id" [competitionId]="leagueId"></app-min-table>
         </div>
       </div>
     </div>

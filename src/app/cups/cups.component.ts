@@ -6,6 +6,7 @@ import {Subscription} from 'rxjs/Subscription';
 import {catchError, tap} from 'rxjs/operators';
 import {CommonService} from '../shared/common.service';
 import {Cups} from '../shared/enum';
+import {HeaderService} from '../shared/header/header.service';
 
 @Component({
   selector: 'app-cups',
@@ -24,7 +25,8 @@ export class CupsComponent implements OnInit, OnDestroy {
   constructor(
     private apiService: FootApiService,
     private route: ActivatedRoute,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private headerService: HeaderService
   ) { }
 
   ngOnInit() {
@@ -51,6 +53,7 @@ export class CupsComponent implements OnInit, OnDestroy {
       .subscribe(competition => {
         this.competition = competition;
         this.commonService.setCompetition(competition);
+        this.headerService.setSubTitle(this.competition.competition.name);
       }));
   }
 

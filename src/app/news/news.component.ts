@@ -2,7 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FeedService} from '../shared/feed.service';
 import {Observable} from 'rxjs/Observable';
 import {FeedsType} from '../shared/enum';
-import {combineLatest} from 'rxjs/operators';
+import {combineLatest, take} from 'rxjs/operators';
+import {TranslateService} from '@ngx-translate/core';
+import {HeaderService} from '../shared/header/header.service';
 
 @Component({
   selector: 'app-news',
@@ -14,10 +16,16 @@ export class NewsComponent implements OnInit {
   @Input() isBloc = false;
 
   constructor(
-    private feedService: FeedService
+    private feedService: FeedService,
+    private headerService: HeaderService,
+    private translateService: TranslateService,
   ) {}
 
   ngOnInit(): void {
+    if (!this.isBloc) {
+      this.translateService.get('menu.news').pipe(take(1))
+        .subscribe(value => this.headerService.setSubTitle(value));
+    }
     this.getFeeds();
   }
 

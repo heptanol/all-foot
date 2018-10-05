@@ -22,6 +22,8 @@ export class MinTableComponent implements OnInit {
   @Input()competitionId: string;
   @Input()homeTeamId: string;
   @Input()awayTeamId: string;
+  @Input()group: string;
+  groupId: string;
   constructor(
     private apiService: FootApiService,
     private route: ActivatedRoute,
@@ -29,7 +31,12 @@ export class MinTableComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCompetition(this.competitionId);
+    if (this.group) {
+      this.groupId = this.group.replace(' ', '_').toUpperCase();
+      this.getCompetitionGroup(this.competitionId);
+    } else {
+      this.getCompetition(this.competitionId);
+    }
   }
 
   getCompetition(competitionId): void {
@@ -49,6 +56,27 @@ export class MinTableComponent implements OnInit {
         this.competitionName = competition.competition.name;
         competition.standings.filter(value => value.type === StandingType.TOTAL)
           .map((val: Standing) => this.standings = val.table);
+      }));
+  }
+
+  getCompetitionGroup(competitionId): void {
+    this.loading = true;
+    this.subscribtions.push(this.apiService.getCompetitionStandings(competitionId)
+      .pipe(
+        tap(() => this.loading = false),
+        catchError(err => {
+          this.loading = false;
+          this.error = true;
+          this.commonService
+            .openSnackBar('Un problème est survenue lors du chargement', 'fermer');
+          return err;
+        })
+      )
+      .subscribe((competition: CompetitionResponse) => {
+        this.competitionName = competition.competition.name;
+        competition.standings.filter(value => value.type === StandingType.TOTAL)
+          .filter(value => value.group === this.groupId)
+          .map(value => this.standings = value.table);
         }));
   }
 

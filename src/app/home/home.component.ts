@@ -1,6 +1,9 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {Cups, Devices, Leagues} from '../shared/enum';
 import {CommonService} from '../shared/common.service';
+import {HeaderService} from '../shared/header/header.service';
+import {TranslateService} from '@ngx-translate/core';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +18,14 @@ export class HomeComponent implements OnInit {
   cups = [];
 
   constructor(
-    private commonService: CommonService
+    private commonService: CommonService,
+    private translateService: TranslateService,
+    private headerService: HeaderService
   ) { }
 
   ngOnInit() {
+    this.translateService.get('menu.home')
+      .subscribe(value => this.headerService.setSubTitle(value));
     this.device = this.commonService.detectDevice();
     this.getLeagues();
     this.getCups();

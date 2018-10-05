@@ -3,7 +3,14 @@ svg{
   max-width: 48px;
 }
 svg.big{
-  max-height: none!important;
-  max-width: none!important;
-  height: 100px;
+  max-height: 100px;
+  max-width: 120px;
+  @media screen and (max-width: 840px) {
+    max-height: 50px;
+    max-width: 60px;
+  }
+  @media screen and (max-width: 480px) {
+    max-height: 38px;
+    max-width: 48px;
+  }
 }

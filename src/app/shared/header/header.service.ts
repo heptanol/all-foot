@@ -17,11 +17,15 @@ export class HeaderService {
 
   setMeta(): void {
     this.meta.addTags([
-      { name: 'author',   content: 'Footpaper.com'},
+      { name: 'author',   content: 'Footpaper.org'},
       { name: 'keywords', content: 'Footpaper, Football, foot'},
     ]);
     this.translate.get('meta.description').subscribe((res: string) => {
       this.meta.addTag({name: 'description', content: res});
     });
+  }
+
+  setSubTitle(subtilte: string) {
+    this.title.setTitle(subtilte + ' | Footpaper');
   }
 }
