@@ -12,7 +12,6 @@ export class LeaguesResolver implements Resolve<any> {
   resolve(route: ActivatedRouteSnapshot): CompetitionConfig {
     const leaguePath = route.paramMap.get('leaguePath');
     const config = Object.values(this.leagues).find((val) => val.path === leaguePath);
-    console.log(config);
     return config;
   }
 
