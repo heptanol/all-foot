@@ -5,12 +5,15 @@
       <h2 *ngIf="!isBloc">{{'menu.news' | translate}}</h2>
       <h3 *ngIf="isBloc">{{'menu.news' | translate}}</h3>
     </div>
-    <div class="mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone"
-         [class.mdc-layout-grid__cell--span-4-desktop]="!isBloc"
-         [class.mdc-layout-grid__cell--span-6-desktop]="isBloc"
-         *ngFor="let feed of (feeds$ | async) |  orderBy:'pubDate':'DESC'">
-      <app-news-item [feed]="feed"></app-news-item>
-    </div>
+    <ng-container *ngFor="let feed of (feeds$ | async) |  orderBy:'pubDate':'DESC';  let i=index">
+      <div class="mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone"
+           *ngIf="i<limit"
+           [class.mdc-layout-grid__cell--span-4-desktop]="!isBloc"
+           [class.mdc-layout-grid__cell--span-6-desktop]="isBloc">
+        <app-news-item [feed]="feed"></app-news-item>
+      </div>
+    </ng-container>
+    <button class="mdc-layout-grid__cell--span-12" *ngIf="isBloc" mat-stroked-button href="" [routerLink]="['/news']">{{'more' | translate}}</button>
   </div>
 </div>
 

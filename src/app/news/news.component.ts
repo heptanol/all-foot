@@ -14,6 +14,7 @@ import {HeaderService} from '../shared/header/header.service';
 export class NewsComponent implements OnInit {
   feeds$: Observable<any>;
   @Input() isBloc = false;
+  @Input() limit = 100;
 
   constructor(
     private feedService: FeedService,
