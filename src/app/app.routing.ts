@@ -21,7 +21,7 @@ const APP_ROUTES: Routes = [
       {path: 'standing', component: TableComponent},
       {path: 'scorers', component: ScorersComponent},
     ]},
-  {path: 'matche/:leaguePath/:matchId', component: FixtureDetailsComponent},
+  {path: 'match/:leaguePath/:matchId', component: FixtureDetailsComponent},
   {path: 'cup/:cupPath', component: CupsComponent, children: [
       {path: 'result', component: ResultClComponent},
       {path: 'standing', component: TableClComponent},
