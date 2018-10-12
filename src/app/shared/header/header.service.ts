@@ -28,4 +28,18 @@ export class HeaderService {
   setSubTitle(subtilte: string) {
     this.title.setTitle(subtilte + ' | Footpaper');
   }
+
+  setShareTitle(title: string) {
+    this.meta.updateTag(
+      { property: 'og:title',   content: title},
+      `property='og:title'`
+    );
+  }
+
+  setShareDescription(description: string) {
+    this.meta.updateTag(
+      { property: 'og:description',   content: description},
+      `property='og:description'`
+    );
+  }
 }

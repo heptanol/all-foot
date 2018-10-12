@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {Competition, Match} from '../../model';
+import {Match} from '../../model';
 import {FootApiService} from '../../foot-api.service';
 import {CommonService} from '../../common.service';
 import {catchError, tap} from 'rxjs/operators';
 import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute} from '@angular/router';
 import {DurationType, StageType, StatusType} from '../../enum';
+import {HeaderService} from '../../header/header.service';
 
 @Component({
   selector: 'app-fixture-details',
@@ -26,7 +27,8 @@ export class FixtureDetailsComponent implements OnInit {
   constructor(
     private apiService: FootApiService,
     private route: ActivatedRoute,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private headerService: HeaderService,
   ) { }
 
   ngOnInit() {
@@ -73,6 +75,14 @@ export class FixtureDetailsComponent implements OnInit {
     } else if (this.fixture.score.penalties.homeTeam < this.fixture.score.penalties.awayTeam) {
       return true;
     }
+  }
+
+  setSocialMediaData() {
+    const title = this.fixture.homeTeam.name + ' VS ' + this.fixture.awayTeam.name;
+    const descrb = this.fixture.homeTeam.name + ' VS ' + this.fixture.awayTeam.name
+    + ', ' + new Date(this.fixture.utcDate).toDateString();
+    this.headerService.setShareTitle(title);
+    this.headerService.setShareDescription(descrb);
   }
 
 }
