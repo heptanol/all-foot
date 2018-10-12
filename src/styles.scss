@@ -113,6 +113,9 @@ h5{
 .mat-tab-link {
   font-size: 2em;
   text-transform: uppercase;
+  @media (max-width: 840px) {
+    font-size: 1em;
+  }
 }
 .mini-tab .mat-tab-label {
   font-size: 1.2em;

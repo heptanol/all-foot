@@ -5,19 +5,19 @@
 </div>
 <mat-toolbar class="main-menu">
   <mat-toolbar-row>
-    <a mat-button href="" [routerLink]="['']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
+    <a mat-button href="" [routerLink]="['']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
       <i class="material-icons">home</i>
       <span>{{'menu.home' | translate}}</span>
     </a>
   </mat-toolbar-row>
   <mat-toolbar-row>
-    <a mat-button href="" [routerLink]="['/news']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
+    <a mat-button href="" [routerLink]="['/news']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
       <i class="material-icons">public</i>
       <span>{{'menu.news' | translate}}</span>
     </a>
   </mat-toolbar-row>
   <mat-toolbar-row>
-    <a mat-button href="" [routerLink]="['/today']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
+    <a mat-button href="" [routerLink]="['/today']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
       <i class="material-icons">whatshot</i>
       <span>{{'menu.today' | translate}}</span>
     </a>
@@ -32,12 +32,12 @@
 <mat-menu #menu="matMenu" [xPosition]="'after'">
   <ul>
     <li *ngFor="let cup of cupList">
-      <a  href="" mat-button  [routerLink]="['/cup/' + cup.path + '/result']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+      <a  href="" mat-button  [routerLink]="['/cup/' + cup.path + '/result']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
         <app-icon [type]="'champions_league'"></app-icon><span>{{ cup.name }}</span>
       </a>
     </li>
     <li *ngFor="let league of leagueList">
-      <a class="menu-item" mat-button  [routerLink]="['/league/' + league.path + '/result']" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+      <a class="menu-item" mat-button  [routerLink]="['/league/' + league.path + '/result']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
         <app-icon [type]="league.country"></app-icon> <span>{{league.name}}</span>
       </a>
     </li>

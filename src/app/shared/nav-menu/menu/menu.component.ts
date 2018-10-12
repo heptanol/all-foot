@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Cups, Leagues} from '../../enum';
 
 @Component({
@@ -11,6 +11,7 @@ export class MenuComponent implements OnInit {
   cupList = [];
   leagues = Leagues;
   cups = Cups;
+  @Output() navClose = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
@@ -29,4 +30,9 @@ export class MenuComponent implements OnInit {
       return this.cupList.push(val);
     });
   }
+
+  closeSidenav() {
+    this.navClose.emit();
+  }
+
 }

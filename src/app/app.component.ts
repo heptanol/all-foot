@@ -31,4 +31,11 @@ export class AppComponent implements OnInit {
   onResize() {
     this.device = this.commonService.detectDevice();
   }
+
+  getSideNavMode(): string {
+    if (this.device === Devices.DESKTOP) {
+      return 'side';
+    }
+    return 'push';
+  }
 }
