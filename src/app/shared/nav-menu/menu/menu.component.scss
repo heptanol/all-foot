@@ -27,9 +27,13 @@ mat-toolbar-row{
     padding: 0 30px;
     align-items: center;
     text-align: center;
+    text-transform: uppercase;
     color: mat-color($mat-gray, 400);
     i {
       display: block;
+    }
+    .mat-button-wrapper span{
+      font-size: 1em;
     }
   }
   .mat-accent {

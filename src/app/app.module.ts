@@ -52,6 +52,7 @@ import {LeaguesResolver} from './shared/league-resolver';
 import { MinTableComponent } from './shared/min-table/min-table.component';
 import {MinTableTeamComponent} from './shared/table-team/min-table-team/min-table-team.component';
 import { EventIconComponent } from './shared/fixture/event-icon/event-icon.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 registerLocaleData(localeFr);
@@ -89,6 +90,7 @@ export const lang = navigator.language.slice(0, 2);
     MinTableComponent,
     MinTableTeamComponent,
     EventIconComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
