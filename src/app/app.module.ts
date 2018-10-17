@@ -53,6 +53,7 @@ import { MinTableComponent } from './shared/min-table/min-table.component';
 import {MinTableTeamComponent} from './shared/table-team/min-table-team/min-table-team.component';
 import { EventIconComponent } from './shared/fixture/event-icon/event-icon.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import {LazyLoadingDirective} from './shared/lazy-loading.directive';
 
 
 registerLocaleData(localeFr);
@@ -91,6 +92,7 @@ export const lang = navigator.language.slice(0, 2);
     MinTableTeamComponent,
     EventIconComponent,
     FooterComponent,
+    LazyLoadingDirective
   ],
   imports: [
     BrowserModule,

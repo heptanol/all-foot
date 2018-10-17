@@ -1,8 +1,7 @@
 <mat-card class="example-card">
 <a class="overlay-link" target="_blank" href="{{feed.link}}">
   <div class="image-wrap">
-    <img mat-card-image *ngIf="feed.enclosure['@attributes'].url" [src]="feed.enclosure['@attributes'].url" alt="Photo of a Shiba Inu">
-    <img mat-card-image *ngIf="!feed.enclosure['@attributes'].url" [src]="'../assets/img/football.jpeg'" alt="Photo of a Shiba Inu">
+    <img mat-card-image appLazyLoading *ngIf="feed.enclosure['@attributes'].url" [src]="feed.enclosure['@attributes'].url">
   </div>
   <mat-card-header>
     <mat-card-subtitle>{{feed.pubDate | date}}</mat-card-subtitle>
