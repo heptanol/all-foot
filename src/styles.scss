@@ -96,16 +96,25 @@ h2{
   border-bottom: 4px solid mat-color($mat-gray, 900);
   text-transform: uppercase;
   font-size: 4em;
+  @media screen and (max-width: 480px) {
+    font-size: 2em;
+  }
 }
 h3{
   border-bottom: 4px solid mat-color($mat-gray, 900);
   text-transform: uppercase;
   font-size: 2em;
+  @media screen and (max-width: 480px) {
+    font-size: 1.2em;
+  }
 }
 h4{
   border-bottom: 4px solid mat-color($mat-gray, 900);
   text-transform: uppercase;
   font-size: 1.5em;
+  @media screen and (max-width: 480px) {
+    font-size: 1em;
+  }
 }
 h5{
   text-transform: uppercase;

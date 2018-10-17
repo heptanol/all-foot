@@ -3,7 +3,7 @@
   <h4 *ngIf="isBloc">{{'menu.today' | translate}}</h4>
   <mat-toolbar *ngIf="!isBloc">
     <mat-toolbar-row class="head">
-      <span>Matches du jour</span>
+      <span>{{'today' | translate}}</span>
     </mat-toolbar-row>
   </mat-toolbar>
   <div *ngIf="fixtures && fixtures.length > 0" role="list">
