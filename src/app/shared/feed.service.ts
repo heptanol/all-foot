@@ -3,11 +3,13 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import {map, combineLatest, delay} from 'rxjs/operators';
 import {FeedsType} from './enum';
+import {environment} from '../../environments/environment';
 
 
 @Injectable()
 export class FeedService {
 
+  apiUrl = environment.apiUrl;
   rssToJsonServiceBaseUrl = ' https://api.rss2json.com/v1/api.json?rss_url=';
   apiKey = '0wbgynfiznxfmgnooj8rvtdnwp0yz0in5prw0hjy';
   count = '100';
@@ -31,5 +33,9 @@ export class FeedService {
       .append('count', this.count);
     return this.http.get<any[]>(this.rssToJsonServiceBaseUrl + type, {params})
       .pipe(map(data => data['items']));
+  }
+
+  getNews(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/news`);
   }
 }

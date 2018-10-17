@@ -13,4 +13,16 @@ export class NewsItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  getSource(feed: any): string {
+    if (feed.link.includes('goal.com')) {
+      return 'goal.com';
+    }
+    if (feed.link.includes('lequipe.fr')) {
+      return 'lequipe.fr';
+    }
+    if (feed.link.includes('eurosport.fr')) {
+      return 'eurosport.fr';
+    }
+  }
+
 }
