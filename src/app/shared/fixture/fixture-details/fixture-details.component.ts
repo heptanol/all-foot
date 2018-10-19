@@ -7,6 +7,7 @@ import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute} from '@angular/router';
 import {DurationType, StageType, StatusType} from '../../enum';
 import {HeaderService} from '../../header/header.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-fixture-details',
@@ -23,13 +24,16 @@ export class FixtureDetailsComponent implements OnInit {
   loading = false;
   error = false;
   StageType = StageType;
+  videoUrl: any;
+  showVideo = false;
 
   constructor(
     private apiService: FootApiService,
     private route: ActivatedRoute,
     private commonService: CommonService,
     private headerService: HeaderService,
-  ) { }
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
     this.subscribtions.push(this.route.params.subscribe(param => {
@@ -54,6 +58,9 @@ export class FixtureDetailsComponent implements OnInit {
       )
       .subscribe(data => {
         this.fixture = <Match>data;
+        if (this.fixture.status === StatusType.FINISHED) {
+          this.updateVideoUrl(this.generateMatchSearchWord());
+        }
       }));
   }
 
@@ -85,4 +92,19 @@ export class FixtureDetailsComponent implements OnInit {
     this.headerService.setShareDescription(descrb);
   }
 
+  generateMatchSearchWord(): string {
+    return this.fixture.homeTeam.name + ' ' +
+      this.fixture.score.fullTime.homeTeam + '-' + this.fixture.score.fullTime.awayTeam + ' ' +
+      this.fixture.awayTeam.name;
+  }
+
+  updateVideoUrl(query: string) {
+    // Appending an ID to a YouTube URL is safe.
+    // Always make sure to construct SafeValue objects as
+    // close as possible to the input data so
+    // that it's easier to check if the value is safe.
+    const dangerousVideoUrl = 'https://www.youtube.com/embed?listType=search&list=' + query;
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(dangerousVideoUrl);
+    this.showVideo = true;
+  }
 }
