@@ -95,7 +95,7 @@ export const lang = navigator.language.slice(0, 2);
     LazyLoadingDirective
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'all-foot' }),
     MatListModule,
     MatDividerModule,
     MatSidenavModule,
