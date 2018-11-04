@@ -3,7 +3,6 @@ import {Cups, Devices, Leagues} from '../shared/enum';
 import {CommonService} from '../shared/common.service';
 import {HeaderService} from '../shared/header/header.service';
 import {TranslateService} from '@ngx-translate/core';
-import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
