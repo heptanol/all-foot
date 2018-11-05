@@ -58,6 +58,7 @@ export class FixtureDetailsComponent implements OnInit {
       )
       .subscribe(data => {
         this.fixture = <Match>data;
+        this.headerService.setSubTitle(this.generateTitle());
         if (this.fixture.status === StatusType.FINISHED) {
           this.updateVideoUrl(this.generateMatchSearchWord());
         }
@@ -84,12 +85,8 @@ export class FixtureDetailsComponent implements OnInit {
     }
   }
 
-  setSocialMediaData() {
-    const title = this.fixture.homeTeam.name + ' VS ' + this.fixture.awayTeam.name;
-    const descrb = this.fixture.homeTeam.name + ' VS ' + this.fixture.awayTeam.name
-    + ', ' + new Date(this.fixture.utcDate).toDateString();
-    this.headerService.setShareTitle(title);
-    this.headerService.setShareDescription(descrb);
+  generateTitle(): string {
+    return this.fixture.homeTeam.name + ' - ' + this.fixture.awayTeam.name;
   }
 
   generateMatchSearchWord(): string {

@@ -9,12 +9,8 @@
     <div class="status rep" *ngIf="fixture.status === statusType.PAUSED">{{'match.status.PAUSED' | translate}}</div>
     <div class="status finished" *ngIf="fixture.status === statusType.FINISHED">
       <ng-container [ngSwitch]="fixture.score.duration">
-        <div class="extra" *ngSwitchCase="durationsTypes.EXTRA_TIME">
-          EXT (<span [class.winner]="isHomeWinner()">{{fixture.score.extraTime.homeTeam}}</span> -
-          <span [class.winner]="isAwayWinner()">{{fixture.score.extraTime.awayTeam}}</span>)
-        </div>
         <div class="peno" *ngSwitchCase="durationsTypes.PENALTY_SHOOTOUT">
-          PEN (<span [class.winner]="isHomeWinner()">{{fixture.score.penalties.homeTeam}}</span> -
+          {{'penalty' | translate}} (<span [class.winner]="isHomeWinner()">{{fixture.score.penalties.homeTeam}}</span> -
           <span [class.winner]="isAwayWinner()">{{fixture.score.penalties.awayTeam}}</span>)
         </div>
         <ng-container *ngSwitchDefault>

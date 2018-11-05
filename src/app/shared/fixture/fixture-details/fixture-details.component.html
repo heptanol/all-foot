@@ -22,12 +22,8 @@
       <div class="regular">
         <span [class.winner]="isHomeWinner()">{{fixture.score.fullTime.homeTeam}}</span>-<span [class.winner]="isAwayWinner()">{{fixture.score.fullTime.awayTeam}}</span>
       </div>
-      <div class="extra" *ngIf="fixture.score.duration === durationsTypes.EXTRA_TIME">
-        EXT (<span [class.winner]="isHomeWinner()">{{fixture.score.extraTime.homeTeam}}</span> -
-        <span [class.winner]="isAwayWinner()">{{fixture.score.extraTime.awayTeam}}</span>)
-      </div>
       <div class="peno" *ngIf="fixture.score.duration === durationsTypes.PENALTY_SHOOTOUT">
-        PEN (<span [class.winner]="isHomeWinner()">{{fixture.score.penalties.homeTeam}}</span> -
+        {{'penalty' | translate}} (<span [class.winner]="isHomeWinner()">{{fixture.score.penalties.homeTeam}}</span> -
         <span [class.winner]="isAwayWinner()">{{fixture.score.penalties.awayTeam}}</span>)
       </div>
     </div>
