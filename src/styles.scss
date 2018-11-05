@@ -78,9 +78,6 @@ app-fixture-min{
 app-fixture {
   cursor: pointer;
   &.odd {
-    .fixture{
-      background-color: mat-color($mat-gray, 200);
-    }
   }
 }
 

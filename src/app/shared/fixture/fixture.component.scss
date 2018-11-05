@@ -4,8 +4,11 @@
   justify-content: center;
   align-items: center;
   height: 58px;
-  background: mat-color($mat-grey, 100);
+  border-bottom: 1px solid #eaeaea;
   position: relative;
+  &:hover {
+    background: mat-color($mat-grey, 100);
+  }
   .team{
     flex: 7;
   }
