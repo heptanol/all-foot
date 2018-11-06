@@ -10,7 +10,7 @@
            *ngIf="i<limit"
            [class.mdc-layout-grid__cell--span-4-desktop]="!isBloc"
            [class.mdc-layout-grid__cell--span-6-desktop]="isBloc">
-        <app-news-item [feed]="n"></app-news-item>
+        <app-news-item *ngIf="n" [feed]="n"></app-news-item>
       </div>
     </ng-container>
     <button class="mdc-layout-grid__cell--span-12" *ngIf="isBloc" mat-stroked-button href="" [routerLink]="['/news']">{{'more' | translate}}</button>

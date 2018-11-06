@@ -23,6 +23,12 @@ export class NewsItemComponent implements OnInit {
     if (feed.link.includes('eurosport.fr')) {
       return 'eurosport.fr';
     }
+    if (feed.link.includes('eurosport.com')) {
+      return 'eurosport.com';
+    }
+    if (feed.link.includes('mirror.co.uk')) {
+      return 'mirror.co.uk';
+    }
   }
 
 }
