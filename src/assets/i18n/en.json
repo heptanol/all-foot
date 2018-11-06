@@ -13,6 +13,8 @@
   },
   "result": {
     "label": "Result",
+    "group_stage": "Group stage",
+    "final_stage": "Final stage",
     "matchDay": "Matchday",
     "8th_finals": "8th finals",
     "quarterfinal": "quarterfinal",

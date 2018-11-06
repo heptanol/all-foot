@@ -24,7 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private header: HeaderService,
     private router: Router,
   ) {
-    translate.setLangue();
+    translate.initLangue();
     header.setTitle();
     header.setMeta();
     this.router.events.pipe(filter(event => event instanceof NavigationStart))

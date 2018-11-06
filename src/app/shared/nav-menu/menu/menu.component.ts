@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Cups, Leagues} from '../../enum';
+import {Cups, LangEnnum, Leagues} from '../../enum';
+import {CustomTranslateService} from '../../translate/translate.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -11,12 +12,17 @@ export class MenuComponent implements OnInit {
   cupList = [];
   leagues = Leagues;
   cups = Cups;
+  lang: LangEnnum;
+  LangEnnum = LangEnnum;
   @Output() navClose = new EventEmitter();
-  constructor() { }
+  constructor(
+    private translate: CustomTranslateService
+  ) { }
 
   ngOnInit() {
     this.getLeagues();
     this.getCups();
+    this.lang = this.translate.getLangue();
   }
 
   getLeagues(): void {
@@ -29,6 +35,10 @@ export class MenuComponent implements OnInit {
     Object.values(this.cups).map((val) => {
       return this.cupList.push(val);
     });
+  }
+
+  switchLang(val) {
+    this.translate.setLangue(val);
   }
 
   closeSidenav() {

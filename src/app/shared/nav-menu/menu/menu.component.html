@@ -29,6 +29,12 @@
     </a>
   </mat-toolbar-row>
 </mat-toolbar>
+<div class="lang-switch">
+  <mat-button-toggle-group name="lang" aria-label="Lang" >
+    <mat-button-toggle [checked]="LangEnnum.FR === lang" value="fr" (change)="switchLang(LangEnnum.FR)">FR</mat-button-toggle>
+    <mat-button-toggle [checked]="LangEnnum.EN === lang" value="en" (change)="switchLang(LangEnnum.EN)">EN</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
 <mat-menu #menu="matMenu" [xPosition]="'after'">
   <ul>
     <li *ngFor="let cup of cupList">

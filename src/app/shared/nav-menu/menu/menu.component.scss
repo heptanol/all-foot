@@ -1,7 +1,6 @@
 @import '~@angular/material/theming';
 .logo {
   text-align: center;
-  margin: 0 40px;
   height: 40%;
   display: flex;
   a {
@@ -9,13 +8,31 @@
     margin: auto;
   }
   img {
-    width: 120px;
+    width: 140px;
     height: auto;
   }
 }
 mat-toolbar{
   background: transparent;
-  height: 60%;
+  height: 50%;
+}
+.lang-switch {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8em;
+  .mat-button-toggle-group, .mat-button-toggle-standalone {
+    box-shadow: none;
+  }
+  .mat-button-toggle {
+    background-color: transparent;
+    color: mat-color($mat-gray, 600);
+  }
+  .mat-button-toggle-checked {
+    background-color: transparent;
+    color: mat-color($mat-gray, 50);
+  }
 }
 mat-toolbar-row{
   padding: 0;

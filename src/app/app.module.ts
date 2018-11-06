@@ -31,7 +31,7 @@ import {ResultClComponent} from './cups/result/result.component';
 import {TableClComponent} from './cups/table/table.component';
 import {FixtureComponent} from './shared/fixture/fixture.component';
 import { TableTeamComponent } from './shared/table-team/table-team.component';
-import {MatCardModule, MatMenuModule} from '@angular/material';
+import {MatButtonToggleModule, MatCardModule, MatMenuModule} from '@angular/material';
 import {TodayComponent} from './today/today.component';
 import { registerLocaleData } from '@angular/common';
 import {TeamSvgDefinitionsComponent} from './shared/team-logo/svg-definitions/svg-definitions.component';
@@ -108,6 +108,7 @@ export const lang = navigator.language.slice(0, 2);
     MatGridListModule,
     MatMenuModule,
     MatTabsModule,
+    MatButtonToggleModule,
     MatTableModule,
     MatSnackBarModule,
     MatCardModule,
@@ -129,7 +130,10 @@ export const lang = navigator.language.slice(0, 2);
     HeaderService,
     CustomTranslateService,
     LeaguesResolver,
-    { provide: LOCALE_ID, useValue: lang }
+    { provide: LOCALE_ID,
+      deps: [CustomTranslateService],
+      useFactory: (customTranslateService) => customTranslateService.getLangue()
+    }
   ],
   bootstrap: [AppComponent]
 })

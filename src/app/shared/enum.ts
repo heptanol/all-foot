@@ -122,3 +122,8 @@ export enum StatusType {
   CANCELED = 'CANCELED'
 }
 
+export enum LangEnnum {
+  EN = 'en',
+  FR = 'fr',
+}
+
