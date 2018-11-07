@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Match} from '../../model';
+import {Goal, Match} from '../../model';
 import {forEach} from '@angular/router/src/utils/collection';
 import {MatchEventEnum} from '../../enum';
 
@@ -21,17 +21,39 @@ export class DetailsComponent implements OnInit{
 
   setEvents(): void {
     this.fixture.bookings.forEach((book) => {
-      book['type'] = MatchEventEnum.BOOKING;
+      book['mode'] = MatchEventEnum.BOOKING;
       this.events.push(book);
     });
     this.fixture.goals.forEach((goal) => {
-      goal['type'] = MatchEventEnum.GOAL;
+      goal['mode'] = MatchEventEnum.GOAL;
       this.events.push(goal);
     });
     this.fixture.substitutions.forEach((substitution) => {
-      substitution['type'] = MatchEventEnum.SUBSTITUTION;
+      substitution['mode'] = MatchEventEnum.SUBSTITUTION;
       this.events.push(substitution);
     });
+  }
+
+  isEventHome(event: Goal): boolean {
+    let is = false;
+    if (event.team.id === this.fixture.homeTeam.id && event.type !== 'OWN') {
+      is = true;
+    }
+    if (event.team.id === this.fixture.awayTeam.id && event.type === 'OWN') {
+      is = true;
+    }
+    return is;
+  }
+
+  isEventAway(event: Goal): boolean {
+    let is = false;
+    if (event.team.id === this.fixture.awayTeam.id && event.type !== 'OWN') {
+      is = true;
+    }
+    if (event.team.id === this.fixture.homeTeam.id && event.type === 'OWN') {
+      is = true;
+    }
+    return is;
   }
 
 }
