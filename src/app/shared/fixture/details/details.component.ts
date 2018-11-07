@@ -17,7 +17,6 @@ export class DetailsComponent implements OnInit{
 
   ngOnInit(): void {
     this.setEvents();
-    console.log(this.events);
   }
 
   setEvents(): void {
