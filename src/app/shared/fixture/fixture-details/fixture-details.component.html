@@ -32,14 +32,7 @@
     </div>
 
     <div class="status-container">
-      <div class="status" *ngIf="fixture.status === statusType.SCHEDULED">{{fixture.utcDate | date: 'HH:mm'}}</div>
-      <div class="status in-play" *ngIf="fixture.status === statusType.IN_PLAY">{{fixture.diff}}'</div>
-      <div class="status in-play" *ngIf="fixture.status === statusType.LIVE">{{fixture.diff}}'</div>
-      <div class="status rep" *ngIf="fixture.status === statusType.POSTPONED">{{'match.status.POSTPONED' | translate}}</div>
-      <div class="status rep" *ngIf="fixture.status === statusType.CANCELED">{{'match.status.CANCELED' | translate}}</div>
-      <div class="status rep" *ngIf="fixture.status === statusType.SUSPENDED">{{'match.status.SUSPENDED' | translate}}</div>
-      <div class="status in-play" *ngIf="fixture.status === statusType.PAUSED">{{'match.status.PAUSED' | translate}}</div>
-      <div class="status finished" *ngIf="fixture.status === statusType.FINISHED">{{'match.status.FINISHED' | translate}}</div>
+      <app-status [fixture]="fixture"></app-status>
     </div>
     <div class="date">{{fixture.utcDate | date: 'dd/MM/yyyy HH:mm'}}</div>
   </div>

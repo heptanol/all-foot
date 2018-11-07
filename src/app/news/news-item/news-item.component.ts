@@ -1,17 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-news-item',
   templateUrl: './news-item.component.html',
   styleUrls: ['./news-item.component.scss']
 })
-export class NewsItemComponent implements OnInit {
+export class NewsItemComponent {
 
   @Input() feed: any;
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   getSource(feed: any): string {
     if (feed.link.includes('goal.com')) {

@@ -58,7 +58,7 @@ import { LineupComponent } from './shared/fixture/lineup/lineup.component';
 import {SortLineUpPipe} from './shared/fixture/lineup/sortLineup';
 import {PlayerPositionPipe} from './shared/fixture/lineup/player-position';
 import { DetailsComponent } from './shared/fixture/details/details.component';
-
+import { StatusComponent } from './shared/fixture/status/status.component';
 
 registerLocaleData(localeFr);
 
@@ -100,7 +100,8 @@ export const lang = navigator.language.slice(0, 2);
     FooterComponent,
     LazyLoadingDirective,
     LineupComponent,
-    DetailsComponent
+    DetailsComponent,
+    StatusComponent,
   ],
   imports: [
     BrowserModule,
