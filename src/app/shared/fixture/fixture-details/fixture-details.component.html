@@ -5,16 +5,9 @@
       <div><app-team-svg-icon [bigSize]="true"  [id]="fixture.homeTeam.id"></app-team-svg-icon></div>
       <div [class.winner]="isHomeWinner()">{{fixture.homeTeam.name}}</div>
       <div class="scorers">
-        <span>Z. Zidan (34')</span>
-        <span>Z. Zidan (34')</span>
-        <span>Z. Zidan (34')</span>
-        <span>Z. Ronaldo (74')</span>
-        <span>Z. Ronaldo (74')</span>
-        <span>Z. Ronaldo (74')</span>
-        <span>Z. Ronaldo (74')</span>
-        <span>Z. Ronaldo (74')</span>
-        <span>Z. Ronaldo (74')</span>
-        <span>Z. Ronaldo (74')</span>
+        <ng-container *ngFor="let goal of fixture.goals">
+          <span *ngIf="goal.team.id === fixture.homeTeam.id">{{goal.scorer.name}} ({{goal.minute}}')</span>
+        </ng-container>
       </div>
     </div>
 
@@ -31,7 +24,13 @@
     <div class="team away">
       <div><app-team-svg-icon [bigSize]="true" [id]="fixture.awayTeam.id"></app-team-svg-icon></div>
       <div [class.winner]="isAwayWinner()">{{fixture.awayTeam.name}}</div>
+      <div class="scorers">
+        <ng-container *ngFor="let goal of fixture.goals">
+          <span *ngIf="goal.team.id === fixture.awayTeam.id">{{goal.scorer.name}} ({{goal.minute}}')</span>
+        </ng-container>
+      </div>
     </div>
+
     <div class="status-container">
       <div class="status" *ngIf="fixture.status === statusType.SCHEDULED">{{fixture.utcDate | date: 'HH:mm'}}</div>
       <div class="status in-play" *ngIf="fixture.status === statusType.IN_PLAY">{{fixture.diff}}'</div>
@@ -52,123 +51,19 @@
           <mat-tab-group class="mini-tab">
             <mat-tab label="{{'match.linups' | translate}}" color="accent">
               <div class="lineups-content">
+
                 <div class="home-lineups">
-                  <div class="lineup">
-                    <h5>{{'match.lineup'| translate}}
-                      <app-team-svg-icon [id]="fixture.homeTeam.id"></app-team-svg-icon>
-                    </h5>
-                    <!--testing-->
-                    <div class="player" *ngFor="let player of [1,2,3,4,5,6,7,8,9,10,11]; let odd=odd;" [class.odd]="odd">
-                      <div class="position">G</div>
-                      <div class="shirt-number">{{player}}</div>
-                      <div class="name">test</div>
-                    </div>
-                  </div>
-                  <div class="bench">
-                    <h5>{{'match.bench'| translate}}</h5>
-                    <div class="player" *ngFor="let player of [1,2,3,4,5]; let odd=odd;" [class.odd]="odd">
-                      <div class="position">G</div>
-                      <div class="shirt-number">{{player}}</div>
-                      <div class="name">test</div>
-                    </div>
-                  </div>
+                  <app-lineup [team]="fixture.homeTeam"></app-lineup>
                 </div>
+
                 <div class="away-lineups">
-                  <div class="lineup">
-                    <h5>{{'match.lineup'| translate}}
-                      <app-team-svg-icon [id]="fixture.awayTeam.id"></app-team-svg-icon>
-                    </h5>
-                    <!--testing-->
-                    <div class="player" *ngFor="let player of [1,2,3,4,5,6,7,8,9,10,11]; let odd=odd;" [class.odd]="odd">
-                      <div class="position">G</div>
-                      <div class="shirt-number">{{player}}</div>
-                      <div class="name">test</div>
-                    </div>
-                  </div>
-                  <div class="bench">
-                    <h5>{{'match.bench'| translate}}</h5>
-                    <div class="player" *ngFor="let player of [1,2,3,4,5]; let odd=odd;" [class.odd]="odd">
-                      <div class="position">G</div>
-                      <div class="shirt-number">{{player}}</div>
-                      <div class="name">test</div>
-                    </div>
-                  </div>
+                  <app-lineup [team]="fixture.awayTeam"></app-lineup>
                 </div>
               </div>
             </mat-tab>
 
             <mat-tab label="{{'match.details' | translate}}" color="accent">
-              <div class="details-content">
-                <div class="home-details">
-                  <div class="details">
-                    <h5>
-                      {{fixture.homeTeam.name}}
-                      <app-team-svg-icon [id]="fixture.homeTeam.id"></app-team-svg-icon>
-                    </h5>
-                  </div>
-                </div>
-                <div class="separator"></div>
-                <div class="away-details">
-                  <div class="details">
-                    <h5>
-                      {{fixture.awayTeam.name}}
-                      <app-team-svg-icon [id]="fixture.awayTeam.id"></app-team-svg-icon>
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div class="event-content">
-                <div class="event home-event">
-                  <span class="event-details">
-                    <span class="minute">90</span>
-                    <span>test away</span>
-                  </span>
-                  <span class="event-type">
-                    <app-event-icon [type]="'goal'"></app-event-icon>
-                  </span>
-                  <span></span>
-                </div>
-                <div class="event away-event">
-                  <span class="event-details">
-                    <span class="minute">55</span>
-                    <span>test away</span>
-                  </span>
-                  <span class="event-type">
-                    <app-event-icon [type]="'switch'"></app-event-icon>
-                  </span>
-                  <span></span>
-                </div>
-                <div class="event away-event">
-                  <span class="event-details">
-                    <span class="minute">45</span>
-                    <span>test away</span>
-                  </span>
-                  <span class="event-type">
-                    <app-event-icon [type]="'red_card'"></app-event-icon>
-                  </span>
-                  <span></span>
-                </div>
-                <div class="event home-event">
-                  <span class="event-details">
-                    <span class="minute">43</span>
-                    <span>test away</span>
-                  </span>
-                  <span class="event-type">
-                    <app-event-icon [type]="'goal'"></app-event-icon>
-                  </span>
-                  <span></span>
-                </div>
-                <div class="event away-event">
-                  <span class="event-details">
-                    <span class="minute">20</span>
-                    <span>test away</span>
-                  </span>
-                  <span class="event-type">
-                    <app-event-icon [type]="'yellow_card'"></app-event-icon>
-                  </span>
-                  <span></span>
-                </div>
-              </div>
+              <app-details [fixture]="fixture"></app-details>
             </mat-tab>
 
             <mat-tab label="{{'video' | translate}}" color="accent" *ngIf="showVideo">

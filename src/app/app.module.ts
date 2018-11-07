@@ -54,6 +54,10 @@ import {MinTableTeamComponent} from './shared/table-team/min-table-team/min-tabl
 import { EventIconComponent } from './shared/fixture/event-icon/event-icon.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import {LazyLoadingDirective} from './shared/lazy-loading.directive';
+import { LineupComponent } from './shared/fixture/lineup/lineup.component';
+import {SortLineUpPipe} from './shared/fixture/lineup/sortLineup';
+import {PlayerPositionPipe} from './shared/fixture/lineup/player-position';
+import { DetailsComponent } from './shared/fixture/details/details.component';
 
 
 registerLocaleData(localeFr);
@@ -72,6 +76,8 @@ export const lang = navigator.language.slice(0, 2);
     TableComponent,
     GroupByPipe,
     OrderByPipe,
+    SortLineUpPipe,
+    PlayerPositionPipe,
     LeaguesComponent,
     CupsComponent,
     ResultClComponent,
@@ -92,7 +98,9 @@ export const lang = navigator.language.slice(0, 2);
     MinTableTeamComponent,
     EventIconComponent,
     FooterComponent,
-    LazyLoadingDirective
+    LazyLoadingDirective,
+    LineupComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

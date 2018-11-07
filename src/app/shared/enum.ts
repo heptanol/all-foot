@@ -1,4 +1,4 @@
-import {CompetitionConfig} from './model';
+import {CompetitionConfig, Substitution} from './model';
 
 export const Leagues = {
   LIGA : {
@@ -122,6 +122,23 @@ export enum StatusType {
   CANCELED = 'CANCELED'
 }
 
+export enum CardEnum {
+  YELLOW_CARD = 'YELLOW_CARD',
+  RED_CARD = 'RED_CARD',
+}
+
+export enum PlayerPosition {
+  Goalkeeper = 'Goalkeeper',
+  Defender = 'Defender',
+  Midfielder = 'Midfielder',
+  Attacker = 'Attacker',
+}
+
+export enum MatchEventEnum {
+  BOOKING = 'BOOKING',
+  SUBSTITUTION = 'SUBSTITUTION',
+  GOAL = 'GOAL',
+}
 export enum LangEnnum {
   EN = 'en',
   FR = 'fr',

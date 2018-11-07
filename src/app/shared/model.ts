@@ -1,4 +1,4 @@
-import {DurationType, StageType, StandingType, StatusType} from './enum';
+import {CardEnum, DurationType, StageType, StandingType, StatusType} from './enum';
 
 
 /************************
@@ -75,11 +75,18 @@ export interface Match {
   stage: StageType;
   id: number;
   matchday: number;
+  goals: Goal[];
+  bookings?: Booking[];
+  substitutions?: Substitution[];
 }
 
 export interface Team {
   id: number;
   name: string;
+  captain: Player;
+  coach: Coach;
+  lineup: Player[];
+  bench: Player[];
   crestUrl?: string;
 }
 
@@ -99,6 +106,13 @@ export interface Player {
   nationality: string;
   position: string;
   shirtNumber: number;
+}
+
+export interface Coach {
+  countryOfBirth: string;
+  id: number;
+  name: string;
+  nationality: string;
 }
 
 export interface ScorerTable {
@@ -121,6 +135,29 @@ export interface News {
   pubDate: string;
   title: string;
   enclosure?: {};
+}
+
+export interface Goal {
+  minute: number;
+  scorer: Player;
+  team: Team;
+  extraTime: string;
+  assist: Player;
+  type: string;
+}
+
+export interface Booking {
+  card: CardEnum;
+  minute: number;
+  player: Player;
+  team: Team;
+}
+
+export interface Substitution {
+  minute: number;
+  playerIn: Player;
+  playerOut: Player;
+  team: Team;
 }
 
 

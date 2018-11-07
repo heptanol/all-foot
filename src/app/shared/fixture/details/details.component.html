@@ -1,0 +1,62 @@
+<div class="details-content">
+  <div class="home-details">
+    <div class="details">
+      <h5>
+        {{fixture.homeTeam.name}}
+        <app-team-svg-icon [id]="fixture.homeTeam.id"></app-team-svg-icon>
+      </h5>
+    </div>
+  </div>
+  <div class="separator"></div>
+  <div class="away-details">
+    <div class="details">
+      <h5>
+        {{fixture.awayTeam.name}}
+        <app-team-svg-icon [id]="fixture.awayTeam.id"></app-team-svg-icon>
+      </h5>
+    </div>
+  </div>
+</div>
+<div class="event-content">
+
+  <ng-container *ngFor="let event of events | orderBy:'minute':'DESC';">
+    <div class="event"
+         [class.home-event]="event.team.id === fixture.homeTeam.id"
+         [class.away-event]="event.team.id === fixture.awayTeam.id">
+
+      <ng-container *ngIf="event.type === MatchEventEnum.GOAL">
+        <span class="event-details">
+          <span class="minute">{{event.minute}}'</span>
+        <span class="first">{{event.scorer.name}}</span>
+        <span class="second" *ngIf="event.assist">{{event.assist.name}}</span>
+        </span>
+        <span class="event-type">
+          <app-event-icon [type]="MatchEventEnum.GOAL"></app-event-icon>
+        </span>
+      </ng-container>
+
+      <ng-container *ngIf="event.type === MatchEventEnum.SUBSTITUTION">
+        <span class="event-details">
+          <span class="minute">{{event.minute}}'</span>
+          <span class="first">{{event.playerIn.name}}</span>
+          <span class="second">{{event.playerOut.name}}</span>
+        </span>
+        <span class="event-type">
+          <app-event-icon [type]="MatchEventEnum.SUBSTITUTION"></app-event-icon>
+        </span>
+      </ng-container>
+
+      <ng-container *ngIf="event.type === MatchEventEnum.BOOKING">
+        <span class="event-details">
+          <span class="minute">{{event.minute}}'</span>
+          <span class="first">{{event.player.name}}</span>
+        </span>
+        <span class="event-type">
+          <app-event-icon [type]="event.card"></app-event-icon>
+        </span>
+      </ng-container>
+      <span></span>
+    </div>
+
+  </ng-container>
+</div>

@@ -48,6 +48,7 @@
     "standing": "Classement",
     "lineup": "Equipes de départ",
     "bench": "Remplaçants",
+    "coach": "Entraîneur",
     "status": {
       "POSTPONED": "REP",
       "CANCELED": "ANN",
@@ -72,5 +73,12 @@
   "more": "Plus",
   "today": "Aujourd'hui",
   "video": "Vidéos",
-  "penalty": "TAB"
+  "penalty": "TAB",
+  "player_position": {
+    "GK": "GB",
+    "DEF": "DEF",
+    "MID": "MIL",
+    "ATT": "ATT",
+    "coach": "ENT"
+  }
 }

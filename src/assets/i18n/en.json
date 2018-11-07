@@ -48,6 +48,7 @@
     "details": "Details",
     "lineup": "Lineup",
     "bench": "bench",
+    "coach": "Coach",
     "status": {
       "POSTPONED": "REP",
       "CANCELED": "CANC",
@@ -72,5 +73,12 @@
   "more": "more",
   "today": "today",
   "video": "Videos",
-  "penalty": "PEN"
+  "penalty": "PEN",
+  "player_position": {
+    "GK": "GK",
+    "DEF": "DEF",
+    "MID": "MID",
+    "ATT": "ATT",
+    "coach": "CO"
+  }
 }
