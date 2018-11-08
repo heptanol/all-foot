@@ -4,7 +4,7 @@ import {FootApiService} from '../../foot-api.service';
 import {CommonService} from '../../common.service';
 import {catchError, tap} from 'rxjs/operators';
 import {Subscription} from 'rxjs/Subscription';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DurationType, StageType, StatusType} from '../../enum';
 import {HeaderService} from '../../header/header.service';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -30,6 +30,7 @@ export class FixtureDetailsComponent implements OnInit {
   constructor(
     private apiService: FootApiService,
     private route: ActivatedRoute,
+    private router: Router,
     private commonService: CommonService,
     private headerService: HeaderService,
     private sanitizer: DomSanitizer
@@ -53,6 +54,7 @@ export class FixtureDetailsComponent implements OnInit {
           this.error = true;
           this.commonService
             .openSnackBar('Un problème est survenue lors du chargement', 'fermer');
+          this.router.navigate(['/not-found']);
           return err;
         })
       )

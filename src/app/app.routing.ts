@@ -11,6 +11,7 @@ import {TableComponent} from './leagues/table/table.component';
 import {ScorersComponent} from './leagues/scorers/scorers.component';
 import {ResultClComponent} from './cups/result/result.component';
 import {TableClComponent} from './cups/table/table.component';
+import {NotFoundComponent} from './shared/not-found/not-found.component';
 
 const APP_ROUTES: Routes = [
   {path: '', component: HomeComponent},
@@ -26,7 +27,8 @@ const APP_ROUTES: Routes = [
       {path: 'result', component: ResultClComponent},
       {path: 'standing', component: TableClComponent},
     ]},
-  { path: '**', redirectTo: '' }
+  { path: 'not-found',  component: NotFoundComponent },
+  { path: '**',  pathMatch: 'full', redirectTo: '/not-found' }
 ];
 
 export const Routing = RouterModule.forRoot(APP_ROUTES);

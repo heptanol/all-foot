@@ -81,5 +81,9 @@
     "MID": "MIL",
     "ATT": "ATT",
     "coach": "ENT"
+  },
+  "error": {
+    "title": "Oups",
+    "text": "Une erreur est survenue, veuillez réessayer"
   }
 }
