@@ -61,6 +61,7 @@ export interface TableTeam  {
 export interface Match {
   homeTeam: Team;
   awayTeam: Team;
+  minute: number;
   score: {
     duration: DurationType;
     fullTime: Goals;

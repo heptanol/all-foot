@@ -1,6 +1,6 @@
 <div class="status" [class.min]="min" *ngIf="fixture.status === statusType.SCHEDULED">{{fixture.utcDate | date: 'HH:mm'}}</div>
-<div class="status in-play" [class.min]="min" *ngIf="fixture.status === statusType.IN_PLAY">{{minute}}'</div>
-<div class="status in-play" [class.min]="min" *ngIf="fixture.status === statusType.LIVE">{{minute}}'</div>
+<div class="status in-play" [class.min]="min" *ngIf="fixture.status === statusType.IN_PLAY">{{fixture.minute}}'</div>
+<div class="status in-play" [class.min]="min" *ngIf="fixture.status === statusType.LIVE">{{fixture.minute}}'</div>
 <div class="status rep" [class.min]="min" *ngIf="fixture.status === statusType.POSTPONED">{{'match.status.POSTPONED' | translate}}</div>
 <div class="status rep" [class.min]="min" *ngIf="fixture.status === statusType.CANCELED">{{'match.status.CANCELED' | translate}}</div>
 <div class="status rep" [class.min]="min" *ngIf="fixture.status === statusType.SUSPENDED">{{'match.status.SUSPENDED' | translate}}</div>
