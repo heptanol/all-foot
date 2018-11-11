@@ -81,5 +81,9 @@
     "MID": "MID",
     "ATT": "ATT",
     "coach": "CO"
+  },
+  "error": {
+    "title": "Sorry",
+    "text": "something went wrong, please try again"
   }
 }
