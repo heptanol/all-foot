@@ -26,7 +26,6 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {
     translate.initLangue();
     header.setTitle();
-    header.setMeta();
     this.router.events.pipe(filter(event => event instanceof NavigationStart))
       .subscribe(event => {
       const url = event['url'];

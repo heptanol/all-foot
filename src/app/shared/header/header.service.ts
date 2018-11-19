@@ -17,7 +17,7 @@ export class HeaderService {
 
   setMeta(): void {
     this.meta.addTags([
-      { name: 'author',   content: 'Footpaper.org'},
+      { name: 'author',   content: 'Footpaper.info'},
       { name: 'keywords', content: 'Footpaper, Football, foot'},
     ]);
     this.translate.get('meta.description').subscribe((res: string) => {
