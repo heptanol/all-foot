@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://api.footpaper.info/public',
+  apiUrl: 'http://footpaper.com',
   google_analytics_code: ''
 };

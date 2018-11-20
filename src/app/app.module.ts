@@ -60,6 +60,7 @@ import {PlayerPositionPipe} from './shared/fixture/lineup/player-position';
 import { DetailsComponent } from './shared/fixture/details/details.component';
 import { StatusComponent } from './shared/fixture/status/status.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { NavMenuComponent } from './shared/nav-menu/nav-menu.component';
 
 registerLocaleData(localeFr);
 
@@ -104,6 +105,7 @@ export const lang = navigator.language.slice(0, 2);
     DetailsComponent,
     StatusComponent,
     NotFoundComponent,
+    NavMenuComponent,
   ],
   imports: [
     BrowserModule,

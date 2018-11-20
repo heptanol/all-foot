@@ -2,7 +2,7 @@
 .fixture{
   display: flex;
   justify-content: center;
-  background: mat-color($mat-grey, 300);
+  background: mat-color($mat-grey, 200);
   position: relative;
   font-size: 1.8em;
   @media screen and (max-width: 840px) {

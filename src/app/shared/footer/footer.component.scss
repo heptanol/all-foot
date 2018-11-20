@@ -1,15 +1,15 @@
 @import '~@angular/material/theming';
 .footer{
   min-height: 80px;
-  background: mat-color($mat-grey, 300);
+  background-color: mat-color($mat-gray, 900);
   margin-top: 100px;
-  border-top: 1px solid mat-color($mat-gray, 400);
 }
 .logo{
   text-align: center;
 }
 .sub-footer{
   p{
+    color: mat-color($mat-gray, 400);
     text-align: center;
     padding: 10px 0;
     margin: 0;

@@ -1,9 +1,11 @@
 @import '~@angular/material/theming';
-.example-card {
+mat-card.example-card {
+  box-shadow: none;
   width: 100%;
   float: left;
   margin: 1%;
   padding: 0;
+  background-color: mat-color($mat-gray, 100);
   .image-wrap {
     width: 100%;
     overflow: hidden;
@@ -17,9 +19,12 @@
   mat-card-header {
     padding: 10px;
   }
-  .source{}
+  .source{
+    margin-bottom: 5px;
+  }
 }
-.example-card:hover {
+mat-card.example-card:hover {
+  background-color: mat-color($mat-gray, 300);
   .image-wrap {
     img {
       -webkit-filter: grayscale(0%);

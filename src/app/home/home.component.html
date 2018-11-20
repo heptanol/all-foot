@@ -1,7 +1,6 @@
 <div class="mdc-layout-grid">
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell--span-12">
-    <h3>{{'home.competitions' | translate}}</h3>
       <mat-grid-list [cols]="getCompetitionCols()">
         <mat-grid-tile *ngFor="let cup of cups">
           <a href="" [routerLink]="['/cup/' + cup.path + '/result']" class="league-square" [id]="'league-'+ cup.id"></a>
