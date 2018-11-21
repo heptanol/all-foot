@@ -27,7 +27,7 @@
            [class.home-event]="isEventHome(event)"
            [class.away-event]="isEventAway(event)">
           <span class="event-details">
-            <span class="minute">{{event.minute}}'</span>
+            <span class="minute">{{event.minute}}<ng-container *ngIf="event.extraTime">+{{event.extraTime}}</ng-container></span>
             <span class="first">{{event.scorer.name}} <ng-container *ngIf="event.type === 'OWN'">({{'own_goal' | translate}})</ng-container></span>
             <span class="second" *ngIf="event.assist">{{event.assist.name}}</span>
           </span>
@@ -43,7 +43,7 @@
                [class.home-event]="event.team.id === fixture.homeTeam.id"
                [class.away-event]="event.team.id === fixture.awayTeam.id">
             <span class="event-details">
-              <span class="minute">{{event.minute}}'</span>
+              <span class="minute">{{event.minute}}<ng-container *ngIf="event.extraTime">+{{event.extraTime}}</ng-container></span>
               <span class="first">{{event.playerIn.name}}</span>
               <span class="second">{{event.playerOut.name}}</span>
             </span>
@@ -59,7 +59,7 @@
                [class.home-event]="event.team.id === fixture.homeTeam.id"
                [class.away-event]="event.team.id === fixture.awayTeam.id">
             <span class="event-details">
-              <span class="minute">{{event.minute}}'</span>
+              <span class="minute">{{event.minute}}<ng-container *ngIf="event.extraTime">+{{event.extraTime}}</ng-container></span>
               <span class="first">{{event.player.name}}</span>
             </span>
             <span class="event-type">

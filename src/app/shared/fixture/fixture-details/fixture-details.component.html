@@ -6,8 +6,8 @@
       <div [class.winner]="isHomeWinner()">{{fixture.homeTeam.name}}</div>
       <div class="scorers">
         <ng-container *ngFor="let goal of fixture.goals">
-          <span *ngIf="goal.team.id === fixture.homeTeam.id && goal.type !== 'OWN'">{{goal.scorer.name}} ({{goal.minute}}')</span>
-          <span *ngIf="goal.team.id === fixture.awayTeam.id && goal.type === 'OWN'">{{goal.scorer.name}} ({{'own_goal' | translate}}) ({{goal.minute}}')</span>
+          <span *ngIf="goal.team.id === fixture.homeTeam.id && goal.type !== 'OWN'">{{goal.scorer.name}} ({{goal.minute}}<ng-container *ngIf="goal.extraTime">+{{goal.extraTime}}</ng-container>)</span>
+          <span *ngIf="goal.team.id === fixture.awayTeam.id && goal.type === 'OWN'">{{goal.scorer.name}} ({{'own_goal' | translate}}) ({{goal.minute}}<ng-container *ngIf="goal.extraTime">+{{goal.extraTime}}</ng-container>)</span>
         </ng-container>
       </div>
     </div>
@@ -27,8 +27,8 @@
       <div [class.winner]="isAwayWinner()">{{fixture.awayTeam.name}}</div>
       <div class="scorers">
         <ng-container *ngFor="let goal of fixture.goals">
-          <span *ngIf="goal.team.id === fixture.awayTeam.id && goal.type !== 'OWN'">{{goal.scorer.name}} ({{goal.minute}}')</span>
-          <span *ngIf="goal.team.id === fixture.homeTeam.id && goal.type === 'OWN'">{{goal.scorer.name}} ({{'own_goal' | translate}}) ({{goal.minute}}')</span>
+          <span *ngIf="goal.team.id === fixture.awayTeam.id && goal.type !== 'OWN'">{{goal.scorer.name}} ({{goal.minute}}<ng-container *ngIf="goal.extraTime">+{{goal.extraTime}}</ng-container>)</span>
+          <span *ngIf="goal.team.id === fixture.homeTeam.id && goal.type === 'OWN'">{{goal.scorer.name}} ({{'own_goal' | translate}}) ({{goal.minute}}<ng-container *ngIf="goal.extraTime">+{{goal.extraTime}}</ng-container>)</span>
         </ng-container>
       </div>
     </div>
