@@ -17,7 +17,7 @@ export class ResultClComponent implements OnInit, OnDestroy {
   matchDay: number;
   groupStageFixtures: any[];
   finalStageFixtures: any[];
-  subscribtion: Subscription;
+  subscribtions: Subscription[] = [];
   totalMatchDay: number;
   loading = false;
   error = false;
@@ -44,7 +44,7 @@ export class ResultClComponent implements OnInit, OnDestroy {
     matchday = !matchday ? 1 : matchday;
     this.matchDay = matchday;
     this.loading = true;
-    this.subscribtion = this.apiService.getMatches(competitionId, matchday, null)
+    this.subscribtions.push(this.apiService.getMatches(competitionId, matchday, null)
       .pipe(
         tap(() => this.loading = false),
         catchError(err => {
@@ -58,12 +58,12 @@ export class ResultClComponent implements OnInit, OnDestroy {
       .subscribe((data: MatchResponse) => {
         this.groupStageFixtures = data.matches;
         this.totalMatchDay = data.totalMatchDays;
-      });
+      }));
   }
 
   getFinalStageData(competitionId, stage) {
     this.loading = true;
-    this.subscribtion = this.apiService.getMatches(competitionId, null, stage)
+    this.subscribtions.push(this.apiService.getMatches(competitionId, null, stage)
       .pipe(
         tap(() => this.loading = false),
         catchError(err => {
@@ -76,7 +76,7 @@ export class ResultClComponent implements OnInit, OnDestroy {
       )
       .subscribe(data => {
         this.finalStageFixtures = data.matches;
-      });
+      }));
   }
 
   nextStage(): void {
@@ -99,7 +99,7 @@ export class ResultClComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscribtion.unsubscribe();
+    this.subscribtions.forEach(sub => sub.unsubscribe());
   }
 
 

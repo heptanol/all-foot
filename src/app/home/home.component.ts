@@ -3,6 +3,7 @@ import {Cups, Devices, Leagues} from '../shared/enum';
 import {CommonService} from '../shared/common.service';
 import {HeaderService} from '../shared/header/header.service';
 import {TranslateService} from '@ngx-translate/core';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.translateService.get('menu.home')
+    this.translateService.get('menu.home').pipe(take(1))
       .subscribe(value => this.headerService.setSubTitle(value));
     this.device = this.commonService.detectDevice();
     this.getLeagues();

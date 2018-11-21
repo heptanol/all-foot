@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {FootApiService} from '../shared/foot-api.service';
-import {Competition, CompetitionConfig, CompetitionResponse} from '../shared/model';
+import {CompetitionConfig, CompetitionResponse} from '../shared/model';
 import {Subscription} from 'rxjs/Subscription';
 import {catchError, tap} from 'rxjs/operators';
 import {CommonService} from '../shared/common.service';

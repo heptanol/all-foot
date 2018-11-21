@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {TableTeam} from '../../model';
 
 @Component({
@@ -6,12 +6,7 @@ import {TableTeam} from '../../model';
   templateUrl: './min-table-team.component.html',
   styleUrls: ['./min-table-team.component.scss']
 })
-export class MinTableTeamComponent implements OnInit {
+export class MinTableTeamComponent {
 
   @Input() teamTable: TableTeam;
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

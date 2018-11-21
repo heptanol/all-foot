@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {catchError, tap} from 'rxjs/operators';
 import {Subscription} from 'rxjs/Subscription';
 import {Leagues, StandingType} from '../enum';
@@ -12,7 +12,7 @@ import {CompetitionResponse, Standing, TableTeam} from '../model';
   templateUrl: './min-table.component.html',
   styleUrls: ['./min-table.component.scss']
 })
-export class MinTableComponent implements OnInit {
+export class MinTableComponent implements OnInit, OnDestroy {
 
   standings: TableTeam[];
   subscribtions: Subscription[] = [];
@@ -82,6 +82,10 @@ export class MinTableComponent implements OnInit {
 
   isHighlight(table) {
     return (table.team.id === this.homeTeamId || table.team.id === this.awayTeamId);
+  }
+
+  ngOnDestroy(): void {
+    this.subscribtions.forEach(sub => sub.unsubscribe());
   }
 
 }

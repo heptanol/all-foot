@@ -52,3 +52,21 @@ mat-toolbar-row{
     width: 170px;
   }
 }
+.lang-switch {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8em;
+  .mat-button-toggle-group, .mat-button-toggle-standalone {
+    box-shadow: none;
+  }
+  .mat-button-toggle {
+    background-color: transparent;
+    color: mat-color($mat-gray, 600);
+  }
+  .mat-button-toggle-checked {
+    background-color: transparent;
+    color: mat-color($mat-gray, 50);
+  }
+}

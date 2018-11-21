@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import { Match} from '../../model';
+import {Match} from '../../model';
 import {DurationType, StatusType} from '../../enum';
 
 @Component({

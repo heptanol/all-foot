@@ -28,18 +28,24 @@
       </a>
     </mat-toolbar-row>
   </mat-toolbar>
-  <mat-menu #menu="matMenu" [xPosition]="'after'">
-    <ul>
-      <li *ngFor="let cup of cupList">
-        <a  href="" mat-button  [routerLink]="['/cup/' + cup.path + '/result']" [routerLinkActive]="['accent']" [routerLinkActiveOptions]="{exact: true}" >
-          <app-icon [type]="'champions_league'"></app-icon><span>{{ cup.name }}</span>
-        </a>
-      </li>
-      <li *ngFor="let league of leagueList">
-        <a class="menu-item" mat-button  [routerLink]="['/league/' + league.path + '/result']" [routerLinkActive]="['accent']" [routerLinkActiveOptions]="{exact: true}" >
-          <app-icon [type]="league.country"></app-icon> <span>{{league.name}}</span>
-        </a>
-      </li>
-    </ul>
-  </mat-menu>
+  <div class="lang-switch">
+    <mat-button-toggle-group name="lang" aria-label="Lang" >
+      <mat-button-toggle [checked]="LangEnnum.FR === lang" value="fr" (change)="switchLang(LangEnnum.FR)">FR</mat-button-toggle>
+      <mat-button-toggle [checked]="LangEnnum.EN === lang" value="en" (change)="switchLang(LangEnnum.EN)">EN</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
 </header>
+<mat-menu #menu="matMenu" [xPosition]="'after'">
+  <ul>
+    <li *ngFor="let cup of cupList">
+      <a  href="" mat-button  [routerLink]="['/cup/' + cup.path + '/result']" [routerLinkActive]="['accent']" [routerLinkActiveOptions]="{exact: true}" >
+        <app-icon [type]="'champions_league'"></app-icon><span>{{ cup.name }}</span>
+      </a>
+    </li>
+    <li *ngFor="let league of leagueList">
+      <a class="menu-item" mat-button  [routerLink]="['/league/' + league.path + '/result']" [routerLinkActive]="['accent']" [routerLinkActiveOptions]="{exact: true}" >
+        <app-icon [type]="league.country"></app-icon> <span>{{league.name}}</span>
+      </a>
+    </li>
+  </ul>
+</mat-menu>

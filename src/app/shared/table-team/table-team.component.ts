@@ -9,7 +9,5 @@ import {TableTeam} from '../model';
 export class TableTeamComponent {
 
   @Input() teamTable: TableTeam;
-  constructor() {}
-
 }
 

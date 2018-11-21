@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Cups, LangEnnum, Leagues} from '../enum';
 import {CustomTranslateService} from '../translate/translate.service';
 

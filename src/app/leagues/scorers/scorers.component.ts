@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Competition, CompetitionResponse, ScorerTable} from '../../shared/model';
+import {CompetitionResponse, ScorerTable} from '../../shared/model';
 import {FootApiService} from '../../shared/foot-api.service';
 import {catchError, tap} from 'rxjs/operators';
 import {CommonService} from '../../shared/common.service';

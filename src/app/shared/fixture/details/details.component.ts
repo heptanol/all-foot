@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Goal, Match} from '../../model';
-import {forEach} from '@angular/router/src/utils/collection';
 import {MatchEventEnum} from '../../enum';
 
 @Component({

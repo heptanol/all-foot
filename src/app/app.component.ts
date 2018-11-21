@@ -3,7 +3,7 @@ import {CustomTranslateService} from './shared/translate/translate.service';
 import {HeaderService} from './shared/header/header.service';
 import {Devices} from './shared/enum';
 import {CommonService} from './shared/common.service';
-import {NavigationEnd, NavigationStart, Router} from '@angular/router';
+import {NavigationStart, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {googleAnalytics} from './shared/analytics/script';
 import {filter} from 'rxjs/operators';
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   device: Devices;
   deviceList = Devices;
-  sub: Subscription;
+  subscriptions: Subscription[] = [];
   constructor(
     private translate: CustomTranslateService,
     private commonService: CommonService,
@@ -26,13 +26,13 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {
     translate.initLangue();
     header.setTitle();
-    this.router.events.pipe(filter(event => event instanceof NavigationStart))
+    this.subscriptions.push(this.router.events.pipe(filter(event => event instanceof NavigationStart))
       .subscribe(event => {
       const url = event['url'];
       if (url !== null && url !== undefined && url !== '' && url.indexOf('null') < 0) {
         googleAnalytics(url);
       }
-    });
+    }));
   }
 
   ngOnInit() {
@@ -45,6 +45,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 }

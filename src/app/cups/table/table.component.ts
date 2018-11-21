@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Standing} from '../../shared/model';
+import {Standing} from '../../shared/model';
 import {StandingType} from '../../shared/enum';
 import {CommonService} from '../../shared/common.service';
 

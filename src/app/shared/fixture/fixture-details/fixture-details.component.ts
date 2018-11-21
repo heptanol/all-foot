@@ -98,10 +98,6 @@ export class FixtureDetailsComponent implements OnInit {
   }
 
   updateVideoUrl(query: string) {
-    // Appending an ID to a YouTube URL is safe.
-    // Always make sure to construct SafeValue objects as
-    // close as possible to the input data so
-    // that it's easier to check if the value is safe.
     const dangerousVideoUrl = 'https://www.youtube.com/embed?listType=search&list=' + query;
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(dangerousVideoUrl);
     this.showVideo = true;
