@@ -13,10 +13,10 @@ import {CommonService} from '../shared/common.service';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-  feeds$: Observable<any>;
   news: News[];
   @Input() isBloc = false;
   @Input() limit = 100;
+  @Input() column = 3;
   loading = false;
   error = false;
 

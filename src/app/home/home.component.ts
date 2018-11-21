@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   deviceList = Devices;
   leagues = [];
   cups = [];
+  hideToday = false;
 
   constructor(
     private commonService: CommonService,
@@ -57,6 +58,10 @@ export class HomeComponent implements OnInit {
     } else {
       return 2;
     }
+  }
+
+  setNoMatches() {
+    this.hideToday = true;
   }
 
 

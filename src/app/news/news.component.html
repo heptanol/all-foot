@@ -8,12 +8,12 @@
     <ng-container *ngFor="let n of news |  orderBy:'pubDate':'DESC';  let i=index">
       <div class="mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone"
            *ngIf="i<limit"
-           [class.mdc-layout-grid__cell--span-4-desktop]="!isBloc"
-           [class.mdc-layout-grid__cell--span-6-desktop]="isBloc">
+           [class.mdc-layout-grid__cell--span-4-desktop]="column === 3"
+           [class.mdc-layout-grid__cell--span-6-desktop]="column === 2">
         <app-news-item *ngIf="n" [feed]="n"></app-news-item>
       </div>
     </ng-container>
-    <button class="mdc-layout-grid__cell--span-12" *ngIf="isBloc" mat-stroked-button href="" [routerLink]="['/news']">{{'more' | translate}}</button>
+    <button class="mdc-layout-grid__cell--span-12" *ngIf="isBloc" mat-flat-button [routerLink]="['/news']">{{'more' | translate}}</button>
   </div>
 </div>
 

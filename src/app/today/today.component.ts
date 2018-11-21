@@ -1,4 +1,4 @@
-import {Component, HostListener, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, OnChanges, OnDestroy, OnInit, Output} from '@angular/core';
 import {FootApiService} from '../shared/foot-api.service';
 import {CommonService} from '../shared/common.service';
 import {Subscription} from 'rxjs/Subscription';
@@ -20,6 +20,7 @@ export class TodayComponent implements OnInit, OnDestroy, OnChanges {
   device: Devices;
   deviceList = Devices;
   @Input() isBloc = false;
+  @Output() noMatches = new EventEmitter();
   constructor(
     private apiService: FootApiService,
     private commonService: CommonService,
@@ -55,6 +56,9 @@ export class TodayComponent implements OnInit, OnDestroy, OnChanges {
       )
       .subscribe(data => {
         this.fixtures = data;
+        if (this.fixtures.length === 0) {
+          this.noMatches.emit(true);
+        }
       });
   }
 
