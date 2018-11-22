@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    border-bottom: none;
   }
 }
 .player{
@@ -34,4 +35,10 @@
     background: mat-color($mat-grey, 600);
     text-align: center;
   }
+}
+h5 {
+  margin-bottom: 0;
+  background: mat-color($mat-grey, 200);
+  padding: 10px;
+  border-bottom: 0;
 }
