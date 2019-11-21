@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-team-svg-icon',
@@ -6,10 +6,8 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./svg-icon.component.scss']
 })
 export class TeamSvgIconComponent {
-  @Input() id: String;
+  @Input() id: string;
   @Input() bigSize;
-
-  constructor() {}
 
   get absUrl() {
     return window.location.href;
