@@ -4,6 +4,7 @@
   },
   "menu": {
     "home": "Home",
+    "last-matches": "Videos",
     "today": "Today's Matchs",
     "news": "News",
     "competition": "Competition"
@@ -15,7 +16,7 @@
     "label": "Result",
     "group_stage": "Group stage",
     "final_stage": "Final stage",
-    "matchDay": "Matchday",
+    "matchDay": "Matchday",ng
     "8th_finals": "8th finals",
     "quarterfinal": "quarterfinal",
     "semifinal": "semifinal",

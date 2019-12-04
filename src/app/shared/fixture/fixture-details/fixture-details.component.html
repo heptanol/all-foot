@@ -1,43 +1,6 @@
 
 <ng-container *ngIf="!loading && fixture">
-  <div class="fixture">
-    <div class="team home">
-      <div><app-team-svg-icon [bigSize]="true"  [id]="fixture.homeTeam.id"></app-team-svg-icon></div>
-      <div [class.winner]="isHomeWinner()">{{fixture.homeTeam.name}}</div>
-      <div class="scorers">
-        <ng-container *ngFor="let goal of fixture.goals">
-          <span *ngIf="goal.team.id === fixture.homeTeam.id && goal.type !== 'OWN'">{{goal.scorer.name}} ({{goal.minute}}<ng-container *ngIf="goal.extraTime">+{{goal.extraTime}}</ng-container>)</span>
-          <span *ngIf="goal.team.id === fixture.awayTeam.id && goal.type === 'OWN'">{{goal.scorer.name}} ({{'own_goal' | translate}}) ({{goal.minute}}<ng-container *ngIf="goal.extraTime">+{{goal.extraTime}}</ng-container>)</span>
-        </ng-container>
-      </div>
-    </div>
-
-    <div class="result">
-      <div class="regular">
-        <span [class.winner]="isHomeWinner()">{{fixture.score.fullTime.homeTeam}}</span>-<span [class.winner]="isAwayWinner()">{{fixture.score.fullTime.awayTeam}}</span>
-      </div>
-      <div class="peno" *ngIf="fixture.score.duration === durationsTypes.PENALTY_SHOOTOUT">
-        {{'penalty' | translate}} (<span [class.winner]="isHomeWinner()">{{fixture.score.penalties.homeTeam}}</span> -
-        <span [class.winner]="isAwayWinner()">{{fixture.score.penalties.awayTeam}}</span>)
-      </div>
-    </div>
-
-    <div class="team away">
-      <div><app-team-svg-icon [bigSize]="true" [id]="fixture.awayTeam.id"></app-team-svg-icon></div>
-      <div [class.winner]="isAwayWinner()">{{fixture.awayTeam.name}}</div>
-      <div class="scorers">
-        <ng-container *ngFor="let goal of fixture.goals">
-          <span *ngIf="goal.team.id === fixture.awayTeam.id && goal.type !== 'OWN'">{{goal.scorer.name}} ({{goal.minute}}<ng-container *ngIf="goal.extraTime">+{{goal.extraTime}}</ng-container>)</span>
-          <span *ngIf="goal.team.id === fixture.homeTeam.id && goal.type === 'OWN'">{{goal.scorer.name}} ({{'own_goal' | translate}}) ({{goal.minute}}<ng-container *ngIf="goal.extraTime">+{{goal.extraTime}}</ng-container>)</span>
-        </ng-container>
-      </div>
-    </div>
-
-    <div class="status-container">
-      <app-status [fixture]="fixture"></app-status>
-    </div>
-    <div class="date">{{fixture.utcDate | date: 'dd/MM/yyyy HH:mm'}}</div>
-  </div>
+  <app-fixture-header [fixture]="fixture"></app-fixture-header>
   <div class="fixture-details">
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
@@ -62,10 +25,7 @@
             </mat-tab>
 
             <mat-tab label="{{'video' | translate}}" color="accent" *ngIf="showVideo">
-              <iframe id="ytplayer" type="text/html" width="100%" height="400"
-                      [src]="videoUrl"
-                      frameborder="0">
-              </iframe>
+              <app-youtube-video [query]="this.generateMatchSearchWord()"></app-youtube-video>
             </mat-tab>
           </mat-tab-group>
 

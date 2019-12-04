@@ -20,6 +20,7 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this);
     this.getLeagues();
     this.getCups();
     this.lang = this.translate.getLangue();
