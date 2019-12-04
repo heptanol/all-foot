@@ -12,10 +12,12 @@ import {ScorersComponent} from './leagues/scorers/scorers.component';
 import {ResultClComponent} from './cups/result/result.component';
 import {TableClComponent} from './cups/table/table.component';
 import {NotFoundComponent} from './shared/not-found/not-found.component';
+import {LastMatchesComponent} from "./last-matches/last-matches.component";
 
 const APP_ROUTES: Routes = [
   {path: '', component: HomeComponent},
   {path: 'today', component: TodayComponent},
+  {path: 'last-matches', component: LastMatchesComponent},
   {path: 'news', component: NewsComponent},
   {path: 'league/:leaguePath', component: LeaguesComponent, children: [
       {path: 'result', component: ResultComponent},

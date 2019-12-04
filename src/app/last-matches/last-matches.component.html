@@ -1,0 +1,25 @@
+<ng-container *ngIf="!loading">
+  <mat-toolbar>
+    <mat-toolbar-row class="head">
+      <span>{{'today' | translate}}</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div *ngIf="fixtures && fixtures.length > 0" role="list">
+    <div *ngFor="let fixture of fixtures |  groupBy:'competitionName'" role="listitem" class="border mt-3 mb-3">
+      <mat-toolbar class="day">
+        <mat-toolbar-row>
+          {{fixture.key }}
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <app-fixture-header
+              *ngFor="let fix of fixture.value; let odd=odd;"
+              [class.odd]="odd"
+              [fixture]="fix">
+      </app-fixture-header>
+    </div>
+  </div>
+  <div *ngIf="fixtures && fixtures.length === 0">
+    {{'no_matches'| translate}}
+  </div>
+</ng-container>
+<mat-spinner *ngIf="loading"></mat-spinner>

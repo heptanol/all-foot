@@ -61,6 +61,8 @@ import { DetailsComponent } from './shared/fixture/details/details.component';
 import { StatusComponent } from './shared/fixture/status/status.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { NavMenuComponent } from './shared/nav-menu/nav-menu.component';
+import { LastMatchesComponent } from './last-matches/last-matches.component';
+import { FixtureHeaderComponent } from './shared/fixture/fixture-header/fixture-header.component';
 
 registerLocaleData(localeFr);
 
@@ -106,6 +108,8 @@ export const lang = navigator.language.slice(0, 2);
     StatusComponent,
     NotFoundComponent,
     NavMenuComponent,
+    LastMatchesComponent,
+    FixtureHeaderComponent,
   ],
   imports: [
     BrowserModule,
