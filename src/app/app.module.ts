@@ -64,6 +64,7 @@ import { NavMenuComponent } from './shared/nav-menu/nav-menu.component';
 import { LastMatchesComponent } from './last-matches/last-matches.component';
 import { FixtureHeaderComponent } from './shared/fixture/fixture-header/fixture-header.component';
 import { YoutubeVideoComponent } from './shared/youtube-video/youtube-video.component';
+import { FixtureDetailsLeagueResolver, FixtureDetailsResolver } from './shared/fixture/fixture-details/fixture-details.resolver';
 
 registerLocaleData(localeFr);
 
@@ -149,6 +150,8 @@ export const lang = navigator.language.slice(0, 2);
     HeaderService,
     CustomTranslateService,
     LeaguesResolver,
+    FixtureDetailsResolver,
+    FixtureDetailsLeagueResolver,
     { provide: LOCALE_ID,
       deps: [CustomTranslateService],
       useFactory: (customTranslateService) => customTranslateService.getLangue()

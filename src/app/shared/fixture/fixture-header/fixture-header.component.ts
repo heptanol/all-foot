@@ -1,18 +1,17 @@
-import {Component, Input} from '@angular/core';
-import {Match} from '../../model';
-import {DurationType, StageType, StatusType} from '../../enum';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Match } from '../../model';
+import { DurationType } from '../../enum';
 
 @Component({
   selector: 'app-fixture-header',
   templateUrl: './fixture-header.component.html',
-  styleUrls: ['./fixture-header.component.scss']
+  styleUrls: ['./fixture-header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FixtureHeaderComponent {
 
   @Input() fixture: Match;
-  statusType = StatusType;
   durationsTypes = DurationType;
-  StageType = StageType;
 
 
   isHomeWinner() {

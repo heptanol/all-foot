@@ -1,18 +1,18 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Goal, Match} from '../../model';
-import {MatchEventEnum} from '../../enum';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Goal, Match } from '../../model';
+import { MatchEventEnum } from '../../enum';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+  styleUrls: ['./details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DetailsComponent implements OnInit{
 
   @Input() fixture: Match;
   events: any[] = [];
   MatchEventEnum = MatchEventEnum;
-  constructor() { }
 
   ngOnInit(): void {
     this.setEvents();

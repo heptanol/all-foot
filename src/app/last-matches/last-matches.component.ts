@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
-import { Match } from "../shared/model";
+import { Match } from '../shared/model';
 import { FootApiService } from '../shared/foot-api.service';
 
 @Component({
@@ -12,7 +13,10 @@ import { FootApiService } from '../shared/foot-api.service';
 export class LastMatchesComponent implements OnInit {
   matches$: Observable<Match[]>;
 
-  constructor(private apiService: FootApiService) { }
+  constructor(
+    private apiService: FootApiService,
+    private router: Router,
+    ) { }
 
   ngOnInit() {
     this.getData();
@@ -26,6 +30,10 @@ export class LastMatchesComponent implements OnInit {
     return match.homeTeam.name + ' ' +
       match.score.fullTime.homeTeam + '-' + match.score.fullTime.awayTeam + ' ' +
       match.awayTeam.name;
+  }
+
+  goToFixture(match: Match): void {
+    this.router.navigate(['match/' + match.competition.id + '/' + match.id]);
   }
 
 }
