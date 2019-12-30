@@ -17,12 +17,12 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class FixtureDetailsComponent implements OnInit {
 
   fixture: Match;
-  statusType = StatusType;
-  durationsTypes = DurationType;
   leagueId: string;
   subscribtions: Subscription[] = [];
   loading = false;
   error = false;
+  statusType = StatusType;
+  durationsTypes = DurationType;
   StageType = StageType;
   videoUrl: any;
   showVideo = false;

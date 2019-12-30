@@ -35,4 +35,8 @@ export class FootApiService {
   getTodayMatches(): Observable<any> {
     return this.http.get(`${this.apiUrl}/matches/today`);
   }
+
+  getLastImportantMatches(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/test`);
+  }
 }

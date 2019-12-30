@@ -11,6 +11,12 @@
     </a>
   </mat-toolbar-row>
   <mat-toolbar-row>
+    <a mat-button href="" [routerLink]="['last-matches']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
+      <i class="material-icons">home</i>
+      <span>{{'menu.last-matches' | translate}}</span>
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
     <a mat-button href="" [routerLink]="['/news']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
       <i class="material-icons">public</i>
       <span>{{'menu.news' | translate}}</span>
