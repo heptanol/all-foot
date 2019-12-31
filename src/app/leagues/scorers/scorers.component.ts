@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {CompetitionResponse, ScorerTable} from '../../shared/model';
-import {FootApiService} from '../../shared/foot-api.service';
-import {catchError, tap} from 'rxjs/operators';
-import {CommonService} from '../../shared/common.service';
+import { Component, OnInit } from '@angular/core';
+import { CompetitionResponse, ScorerTable } from '../../shared/model';
+import { FootApiService } from '../../shared/foot-api.service';
+import { CommonService } from '../../shared/common.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-scorers',
@@ -10,11 +10,9 @@ import {CommonService} from '../../shared/common.service';
   styleUrls: ['./scorers.component.scss']
 })
 export class ScorersComponent implements OnInit {
-  @Input()competition: CompetitionResponse;
+  competition: CompetitionResponse;
   scorers: ScorerTable[];
-  loading = false;
-  error = false;
-
+  scorers$: Observable<ScorerTable[]>;
 
   constructor(
     private apiService: FootApiService,
@@ -27,21 +25,7 @@ export class ScorersComponent implements OnInit {
   }
 
   getData() {
-    this.loading = true;
-    this.apiService.getCompetitionScorers(this.competition.competition.id)
-      .pipe(
-        tap(() => this.loading = false),
-        catchError(err => {
-          this.loading = false;
-          this.error = true;
-          this.commonService
-            .openSnackBar('Un problème est survenue lors du chargement', 'fermer');
-          return err;
-        })
-      )
-      .subscribe(data => {
-        this.scorers = data.scorers;
-      });
+    this.scorers$ = this.apiService.getCompetitionScorers(this.competition.competition.id);
   }
 
 }

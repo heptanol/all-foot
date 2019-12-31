@@ -1,4 +1,4 @@
-<ng-container *ngIf="!loading && !error">
+<ng-container *ngIf="competition">
   <h2>{{competition.competition.name}}</h2>
   <nav mat-tab-nav-bar>
     <a mat-tab-link
@@ -22,4 +22,3 @@
   </nav>
 <router-outlet *ngIf="competition"></router-outlet>
 </ng-container>
-<mat-spinner *ngIf="loading"></mat-spinner>

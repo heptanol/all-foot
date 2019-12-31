@@ -14,6 +14,7 @@ import {TableClComponent} from './cups/table/table.component';
 import {NotFoundComponent} from './shared/not-found/not-found.component';
 import {LastMatchesComponent} from './last-matches/last-matches.component';
 import { FixtureDetailsLeagueResolver, FixtureDetailsResolver } from './shared/fixture/fixture-details/fixture-details.resolver';
+import { LeaguesResolver } from './leagues/leagues.resolver';
 
 const APP_ROUTES: Routes = [
   {
@@ -35,6 +36,9 @@ const APP_ROUTES: Routes = [
   {
     path: 'league/:leaguePath',
     component: LeaguesComponent,
+    resolve: {
+      competition: LeaguesResolver
+    },
     children: [
       {path: 'result', component: ResultComponent},
       {path: 'standing', component: TableComponent},

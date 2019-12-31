@@ -12,9 +12,7 @@ export class FixtureMinComponent {
 
   @Input() fixture: Match;
   @Input() competition: any;
-  constructor(
-    private router: Router
-  ) { }
+  constructor(private router: Router) { }
 
   @HostListener('click')
   onClick() {

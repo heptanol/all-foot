@@ -48,7 +48,6 @@ import { HomeComponent } from './home/home.component';
 import { FixtureMinComponent } from './shared/fixture/fixture-min/fixture-min.component';
 import { ScorersComponent } from './leagues/scorers/scorers.component';
 import { FixtureDetailsComponent } from './shared/fixture/fixture-details/fixture-details.component';
-import {LeaguesResolver} from './shared/league-resolver';
 import { MinTableComponent } from './shared/min-table/min-table.component';
 import {MinTableTeamComponent} from './shared/table-team/min-table-team/min-table-team.component';
 import { EventIconComponent } from './shared/fixture/event-icon/event-icon.component';
@@ -65,6 +64,7 @@ import { LastMatchesComponent } from './last-matches/last-matches.component';
 import { FixtureHeaderComponent } from './shared/fixture/fixture-header/fixture-header.component';
 import { YoutubeVideoComponent } from './shared/youtube-video/youtube-video.component';
 import { FixtureDetailsLeagueResolver, FixtureDetailsResolver } from './shared/fixture/fixture-details/fixture-details.resolver';
+import { LeaguesResolver } from './leagues/leagues.resolver';
 
 registerLocaleData(localeFr);
 
@@ -149,8 +149,8 @@ export const lang = navigator.language.slice(0, 2);
     CommonService,
     HeaderService,
     CustomTranslateService,
-    LeaguesResolver,
     FixtureDetailsResolver,
+    LeaguesResolver,
     FixtureDetailsLeagueResolver,
     { provide: LOCALE_ID,
       deps: [CustomTranslateService],

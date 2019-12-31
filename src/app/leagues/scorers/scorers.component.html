@@ -1,4 +1,4 @@
-<ng-container *ngIf="!loading && !error">
+<ng-container *ngIf="scorers$ | async">
   <div class="table-item header">
     <div class="tab-header position">{{'scorers.ranking' | translate}}</div>
     <div class="tab-header player" >{{'scorers.player' | translate}}</div>
@@ -6,7 +6,7 @@
     <div class="tab-header team" >{{'scorers.nationality' | translate}}</div>
     <div class="tab-header"  >{{'scorers.numberOfGoals' | translate}}</div>
   </div>
-  <ng-container *ngFor="let scorer of scorers; let i = index; let odd=odd;">
+  <ng-container *ngFor="let scorer of (scorers$ | async)?.scorers; let i = index; let odd=odd;">
     <div class="table-item" [class.odd]="odd">
       <div class="tab-row position">{{i+1}}</div>
       <div class="tab-row player">{{scorer.player.name}}</div>
@@ -16,4 +16,3 @@
     </div>
   </ng-container>
 </ng-container>
-<mat-spinner *ngIf="loading"></mat-spinner>
