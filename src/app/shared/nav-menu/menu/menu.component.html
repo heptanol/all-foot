@@ -23,12 +23,6 @@
     </a>
   </mat-toolbar-row>
   <mat-toolbar-row>
-    <a mat-button href="" [routerLink]="['/today']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
-      <i class="material-icons">whatshot</i>
-      <span>{{'menu.today' | translate}}</span>
-    </a>
-  </mat-toolbar-row>
-  <mat-toolbar-row>
     <a mat-button [matMenuTriggerFor]="menu" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
       <i class="material-icons">highlight</i>
       <span>{{'menu.competition' | translate}}</span>

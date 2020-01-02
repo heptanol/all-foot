@@ -48,7 +48,6 @@ import { HomeComponent } from './home/home.component';
 import { FixtureMinComponent } from './shared/fixture/fixture-min/fixture-min.component';
 import { ScorersComponent } from './leagues/scorers/scorers.component';
 import { FixtureDetailsComponent } from './shared/fixture/fixture-details/fixture-details.component';
-import { MinTableComponent } from './shared/min-table/min-table.component';
 import {MinTableTeamComponent} from './shared/table-team/min-table-team/min-table-team.component';
 import { EventIconComponent } from './shared/fixture/event-icon/event-icon.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -65,6 +64,9 @@ import { FixtureHeaderComponent } from './shared/fixture/fixture-header/fixture-
 import { YoutubeVideoComponent } from './shared/youtube-video/youtube-video.component';
 import { FixtureDetailsLeagueResolver, FixtureDetailsResolver } from './shared/fixture/fixture-details/fixture-details.resolver';
 import { LeaguesResolver } from './leagues/leagues.resolver';
+import { CupsResolver } from './cups/cups.resolver';
+import { MinLeagueTableComponent } from './shared/fixture/fixture-details/min-league-table/min-league-table.component';
+import { MinCupTableComponent } from './shared/fixture/fixture-details/min-cup-table/min-cup-table.component';
 
 registerLocaleData(localeFr);
 
@@ -100,7 +102,7 @@ export const lang = navigator.language.slice(0, 2);
     FixtureMinComponent,
     ScorersComponent,
     FixtureDetailsComponent,
-    MinTableComponent,
+    MinCupTableComponent,
     MinTableTeamComponent,
     EventIconComponent,
     FooterComponent,
@@ -113,6 +115,7 @@ export const lang = navigator.language.slice(0, 2);
     LastMatchesComponent,
     FixtureHeaderComponent,
     YoutubeVideoComponent,
+    MinLeagueTableComponent
   ],
   imports: [
     BrowserModule,
@@ -147,6 +150,7 @@ export const lang = navigator.language.slice(0, 2);
     FeedService,
     FootApiService,
     CommonService,
+    CupsResolver,
     HeaderService,
     CustomTranslateService,
     FixtureDetailsResolver,

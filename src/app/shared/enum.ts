@@ -1,4 +1,4 @@
-import {CompetitionConfig, Substitution} from './model';
+import { CompetitionConfig } from './model';
 
 export const Leagues = {
   LIGA : {

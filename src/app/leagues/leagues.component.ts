@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CompetitionResponse } from '../shared/model';
 import { take } from 'rxjs/operators';
+import { CompetitionResponse } from '../shared/model';
 import { Leagues } from '../shared/enum';
 import { CommonService } from '../shared/common.service';
 

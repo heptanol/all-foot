@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {environment} from '../../environments/environment';
 import { map } from 'rxjs/operators';
+import { CompetitionResponse } from './model';
 
 
 @Injectable()
@@ -25,8 +26,8 @@ export class FootApiService {
     return this.http.get(`${this.apiUrl}/competitions/${league}/matches/${matche}`);
   }
 
-  getCompetitionStandings(league): Observable<any> {
-    return this.http.get(`${this.apiUrl}/competitions/${league}/standings`);
+  getCompetitionStandings(league): Observable<CompetitionResponse> {
+    return this.http.get<CompetitionResponse>(`${this.apiUrl}/competitions/${league}/standings`);
   }
 
   getCompetitionScorers(league): Observable<any> {

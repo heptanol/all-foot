@@ -1,11 +1,10 @@
-<mat-spinner *ngIf="loading"></mat-spinner>
 <div class="mdc-layout-grid" [class.no-padding]="isBloc">
-  <div class="mdc-layout-grid__inner"  *ngIf="news">
+  <div class="mdc-layout-grid__inner"  *ngIf="(news$ | async)">
     <div class="mdc-layout-grid__cell--span-12">
       <h2 *ngIf="!isBloc">{{'menu.news' | translate}}</h2>
       <h3 *ngIf="isBloc">{{'menu.news' | translate}}</h3>
     </div>
-    <ng-container *ngFor="let n of news |  orderBy:'pubDate':'DESC';  let i=index">
+    <ng-container *ngFor="let n of (news$ | async) |  orderBy:'pubDate':'DESC';  let i=index">
       <div class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone"
            *ngIf="i<limit"
            [class.mdc-layout-grid__cell--span-6-desktop]="column === 2">

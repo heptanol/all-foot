@@ -15,15 +15,12 @@ import {NotFoundComponent} from './shared/not-found/not-found.component';
 import {LastMatchesComponent} from './last-matches/last-matches.component';
 import { FixtureDetailsLeagueResolver, FixtureDetailsResolver } from './shared/fixture/fixture-details/fixture-details.resolver';
 import { LeaguesResolver } from './leagues/leagues.resolver';
+import { CupsResolver } from './cups/cups.resolver';
 
 const APP_ROUTES: Routes = [
   {
     path: '',
     component: HomeComponent
-  },
-  {
-    path: 'today',
-    component: TodayComponent
   },
   {
     path: 'last-matches',
@@ -56,6 +53,9 @@ const APP_ROUTES: Routes = [
   {
     path: 'cup/:cupPath',
     component: CupsComponent,
+    resolve: {
+      competition: CupsResolver
+    },
     children: [
       {path: 'result', component: ResultClComponent},
       {path: 'standing', component: TableClComponent},

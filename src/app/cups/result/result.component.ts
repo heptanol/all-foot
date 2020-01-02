@@ -1,30 +1,26 @@
-import {Component, HostListener, Input, OnDestroy, OnInit} from '@angular/core';
-import {FootApiService} from '../../shared/foot-api.service';
-import {Subscription} from 'rxjs/Subscription';
-import {CompetitionConfig, CompetitionResponse, MatchResponse} from '../../shared/model';
-import {catchError, tap} from 'rxjs/operators';
-import {CommonService} from '../../shared/common.service';
-import {Devices, StageType} from '../../shared/enum';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { FootApiService } from '../../shared/foot-api.service';
+import { CompetitionConfig, CompetitionResponse, MatchResponse } from '../../shared/model';
+import { CommonService } from '../../shared/common.service';
+import { Devices, StageType } from '../../shared/enum';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-result-cl',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultClComponent implements OnInit, OnDestroy {
-  @Input()competition: CompetitionResponse;
-  @Input()config: CompetitionConfig;
+export class ResultClComponent implements OnInit {
+  competition: CompetitionResponse;
+  config: CompetitionConfig;
   matchDay: number;
-  groupStageFixtures: any[];
-  finalStageFixtures: any[];
-  subscribtions: Subscription[] = [];
-  totalMatchDay: number;
-  loading = false;
-  error = false;
+  groupStageFixtures$: Observable<MatchResponse>;
+  finalStageFixtures$: Observable<MatchResponse>;
   device: Devices;
   deviceList = Devices;
   actualStage: {stage: StageType, index: number};
-  avilableStage: any[];
+  avilableStage: StageType[];
+
   constructor(
     private apiService: FootApiService,
     private commonService: CommonService
@@ -41,42 +37,12 @@ export class ResultClComponent implements OnInit, OnDestroy {
   }
 
   getGroupStageData(competitionId, matchday) {
-    matchday = !matchday ? 1 : matchday;
-    this.matchDay = matchday;
-    this.loading = true;
-    this.subscribtions.push(this.apiService.getMatches(competitionId, matchday, null)
-      .pipe(
-        tap(() => this.loading = false),
-        catchError(err => {
-          this.loading = false;
-          this.error = true;
-          this.commonService
-            .openSnackBar('Un problème est survenue lors du chargement', 'fermer');
-          return err;
-        })
-      )
-      .subscribe((data: MatchResponse) => {
-        this.groupStageFixtures = data.matches;
-        this.totalMatchDay = data.totalMatchDays;
-      }));
+    this.matchDay = !!matchday ? matchday : 1;
+    this.groupStageFixtures$ = this.apiService.getMatches(competitionId, matchday, null);
   }
 
   getFinalStageData(competitionId, stage) {
-    this.loading = true;
-    this.subscribtions.push(this.apiService.getMatches(competitionId, null, stage)
-      .pipe(
-        tap(() => this.loading = false),
-        catchError(err => {
-          this.loading = false;
-          this.error = true;
-          this.commonService
-            .openSnackBar('Un problème est survenue lors du chargement', 'fermer');
-          return err;
-        })
-      )
-      .subscribe(data => {
-        this.finalStageFixtures = data.matches;
-      }));
+    this.finalStageFixtures$ = this.apiService.getMatches(competitionId, null, stage);
   }
 
   nextStage(): void {
@@ -97,10 +63,5 @@ export class ResultClComponent implements OnInit, OnDestroy {
   onResize() {
     this.device = this.commonService.detectDevice();
   }
-
-  ngOnDestroy() {
-    this.subscribtions.forEach(sub => sub.unsubscribe());
-  }
-
 
 }

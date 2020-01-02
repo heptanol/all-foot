@@ -1,39 +1,36 @@
 
-<mat-spinner *ngIf="loading"></mat-spinner>
-
 <mat-tab-group class="mini-tab">
   <mat-tab label="{{'result.group_stage' | translate}}" color="accent">
     <ng-container *ngIf="competition">
       <mat-toolbar class="match-day">
         <mat-toolbar-row>
-          <button mat-icon-button (click)="getGroupStageData(competition.competition.id, matchDay - 1)"  *ngIf="matchDay !== 1">
+          <button mat-icon-button (click)="getGroupStageData(competition.competition.id, matchDay - 1)"  [disabled]="matchDay === 1">
             <mat-icon>keyboard_arrow_left</mat-icon>
           </button>
           <span>{{'result.matchDay' | translate}} {{matchDay}}</span>
-          <button mat-icon-button (click)="getGroupStageData(competition.competition.id, matchDay + 1)" *ngIf="matchDay !== totalMatchDay">
+          <button mat-icon-button (click)="getGroupStageData(competition.competition.id, matchDay + 1)" [disabled]="matchDay === (groupStageFixtures$ | async)?.totalMatchDays">
             <mat-icon>keyboard_arrow_right</mat-icon>
           </button>
         </mat-toolbar-row>
       </mat-toolbar>
-      <div *ngIf="groupStageFixtures" role="list">
-        <div *ngFor="let fixture of groupStageFixtures |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
-          <mat-toolbar class="day">
-            <mat-toolbar-row>
-              {{fixture.key  | date: 'EEEE dd/MM/yyyy'}}
-            </mat-toolbar-row>
-          </mat-toolbar>
-          <ng-container *ngIf="device === deviceList.DESKTOP">
-            <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [competition]="competition.competition" [fixture]="fix" [class.odd]="odd"></app-fixture>
-          </ng-container>
-          <ng-container *ngIf="device !== deviceList.DESKTOP">
-            <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [competition]="competition.competition" [fixture]="fix" [class.odd]="odd"></app-fixture-min>
-          </ng-container>
-        </div>
+      <div *ngFor="let fixture of (groupStageFixtures$ | async)?.matches |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
+        <mat-toolbar class="day">
+          <mat-toolbar-row>
+            {{fixture.key  | date: 'EEEE dd/MM/yyyy'}}
+          </mat-toolbar-row>
+        </mat-toolbar>
+        <ng-container *ngIf="device === deviceList.DESKTOP">
+          <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [competition]="competition.competition" [fixture]="fix" [class.odd]="odd"></app-fixture>
+        </ng-container>
+        <ng-container *ngIf="device !== deviceList.DESKTOP">
+          <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [competition]="competition.competition" [fixture]="fix" [class.odd]="odd"></app-fixture-min>
+        </ng-container>
       </div>
     </ng-container>
   </mat-tab>
-  <mat-tab label="{{'result.final_stage' | translate}}" color="accent">
 
+
+  <mat-tab label="{{'result.final_stage' | translate}}" color="accent">
     <ng-container *ngIf="competition">
       <mat-toolbar class="match-day">
         <mat-toolbar-row>
@@ -46,22 +43,19 @@
           </button>
         </mat-toolbar-row>
       </mat-toolbar>
-      <div *ngIf="finalStageFixtures" role="list">
-        <div *ngFor="let fixture of finalStageFixtures |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
-          <mat-toolbar class="day">
-            <mat-toolbar-row>
-              {{fixture.key  | date: 'EEEE dd/MM/yyyy'}}
-            </mat-toolbar-row>
-          </mat-toolbar>
-          <ng-container *ngIf="device === deviceList.DESKTOP">
-            <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [competition]="competition.competition" [fixture]="fix" [class.odd]="odd"></app-fixture>
-          </ng-container>
-          <ng-container *ngIf="device !== deviceList.DESKTOP">
-            <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [competition]="competition.competition" [fixture]="fix" [class.odd]="odd"></app-fixture-min>
-          </ng-container>
-        </div>
+      <div *ngFor="let fixture of (finalStageFixtures$ | async)?.matches |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
+        <mat-toolbar class="day">
+          <mat-toolbar-row>
+            {{fixture.key  | date: 'EEEE dd MMM yyyy'}}
+          </mat-toolbar-row>
+        </mat-toolbar>
+        <ng-container *ngIf="device === deviceList.DESKTOP">
+          <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [competition]="competition.competition" [fixture]="fix" [class.odd]="odd"></app-fixture>
+        </ng-container>
+        <ng-container *ngIf="device !== deviceList.DESKTOP">
+          <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [competition]="competition.competition" [fixture]="fix" [class.odd]="odd"></app-fixture-min>
+        </ng-container>
       </div>
     </ng-container>
-
   </mat-tab>
 </mat-tab-group>
