@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CompetitionResponse, ScorerTable } from '../../shared/model';
 import { FootApiService } from '../../shared/foot-api.service';
 import { CommonService } from '../../shared/common.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-scorers',

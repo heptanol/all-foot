@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FeedService } from '../shared/feed.service';
 import { News } from '../shared/model';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-news',

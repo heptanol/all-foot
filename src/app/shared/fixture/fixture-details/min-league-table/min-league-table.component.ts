@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CompetitionResponse, Standing, TableTeam } from '../../../model';
 import { FootApiService } from '../../../foot-api.service';

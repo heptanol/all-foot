@@ -3,7 +3,7 @@ import { FootApiService } from '../../shared/foot-api.service';
 import { CompetitionResponse } from '../../shared/model';
 import { CommonService } from '../../shared/common.service';
 import { Devices } from '../../shared/enum';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-result',

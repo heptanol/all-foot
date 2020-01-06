@@ -4,7 +4,7 @@ import {HeaderService} from './shared/header/header.service';
 import {Devices} from './shared/enum';
 import {CommonService} from './shared/common.service';
 import {NavigationStart, Router} from '@angular/router';
-import {Subscription} from 'rxjs/Subscription';
+import {Subscription} from 'rxjs';
 import {googleAnalytics} from './shared/analytics/script';
 import {filter} from 'rxjs/operators';
 

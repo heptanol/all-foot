@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { FootApiService } from '../shared/foot-api.service';
 import { CommonService } from '../shared/common.service';
 import { Devices } from '../shared/enum';
