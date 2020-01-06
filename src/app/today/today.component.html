@@ -1,28 +1,16 @@
-<ng-container *ngIf="!loading">
-  <h2 *ngIf="!isBloc">{{'menu.today' | translate}}</h2>
-  <h4 *ngIf="isBloc">{{'menu.today' | translate}}</h4>
-  <mat-toolbar *ngIf="!isBloc">
-    <mat-toolbar-row class="head">
-      <span>{{'today' | translate}}</span>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  <div *ngIf="fixtures && fixtures.length > 0" role="list">
-    <div *ngFor="let fixture of fixtures |  groupBy:'competitionName'" role="listitem" class="border mt-3 mb-3">
-      <mat-toolbar class="day">
-        <mat-toolbar-row>
-          {{fixture.key }}
-        </mat-toolbar-row>
-      </mat-toolbar>
-      <ng-container *ngIf="!isBloc &&  device === deviceList.DESKTOP">
-        <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [class.odd]="odd" [competition]="fix.competition" [fixture]="fix"></app-fixture>
-      </ng-container>
-      <ng-container *ngIf="isBloc || device !== deviceList.DESKTOP">
-        <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [class.odd]="odd" [competition]="fix.competition" [fixture]="fix"></app-fixture-min>
-      </ng-container>
-    </div>
+<h4>{{'menu.today' | translate}}</h4>
+<div *ngIf="(fixtures$ | async)" role="list">
+  <div *ngFor="let fixture of (fixtures$ | async) |  groupBy:'competitionName'" role="listitem" class="border mt-3 mb-3">
+    <mat-toolbar class="day">
+      <mat-toolbar-row>
+        {{fixture.key }}
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <ng-container>
+      <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [class.odd]="odd" [competition]="fix.competition" [fixture]="fix"></app-fixture-min>
+    </ng-container>
   </div>
-  <div *ngIf="fixtures && fixtures.length === 0">
-    {{'no_matches'| translate}}
-  </div>
-</ng-container>
-<mat-spinner *ngIf="loading"></mat-spinner>
+</div>
+<div *ngIf="fixtures && fixtures.length === 0">
+  {{'no_matches'| translate}}
+</div>

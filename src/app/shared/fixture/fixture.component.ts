@@ -1,18 +1,18 @@
-import {Component, HostListener, Input} from '@angular/core';
-import {Router} from '@angular/router';
-import {Match} from '../model';
-import {DurationType, StatusType} from '../enum';
+import { ChangeDetectionStrategy, Component, HostListener, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Match } from '../model';
+import { DurationType } from '../enum';
 
 @Component({
   selector: 'app-fixture',
   templateUrl: './fixture.component.html',
-  styleUrls: ['./fixture.component.scss']
+  styleUrls: ['./fixture.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FixtureComponent {
 
   @Input() fixture: Match;
   @Input() competition: any;
-  statusType = StatusType;
   durationsTypes = DurationType;
   constructor(
     private router: Router

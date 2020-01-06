@@ -16,7 +16,7 @@
       <app-news [limit]="12" [isBloc]="true" [column]="hideToday ? 3 : 2"></app-news>
     </div>
     <div *ngIf="!hideToday" class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone">
-      <app-today [isBloc]="true" (noMatches)="setNoMatches()"></app-today>
+      <app-today (noMatches)="setNoMatches()"></app-today>
     </div>
   </div>
 </div>

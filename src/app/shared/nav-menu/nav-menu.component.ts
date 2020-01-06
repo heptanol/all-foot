@@ -1,11 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {Cups, LangEnnum, Leagues} from '../enum';
 import {CustomTranslateService} from '../translate/translate.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './nav-menu.component.html',
-  styleUrls: ['./nav-menu.component.scss']
+  styleUrls: ['./nav-menu.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavMenuComponent implements OnInit {
   leagueList = [];

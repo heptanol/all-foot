@@ -1,16 +1,17 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Standing, TableTeam} from '../../shared/model';
-import {CommonService} from '../../shared/common.service';
-import {StandingType} from '../../shared/enum';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Standing, TableTeam } from '../../shared/model';
+import { CommonService } from '../../shared/common.service';
+import { StandingType } from '../../shared/enum';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TableComponent implements OnInit {
 
-  @Input()standings: Standing[];
+  standings: Standing[];
   tables: TableTeam[];
   constructor(
     private commonService: CommonService

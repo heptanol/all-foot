@@ -6,7 +6,7 @@
       </mat-toolbar-row>
     </mat-toolbar>
     <ng-container *ngFor="let match of fixture.value">
-      <app-fixture-header [fixture]="match">
+      <app-fixture-header [fixture]="match" (click)="goToFixture(match)">
       </app-fixture-header>
       <app-youtube-video [query]="getVideoQuery(match)"></app-youtube-video>
     </ng-container>

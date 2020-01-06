@@ -1,12 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Standing} from '../../shared/model';
-import {StandingType} from '../../shared/enum';
-import {CommonService} from '../../shared/common.service';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Standing } from '../../shared/model';
+import { StandingType } from '../../shared/enum';
+import { CommonService } from '../../shared/common.service';
 
 @Component({
   selector: 'app-table-cl',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TableClComponent implements OnInit {
 

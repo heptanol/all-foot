@@ -1,20 +1,20 @@
-<ng-container *ngIf="!loading && competition">
+<ng-container>
   <mat-toolbar class="match-day">
     <mat-toolbar-row>
-      <button mat-icon-button (click)="getData(competition.competition.id, matchDay - 1)"  *ngIf="matchDay !== 1">
+      <button mat-icon-button (click)="getData(competition.competition.id, matchDay - 1)"  [disabled]="matchDay === 1">
         <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_left</mat-icon>
       </button>
       <span>{{'result.matchDay' | translate}} {{matchDay}}</span>
-      <button mat-icon-button (click)="getData(competition.competition.id, matchDay + 1)" *ngIf="matchDay !== totalMatchDay">
+      <button mat-icon-button (click)="getData(competition.competition.id, matchDay + 1)" [disabled]="matchDay === (fixtures$ | async)?.totalMatchDays">
         <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_right</mat-icon>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
-  <div *ngIf="fixtures" role="list">
-    <div *ngFor="let fixture of fixtures |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
+  <div *ngIf="!!(fixtures$ | async)" role="list">
+    <div *ngFor="let fixture of (fixtures$ | async)?.matches |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
       <mat-toolbar class="day">
         <mat-toolbar-row>
-          {{fixture.key  | date: 'EEEE dd/MM/yyyy'}}
+          {{fixture.key  | date: 'EEEE dd MMMM yyyy'}}
         </mat-toolbar-row>
       </mat-toolbar>
       <ng-container *ngIf="device === deviceList.DESKTOP">
@@ -26,4 +26,3 @@
     </div>
   </div>
 </ng-container>
-<mat-spinner *ngIf="loading"></mat-spinner>

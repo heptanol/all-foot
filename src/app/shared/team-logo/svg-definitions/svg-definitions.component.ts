@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-team-svg-definitions',
-  templateUrl: './svg-definitions.component.html'
+  templateUrl: './svg-definitions.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TeamSvgDefinitionsComponent {
 }

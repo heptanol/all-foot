@@ -1,22 +1,18 @@
-import {Component, HostListener, Input} from '@angular/core';
-import {Router} from '@angular/router';
-import {Match} from '../../model';
-import {DurationType, StatusType} from '../../enum';
+import { ChangeDetectionStrategy, Component, HostListener, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Match } from '../../model';
 
 @Component({
   selector: 'app-fixture-min',
   templateUrl: './fixture-min.component.html',
-  styleUrls: ['./fixture-min.component.scss']
+  styleUrls: ['./fixture-min.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FixtureMinComponent {
 
   @Input() fixture: Match;
   @Input() competition: any;
-  statusType = StatusType;
-  durationsTypes = DurationType;
-  constructor(
-    private router: Router
-  ) { }
+  constructor(private router: Router) { }
 
   @HostListener('click')
   onClick() {

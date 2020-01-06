@@ -1,5 +1,4 @@
-
-<ng-container *ngIf="!loading && fixture">
+<ng-container *ngIf="!!fixture">
   <app-fixture-header [fixture]="fixture"></app-fixture-header>
   <div class="fixture-details">
     <div class="mdc-layout-grid">
@@ -24,21 +23,20 @@
               <app-details [fixture]="fixture"></app-details>
             </mat-tab>
 
-            <mat-tab label="{{'video' | translate}}" color="accent" *ngIf="showVideo">
+            <mat-tab label="{{'video' | translate}}" color="accent" *ngIf="fixture.status === StatusType.FINISHED">
               <app-youtube-video [query]="this.generateMatchSearchWord()"></app-youtube-video>
             </mat-tab>
           </mat-tab-group>
 
         </div>
         <div class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone">
-          <app-min-table *ngIf="fixture.stage === StageType.REGULAR_SEASON" [homeTeamId]="fixture.homeTeam.id" [awayTeamId]="fixture.awayTeam.id" [competitionId]="leagueId"></app-min-table>
-          <app-min-table [group]="fixture.group" *ngIf="fixture.stage === StageType.GROUP_STAGE" [homeTeamId]="fixture.homeTeam.id" [awayTeamId]="fixture.awayTeam.id" [competitionId]="leagueId"></app-min-table>
+          <app-min-league-table *ngIf="fixture.stage === StageType.REGULAR_SEASON" [homeTeamId]="fixture.homeTeam.id" [awayTeamId]="fixture.awayTeam.id" [competitionId]="leagueId"></app-min-league-table>
+          <app-min-cup-table *ngIf="fixture.stage === StageType.GROUP_STAGE" [group]="fixture.group" [homeTeamId]="fixture.homeTeam.id" [awayTeamId]="fixture.awayTeam.id" [competitionId]="leagueId"></app-min-cup-table>
         </div>
       </div>
     </div>
   </div>
 </ng-container>
-<mat-spinner *ngIf="loading"></mat-spinner>
 
 
 

@@ -12,25 +12,64 @@ import {ScorersComponent} from './leagues/scorers/scorers.component';
 import {ResultClComponent} from './cups/result/result.component';
 import {TableClComponent} from './cups/table/table.component';
 import {NotFoundComponent} from './shared/not-found/not-found.component';
-import {LastMatchesComponent} from "./last-matches/last-matches.component";
+import {LastMatchesComponent} from './last-matches/last-matches.component';
+import { FixtureDetailsLeagueResolver, FixtureDetailsResolver } from './shared/fixture/fixture-details/fixture-details.resolver';
+import { LeaguesResolver } from './leagues/leagues.resolver';
+import { CupsResolver } from './cups/cups.resolver';
 
 const APP_ROUTES: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'today', component: TodayComponent},
-  {path: 'last-matches', component: LastMatchesComponent},
-  {path: 'news', component: NewsComponent},
-  {path: 'league/:leaguePath', component: LeaguesComponent, children: [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'last-matches',
+    component: LastMatchesComponent
+  },
+  {
+    path: 'news',
+    component: NewsComponent
+  },
+  {
+    path: 'league/:leaguePath',
+    component: LeaguesComponent,
+    resolve: {
+      competition: LeaguesResolver
+    },
+    children: [
       {path: 'result', component: ResultComponent},
       {path: 'standing', component: TableComponent},
       {path: 'scorers', component: ScorersComponent},
-    ]},
-  {path: 'match/:leaguePath/:matchId', component: FixtureDetailsComponent},
-  {path: 'cup/:cupPath', component: CupsComponent, children: [
+    ]
+  },
+  {
+    path: 'match/:leaguePath/:matchId',
+    component: FixtureDetailsComponent,
+    resolve: {
+      fixture: FixtureDetailsResolver,
+      leagueId: FixtureDetailsLeagueResolver
+    }
+  },
+  {
+    path: 'cup/:cupPath',
+    component: CupsComponent,
+    resolve: {
+      competition: CupsResolver
+    },
+    children: [
       {path: 'result', component: ResultClComponent},
       {path: 'standing', component: TableClComponent},
-    ]},
-  { path: 'not-found',  component: NotFoundComponent },
-  { path: '**',  pathMatch: 'full', redirectTo: '/not-found' }
+    ]
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: '/not-found'
+  }
 ];
 
 export const Routing = RouterModule.forRoot(APP_ROUTES);

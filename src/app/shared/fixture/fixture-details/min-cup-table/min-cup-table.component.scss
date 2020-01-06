@@ -1,4 +1,7 @@
 @import '~@angular/material/theming';
+h4 {
+  cursor: pointer;
+}
 .min-table {
   background: mat-color($mat-grey, 100);
 }
@@ -19,4 +22,7 @@
 }
 app-min-table-team.highlight .table-item{
   background: mat-color($mat-grey, 400);
+}
+a.mat-button {
+  width: 100%;
 }

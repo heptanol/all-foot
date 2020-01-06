@@ -62,6 +62,7 @@ export interface Match {
   homeTeam: Team;
   awayTeam: Team;
   minute: number;
+  competition?: Competition;
   score: {
     duration: DurationType;
     fullTime: Goals;

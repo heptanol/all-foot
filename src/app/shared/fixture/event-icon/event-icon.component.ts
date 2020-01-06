@@ -1,16 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-event-icon',
   templateUrl: './event-icon.component.html',
   styleUrls: ['./event-icon.component.scss']
 })
-export class EventIconComponent implements OnInit {
-
+export class EventIconComponent {
   @Input()type: string;
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }
