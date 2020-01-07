@@ -1,0 +1,17 @@
+<div class="fixture" *ngIf="fixture">
+  <div class="team home"  [class.winner]="isHomeWinner()">{{fixture.homeTeam.name}}</div>
+  <div class="logo home"><app-team-svg-icon [id]="fixture.homeTeam.id"></app-team-svg-icon></div>
+  <div class="result">
+    <div class="regular">
+      <span [class.winner]="isHomeWinner()">{{fixture.score.fullTime.homeTeam}}</span> -
+      <span [class.winner]="isAwayWinner()">{{fixture.score.fullTime.awayTeam}}</span>
+    </div>
+    <div class="peno" *ngIf="fixture.score.duration === durationsTypes.PENALTY_SHOOTOUT">
+      {{'penalty' | translate}} (<span [class.winner]="isHomeWinner()">{{fixture.score.penalties.homeTeam}}</span> -
+      <span [class.winner]="isAwayWinner()">{{fixture.score.penalties.awayTeam}}</span>)
+    </div>
+  </div>
+  <div class="logo away"><app-team-svg-icon [id]="fixture.awayTeam.id"></app-team-svg-icon></div>
+  <div class="team away" [class.winner]="isAwayWinner()">{{fixture.awayTeam.name}}</div>
+  <app-status [fixture]="fixture"></app-status>
+</div>

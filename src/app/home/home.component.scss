@@ -1,0 +1,36 @@
+.league-square {
+  width: 100%;
+  height: 100%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+.league-square:hover {
+  -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(0%);
+}
+#league-2001 {
+  background-image: url("../../assets/img/champions-league.jpg");
+}
+#league-2015 {
+  background-image: url("../../assets/img/ligue-1-min.jpg");
+}
+#league-2014 {
+  background-image: url("../../assets/img/la-liga.jpg");
+}
+#league-2021 {
+  background-image: url("../../assets/img/premier-league.jpg");
+}
+#league-2019 {
+  background-image: url("../../assets/img/serie-a.jpg");
+}
+#league-2002 {
+  background-image: url("../../assets/img/bundesliga.jpg");
+}
+#league-2017 {
+  background-image: url("../../assets/img/liganos.jpg");
+}
+#league-2003 {
+  background-image: url("../../assets/img/eredivisie.jpg");
+}

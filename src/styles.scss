@@ -1,27 +1,202 @@
-/* You can add global styles to this file, and also import other style files */
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
 @import '~@angular/material/theming';
+@import '~@material/layout-grid/mdc-layout-grid';
 // Plus imports for other components in your app.
 
+$typography: mat-typography-config(
+  $font-family: '"Exo 2", sans-serif'
+);
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
-// **Be sure that you only ever include this mixin once!**
-@include mat-core();
+// Be sure that you only ever include this mixin once!
+@include mat-core($typography);
 
-// Define the theme.
-$candy-app-primary: mat-palette($mat-indigo);
-$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
-$candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
+$candy-app-primary: mat-palette($mat-grey, 900, 200);
+$candy-app-accent:  mat-palette($mat-red, A200, A100, A400);
 
-// Include the theme styles for only specified components.
-@include mat-core-theme($candy-app-theme);
-@include mat-button-theme($candy-app-theme);
-@include mat-checkbox-theme($candy-app-theme);
-@include mat-progress-spinner-theme($candy-app-theme);
+// The warn palette is optional (defaults to red).
+$candy-app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($candy-app-theme);
+
+@viewport {
+  width: device-width; /* largeur du viewport */
+  zoom: 1; /* zoom initial à 1.0 (et clin d'oeil aux fans d'IE6/7) */
+}
+
 html {
   height: 100%;
 }
 body {
   height: 100%;
-  font-family: 'Jura', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   margin: 0;
+}
+.container {
+  /* On centre */
+  margin: 40px auto;
+
+  /* On limite la largeur pour les grands écrans */
+  max-width: 1280px;
+
+  /* On gère la présence d'une marge */
+  width: 90%;
+  min-height: 100%;
+}
+mat-spinner{
+  margin: 20% auto;
+}
+
+/*
+* Comme la dite marge est exprimée en pourcentage,
+* on l'augmente sur les devices moins larges.
+*/
+@media only screen and (min-width: 993px){
+  .container {
+    width: 85%;
+  }
+}
+
+.no-padding {
+  padding: 0;
+}
+app-table-team.odd{
+  .table-item{
+    background-color: mat-color($mat-gray, 200);
+  }
+}
+app-fixture-min{
+  cursor: pointer;
+}
+app-fixture {
+  cursor: pointer;
+  &.odd {
+  }
+}
+
+app-scorers{
+  .table-item.odd{
+    background-color: mat-color($mat-gray, 200);
+  }
+}
+/**
+* Global style
+ */
+h2{
+  border-bottom: 4px solid mat-color($mat-gray, 900);
+  text-transform: uppercase;
+  font-size: 3em;
+  @media screen and (max-width: 480px) {
+    font-size: 2em;
+  }
+}
+h3{
+  border-bottom: 4px solid mat-color($mat-gray, 900);
+  text-transform: uppercase;
+  font-size: 2em;
+  @media screen and (max-width: 480px) {
+    font-size: 1.2em;
+  }
+}
+h4{
+  border-bottom: 4px solid mat-color($mat-gray, 900);
+  text-transform: uppercase;
+  font-size: 1.5em;
+  @media screen and (max-width: 480px) {
+    font-size: 1em;
+  }
+}
+h5{
+  text-transform: uppercase;
+  border-bottom: 2px solid mat-color($mat-gray, 900);
+}
+.mat-tab-link {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  @media (max-width: 840px) {
+    font-size: 1em;
+  }
+}
+.mini-tab .mat-tab-label {
+  font-size: 1.2em;
+}
+
+mat-sidenav {
+  background-color: mat-color($mat-gray, 800)!important;
+  width: 200px;
+  min-height: 100%!important;
+}
+
+.mat-menu-content {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      a {
+        width: 100%;
+        padding: 0 30px;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        app-icon {
+          height: 24px;
+          display: inline-block;
+          padding-right: 15px;
+          max-width: 32px;
+        }
+      }
+
+    }
+  }
+}
+
+.main-menu mat-toolbar-row span.mat-button-wrapper {
+  display: block;
+  margin: auto;
+}
+a.overlay-link {
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: initial;
+}
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: mat-color($mat-gray, 400);
+}
+
+
+@media screen and (max-width: 480px) {
+  .phone-no-display {
+    display:none;
+  }
+}
+
+.mat-icon-button {
+  margin: 0 20px!important;
+  mat-icon.mat-icon {
+    font-size: 42px;
+    height: 42px;
+    width: 42px;
+    line-height: 42px;
+  }
+}
+
+.highlight .table-item{
+  color: mat-color($mat-grey, 50);
+  background: mat-color($mat-grey, 800);
+}
+
+.own svg{
+  fill: mat-color($mat-red, 900);
 }

@@ -1,0 +1,29 @@
+<ng-container *ngIf="team.lineup">
+  <div class="lineup" *ngIf="team.lineup.length > 0">
+    <h5>{{'match.lineup'| translate}}
+      <app-team-svg-icon [id]="team.id"></app-team-svg-icon>
+    </h5>
+    <div class="player" *ngFor="let player of team.lineup | sortLineUp let odd=odd;" [class.odd]="odd">
+      <div class="position">{{player.position | playerPosition | translate}}</div>
+      <div class="shirt-number">{{player.shirtNumber}}</div>
+      <div class="name">{{player.name}}</div>
+      <div class="captain" *ngIf="team.captain.id === player.id">C</div>
+    </div>
+  </div>
+  <div class="bench" *ngIf="team.bench.length > 0">
+    <h5>{{'match.bench'| translate}}</h5>
+    <div class="player" *ngFor="let player of team.bench | sortLineUp; let odd=odd;" [class.odd]="odd">
+      <div class="position">{{player.position | playerPosition | translate}}</div>
+      <div class="shirt-number">{{player.shirtNumber}}</div>
+      <div class="name">{{player.name}}</div>
+    </div>
+  </div>
+  <div class="coach" *ngIf="team.coach.id">
+    <h5>{{'match.coach'| translate}}</h5>
+    <div class="player">
+      <div class="position">{{ 'player_position.coach' | translate}}</div>
+      <div class="shirt-number"></div>
+      <div class="name">{{team.coach.name}}</div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,76 @@
+@import '~@angular/material/theming';
+.logo {
+  text-align: center;
+  height: 40%;
+  display: flex;
+  a {
+    display: block;
+    margin: auto;
+  }
+  img {
+    width: 140px;
+    height: auto;
+  }
+}
+mat-toolbar{
+  background: transparent;
+  height: 50%;
+}
+.lang-switch {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8em;
+  .mat-button-toggle-group, .mat-button-toggle-standalone {
+    box-shadow: none;
+  }
+  .mat-button-toggle {
+    background-color: transparent;
+    color: mat-color($mat-gray, 600);
+  }
+  .mat-button-toggle-checked {
+    background-color: transparent;
+    color: mat-color($mat-gray, 50);
+  }
+}
+mat-toolbar-row{
+  padding: 0;
+  height: 25%;
+  a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 0 30px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: mat-color($mat-gray, 400);
+    i {
+      display: block;
+    }
+    .mat-button-wrapper span{
+      font-size: 1em;
+    }
+  }
+  .mat-accent {
+    color: mat-color($mat-gray, 50);
+  }
+}
+
+.social-links{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  a {
+    text-decoration: none;
+    flex: 1;
+  }
+}
+.mat-button-wrapper {
+  display: block;
+  width: 100%;
+}
+

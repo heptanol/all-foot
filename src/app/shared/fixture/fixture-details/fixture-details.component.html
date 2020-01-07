@@ -1,0 +1,42 @@
+<ng-container *ngIf="!!fixture">
+  <app-fixture-header [fixture]="fixture"></app-fixture-header>
+  <div class="fixture-details">
+    <div class="mdc-layout-grid">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone">
+
+          <mat-tab-group class="mini-tab">
+            <mat-tab label="{{'match.linups' | translate}}" color="accent">
+              <div class="lineups-content">
+
+                <div class="home-lineups">
+                  <app-lineup [team]="fixture.homeTeam"></app-lineup>
+                </div>
+
+                <div class="away-lineups">
+                  <app-lineup [team]="fixture.awayTeam"></app-lineup>
+                </div>
+              </div>
+            </mat-tab>
+
+            <mat-tab label="{{'match.details' | translate}}" color="accent">
+              <app-details [fixture]="fixture"></app-details>
+            </mat-tab>
+
+            <mat-tab label="{{'video' | translate}}" color="accent" *ngIf="fixture.status === StatusType.FINISHED">
+              <app-youtube-video [query]="this.generateMatchSearchWord()"></app-youtube-video>
+            </mat-tab>
+          </mat-tab-group>
+
+        </div>
+        <div class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone">
+          <app-min-league-table *ngIf="fixture.stage === StageType.REGULAR_SEASON" [homeTeamId]="fixture.homeTeam.id" [awayTeamId]="fixture.awayTeam.id" [competitionId]="leagueId"></app-min-league-table>
+          <app-min-cup-table *ngIf="fixture.stage === StageType.GROUP_STAGE" [group]="fixture.group" [homeTeamId]="fixture.homeTeam.id" [awayTeamId]="fixture.awayTeam.id" [competitionId]="leagueId"></app-min-cup-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+
+

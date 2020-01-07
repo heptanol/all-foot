@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+.fixture{
+  border-bottom: 1px solid mat-color($mat-gray, 300);
+  font-size: 0.9em;
+  &:hover {
+    background: mat-color($mat-grey, 100);
+  }
+  .team{
+    text-align: left;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.winner{
+  font-weight: bold;
+}

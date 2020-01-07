@@ -1,0 +1,90 @@
+{
+  "home": {
+    "competitions": "Competitions"
+  },
+  "menu": {
+    "home": "Home",
+    "last-matches": "Videos",
+    "today": "Today's Matchs",
+    "news": "News",
+    "competition": "Competition"
+  },
+  "meta": {
+    "description": "Football news, live scores, results, rankings of major European competitions"
+  },
+  "result": {
+    "label": "Result",
+    "group_stage": "Group stage",
+    "final_stage": "Final stage",
+    "matchDay": "Matchday",ng
+    "8th_finals": "8th finals",
+    "quarterfinal": "quarterfinal",
+    "semifinal": "semifinal",
+    "final": "final"
+  },
+  "table": {
+    "group": "Group",
+    "label": "Table",
+    "ranking": "Rank",
+    "team": "Team",
+    "played": "Played",
+    "win": "Win",
+    "draw": "Draw",
+    "lost": "Lost",
+    "diff": "Diff",
+    "points": "Pts"
+  },
+  "scorers": {
+    "label": "Scorers",
+    "player": "Player",
+    "team": "Team",
+    "nationality": "nationality",
+    "ranking": "Rank",
+    "numberOfGoals": "Goals"
+  },
+  "match": {
+    "linups": "Linups",
+    "results": "results",
+    "standing": "standing",
+    "details": "Details",
+    "lineup": "Lineup",
+    "bench": "bench",
+    "coach": "Coach",
+    "status": {
+      "POSTPONED": "REP",
+      "CANCELED": "CANC",
+      "PAUSED": "HT",
+      "FINISHED": "FIN",
+      "SUSPENDED": "SUS"
+    }
+  },
+  "no_matches": "No matches",
+  "ROUND_OF_16": "8th finals",
+  "QUARTER_FINALS": "quarterfinal",
+  "SEMI_FINALS": "semifinal",
+  "FINAL": "final",
+  "GROUP_A": "GROUP A",
+  "GROUP_B": "GROUP B",
+  "GROUP_C": "GROUP C",
+  "GROUP_D": "GROUP D",
+  "GROUP_E": "GROUP E",
+  "GROUP_F": "GROUP F",
+  "GROUP_G": "GROUP G",
+  "GROUP_H": "GROUP H",
+  "more": "more",
+  "today": "today",
+  "video": "Videos",
+  "penalty": "PEN",
+  "own_goal": "OG",
+  "player_position": {
+    "GK": "GK",
+    "DEF": "DEF",
+    "MID": "MID",
+    "ATT": "ATT",
+    "coach": "CO"
+  },
+  "error": {
+    "title": "Sorry",
+    "text": "something went wrong, please try again"
+  }
+}

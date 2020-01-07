@@ -1,0 +1,18 @@
+<ng-container>
+  <h2>{{competition.competition.name}}</h2>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+       [routerLink]="['./result']"
+       routerLinkActive #result="routerLinkActive"
+       [active]="result.isActive">
+      {{'result.label' | translate}}
+    </a>
+    <a mat-tab-link
+       [routerLink]="['./standing']"
+       routerLinkActive #standing="routerLinkActive"
+       [active]="standing.isActive">
+      {{'table.label' | translate}}
+    </a>
+  </nav>
+  <router-outlet *ngIf="competition"></router-outlet>
+</ng-container>

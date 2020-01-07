@@ -1,19 +1,18 @@
-
-<div>
-  <div *ngIf="!(feeds$ | async)">
-    Loading...
-  </div>
-  <mat-list role="list">
-    <ng-container *ngFor="let feed of (feeds$ | async)">
-      <mat-list-item role="listitem" class="border mt-3 mb-3">
-        <img *ngIf="feed.enclosure.link" matListAvatar src="{{feed.enclosure.link}}" alt="...">
-        <img *ngIf="!feed.enclosure.link" matListAvatar src="../assets/img/football.jpeg" alt="...">
-        <h3 mat-line>{{feed.title}}</h3>
-        <p mat-line>{{feed.description}}</p>
-        <span mat-line><i class="material-icons">date_range</i> {{feed.pubDate  | date: 'dd/MM/yyyy hh:mm'}}</span>
-        <a mat-button href="{{ feed.link }}" target="_blank">Link</a>
-      </mat-list-item>
+<div class="mdc-layout-grid" [class.no-padding]="isBloc">
+  <div class="mdc-layout-grid__inner"  *ngIf="(news$ | async)">
+    <div class="mdc-layout-grid__cell--span-12">
+      <h2 *ngIf="!isBloc">{{'menu.news' | translate}}</h2>
+      <h3 *ngIf="isBloc">{{'menu.news' | translate}}</h3>
+    </div>
+    <ng-container *ngFor="let n of (news$ | async) |  orderBy:'pubDate':'DESC';  let i=index">
+      <div class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone"
+           *ngIf="i<limit"
+           [class.mdc-layout-grid__cell--span-6-desktop]="column === 2">
+        <app-news-item *ngIf="n" [feed]="n"></app-news-item>
+      </div>
     </ng-container>
-  </mat-list>
+    <button class="mdc-layout-grid__cell--span-12" *ngIf="isBloc" mat-flat-button [routerLink]="['/news']">{{'more' | translate}}</button>
+  </div>
 </div>
+
 

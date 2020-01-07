@@ -1,0 +1,13 @@
+<mat-card class="example-card">
+<a class="overlay-link" target="_blank" href="{{feed.link}}">
+  <div class="image-wrap">
+    <img mat-card-image appLazyLoading *ngIf="feed.enclosure && feed.enclosure['@attributes'].url" [src]="feed.enclosure['@attributes'].url">
+  </div>
+  <mat-card-header>
+    <mat-card-subtitle>{{feed.pubDate | date}}</mat-card-subtitle>
+    <mat-card-title>
+      {{feed.title}}
+    </mat-card-title>
+  </mat-card-header>
+</a>
+</mat-card>

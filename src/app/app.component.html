@@ -1,32 +1,14 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" #sidenav [fixedInViewport]="true" [fixedTopGap]="0" [fixedBottomGap]="0">
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <a  href="" mat-button>News</a>
-      </mat-toolbar-row>
-      <mat-toolbar-row>
-        <a  href="" mat-button [routerLink]="['/result', '450']">{{leagueList.ligue_1}}</a>
-      </mat-toolbar-row>
-      <mat-toolbar-row>
-        <a  href="" mat-button [routerLink]="['/result', '455']">{{leagueList.liga_bbva}}</a>
-      </mat-toolbar-row>
-      <mat-toolbar-row>
-        <a  href="" mat-button [routerLink]="['/result', '445']">{{leagueList.premier_league}}</a>
-      </mat-toolbar-row>
-      <mat-toolbar-row>
-        <a  href="" mat-button [routerLink]="['/result', '456']">{{leagueList.serie_a}}</a>
-      </mat-toolbar-row>
-      <mat-toolbar-row>
-        <a  href="" mat-button [routerLink]="['/result', '452']">{{leagueList.bundesliga}}</a>
-      </mat-toolbar-row>
-    </mat-toolbar>
+  <mat-sidenav [mode]="'push'" #sidenav [fixedInViewport]="true" [fixedTopGap]="0" [fixedBottomGap]="0" [opened]="false">
+    <app-nav-menu *ngIf="device !== deviceList.DESKTOP" (navClose)="sidenav.close()"></app-nav-menu>
   </mat-sidenav>
   <mat-sidenav-content>
-    <h1>ALL FOOT</h1>
-    <button mat-button (click)="sidenav.toggle()" id="menu-button">
-      <i class="material-icons">menu</i>
-    </button>
-    <router-outlet></router-outlet>
-
+    <app-menu></app-menu>
+    <button *ngIf="device !== deviceList.DESKTOP" mat-button (click)="sidenav.toggle()"><i class="material-icons">menu</i></button>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<app-team-svg-definitions></app-team-svg-definitions>

@@ -1,0 +1,44 @@
+@import '~@angular/material/theming';
+mat-grid-tile.tab-header{
+  background: mat-color($mat-grey, 700);
+  color: mat-color($mat-grey, 50);
+}
+mat-grid-tile.tab-row{
+  background: mat-color($mat-grey, 400);
+  color: mat-color($mat-grey, 50);
+}
+.group-head {
+  mat-toolbar-row{
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    text-transform: uppercase;
+    border-bottom: 3px solid mat-color($mat-gray, 900);
+  }
+}
+.table-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  background: mat-color($mat-grey, 50);
+  border-bottom: 1px solid mat-color($mat-gray, 300);
+  .tab-row{
+    flex: 2;
+    text-align: center;
+  }
+  .team{
+    flex: 7;
+    text-align: left;
+  }
+}
+.table-item.header{
+  .tab-header{
+    flex: 2;
+    text-align: center;
+  }
+  .team{
+    flex: 7;
+    text-align: left;
+  }
+}

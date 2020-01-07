@@ -1,0 +1,18 @@
+<ng-container *ngIf="(matches$ | async)">
+  <div *ngFor="let fixture of (matches$ | async) |  groupBy:'competitionName'" role="listitem" class="border mt-3 mb-3">
+    <mat-toolbar class="day">
+      <mat-toolbar-row>
+        <h2>{{fixture.key }}</h2>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <ng-container *ngFor="let match of fixture.value">
+      <app-fixture-header [fixture]="match" (click)="goToFixture(match)">
+      </app-fixture-header>
+      <app-youtube-video [query]="getVideoQuery(match)"></app-youtube-video>
+    </ng-container>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!(matches$ | async)">
+  <h3>{{ 'no_matches' | translate }}</h3>
+</ng-container>

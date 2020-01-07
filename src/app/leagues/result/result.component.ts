@@ -1,49 +1,39 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FootApiService} from '../../shared/foot-api/foot-api.service';
-import {ActivatedRoute} from '@angular/router';
-import {Subscription} from 'rxjs/Subscription';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { FootApiService } from '../../shared/foot-api.service';
+import { CompetitionResponse } from '../../shared/model';
+import { CommonService } from '../../shared/common.service';
+import { Devices } from '../../shared/enum';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultComponent implements OnInit, OnDestroy {
-
-  league: string;
-  matchDay: string;
-  ranking: any;
-  fixtures: any[];
-  subscribtions: Subscription[] = [];
+export class ResultComponent implements OnInit {
+  competition: CompetitionResponse;
+  matchDay: number;
+  fixtures$: Observable<any[]>;
+  device: Devices;
+  deviceList = Devices;
   constructor(
     private apiService: FootApiService,
-    private route: ActivatedRoute
+    private commonService: CommonService
   ) {}
 
   ngOnInit() {
-    this.league = this.route.snapshot.paramMap.get('league');
-    this.getCompetition();
+    this.competition = this.commonService.getCompetition();
+    this.device = this.commonService.detectDevice();
+    this.getData(this.competition.competition.id, this.competition.season.currentMatchday);
   }
 
-  getData() {
-    this.subscribtions.push(this.apiService.getFixtures(this.league, this.matchDay).subscribe(data => {
-      this.fixtures = data;
-      console.log(this.fixtures);
-    }));
+  getData(competitionId, matchday?: number) {
+    this.matchDay = !!matchday ? matchday : 1;
+    this.fixtures$ = this.apiService.getMatches(competitionId, matchday, null);
   }
 
-  getCompetition() {
-    this.subscribtions.push(this.apiService.getCompetition(this.league).subscribe(data => {
-      this.matchDay = data['matchday'];
-      this.ranking = data['standing'];
-      this.getData();
-    }));
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.device = this.commonService.detectDevice();
   }
-
-  ngOnDestroy() {
-    this.subscribtions.forEach((sub) => {
-      sub.unsubscribe();
-    });
-  }
-
 }

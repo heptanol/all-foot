@@ -1,0 +1,51 @@
+<div class="logo">
+  <a href="" [routerLink]="['']">
+    <img src="/assets/img/logos-white.png" alt="">
+  </a>
+</div>
+<mat-toolbar class="main-menu">
+  <mat-toolbar-row>
+    <a mat-button href="" [routerLink]="['']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
+      <i class="material-icons">home</i>
+      <span>{{'menu.home' | translate}}</span>
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <a mat-button href="" [routerLink]="['last-matches']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
+      <i class="material-icons">home</i>
+      <span>{{'menu.last-matches' | translate}}</span>
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <a mat-button href="" [routerLink]="['/news']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
+      <i class="material-icons">public</i>
+      <span>{{'menu.news' | translate}}</span>
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <a mat-button [matMenuTriggerFor]="menu" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}">
+      <i class="material-icons">highlight</i>
+      <span>{{'menu.competition' | translate}}</span>
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="lang-switch">
+  <mat-button-toggle-group name="lang" aria-label="Lang" >
+    <mat-button-toggle [checked]="LangEnnum.FR === lang" value="fr" (change)="switchLang(LangEnnum.FR)">FR</mat-button-toggle>
+    <mat-button-toggle [checked]="LangEnnum.EN === lang" value="en" (change)="switchLang(LangEnnum.EN)">EN</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+<mat-menu #menu="matMenu" [xPosition]="'after'">
+  <ul>
+    <li *ngFor="let cup of cupList">
+      <a  href="" mat-button  [routerLink]="['/cup/' + cup.path + '/result']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+        <app-icon [type]="'champions_league'"></app-icon><span>{{ cup.name }}</span>
+      </a>
+    </li>
+    <li *ngFor="let league of leagueList">
+      <a class="menu-item" mat-button  [routerLink]="['/league/' + league.path + '/result']" (click)="closeSidenav()" [routerLinkActive]="['mat-accent']" [routerLinkActiveOptions]="{exact: true}" >
+        <app-icon [type]="league.country"></app-icon> <span>{{league.name}}</span>
+      </a>
+    </li>
+  </ul>
+</mat-menu>

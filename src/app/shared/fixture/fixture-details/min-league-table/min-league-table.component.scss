@@ -1,0 +1,28 @@
+@import '~@angular/material/theming';
+h4 {
+  cursor: pointer;
+}
+.min-table {
+  background: mat-color($mat-grey, 100);
+}
+.table-item.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  border-bottom: 3px solid mat-color($mat-gray, 900);
+  .tab-header{
+    flex: 2;
+    text-align: center;
+  }
+  .team{
+    flex: 7;
+    text-align: left;
+  }
+}
+app-min-table-team.highlight .table-item{
+  background: mat-color($mat-grey, 400);
+}
+a.mat-button {
+  width: 100%;
+}

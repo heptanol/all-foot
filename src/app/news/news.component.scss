@@ -1,22 +1,15 @@
 @import '~@angular/material/theming';
-@include mat-core();
 .mat-list .mat-list-item{
   height: auto;
-  background: rgba(0, 0, 0, 0.38);
   margin: 10px 15px;
-  color: #ffffff;
-  font-family: 'Jura', sans-serif;
 }
 .mat-list .mat-list-item h3{
-  color: mat-color($mat-amber, 600);
   font-size: 20px;
 }
 .mat-list .mat-list-item p{
-  color: mat-color($mat-blue-grey, 50);
   font-size: 14px;
 }
 .mat-list .mat-list-item span.mat-line{
-  color: mat-color($mat-blue-grey, 50);
   font-size: 14px;
   height: 32px;
   vertical-align: middle;

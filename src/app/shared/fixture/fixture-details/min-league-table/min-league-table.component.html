@@ -1,0 +1,12 @@
+<h4 (click)="showCompleteTable()">{{(competitionResponse$ | async)?.competition?.name}}</h4>
+<div class="min-table">
+  <div class="table-item header">
+    <div class="tab-header position">{{'table.ranking' | translate}}</div>
+    <div class="tab-header team" >{{'table.team' | translate}}</div>
+    <div class="tab-header"  >{{'table.played' | translate}}</div>
+    <div class="tab-header"  >{{'table.diff' | translate}}</div>
+    <div class="tab-header"  >{{'table.points' | translate}}</div>
+  </div>
+  <app-min-table-team *ngFor="let table of (standings$ | async); let odd=odd;" [teamTable]="table" [class.odd]="odd" [class.highlight]="isHighlight(table)"></app-min-table-team>
+</div>
+<a mat-button href="" (click)="showCompleteTable()">{{'more' | translate}}</a>

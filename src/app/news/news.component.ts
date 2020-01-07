@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FeedService} from '../shared/feed.service';
-import {Observable} from 'rxjs/Observable';
-import {Championat} from '../shared/enum';
+import { Component, Input, OnInit } from '@angular/core';
+import { FeedService } from '../shared/feed.service';
+import { News } from '../shared/model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-news',
@@ -9,7 +9,11 @@ import {Championat} from '../shared/enum';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-  feeds$: Observable<any>;
+  news: News[];
+  news$: Observable<News[]>;
+  @Input() isBloc = false;
+  @Input() limit = 100;
+  @Input() column = 3;
 
   constructor(
     private feedService: FeedService
@@ -20,8 +24,7 @@ export class NewsComponent implements OnInit {
   }
 
   getFeeds() {
-    this.feeds$ = this.feedService.getFeedContent();
+    this.news$ = this.feedService.getNews();
   }
-
 }
 

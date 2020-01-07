@@ -1,0 +1,22 @@
+@import '~@angular/material/theming';
+mat-grid-list{
+  margin: 2px 0;
+}
+mat-toolbar-row{
+  display: flex;
+  justify-content: center;
+}
+.day{
+  font-size: 24px;
+  background: mat-color($mat-grey, 300);
+  text-transform: uppercase;
+}
+.head {
+  font-size: 2em;
+  text-transform: uppercase;
+  border-bottom: 3px solid mat-color($mat-gray, 900);
+}
+.head.isBloc {
+  font-size: 1em;
+}
+

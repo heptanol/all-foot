@@ -1,0 +1,74 @@
+<ng-container *ngIf="events.length > 0">
+  <div class="details-content">
+    <div class="home-details">
+      <div class="details">
+        <h5>
+          {{fixture.homeTeam.name}}
+          <app-team-svg-icon [id]="fixture.homeTeam.id"></app-team-svg-icon>
+        </h5>
+      </div>
+    </div>
+    <div class="separator"></div>
+    <div class="away-details">
+      <div class="details">
+        <h5>
+          {{fixture.awayTeam.name}}
+          <app-team-svg-icon [id]="fixture.awayTeam.id"></app-team-svg-icon>
+        </h5>
+      </div>
+    </div>
+  </div>
+  <div class="event-content">
+
+    <ng-container *ngFor="let event of events | orderBy:'minute':'DESC';">
+
+      <ng-container *ngIf="event.mode === MatchEventEnum.GOAL">
+        <div class="event"
+           [class.home-event]="isEventHome(event)"
+           [class.away-event]="isEventAway(event)">
+          <span class="event-details">
+            <span class="minute">{{event.minute}}<ng-container *ngIf="event.extraTime">+{{event.extraTime}}</ng-container></span>
+            <span class="first">{{event.scorer.name}} <ng-container *ngIf="event.type === 'OWN'">({{'own_goal' | translate}})</ng-container></span>
+            <span class="second" *ngIf="event.assist">{{event.assist.name}}</span>
+          </span>
+          <span class="event-type">
+            <app-event-icon [class.own]="event.type === 'OWN'" [type]="MatchEventEnum.GOAL"></app-event-icon>
+          </span>
+          <span></span>
+        </div>
+      </ng-container>
+
+        <ng-container *ngIf="event.mode === MatchEventEnum.SUBSTITUTION">
+          <div class="event"
+               [class.home-event]="event.team.id === fixture.homeTeam.id"
+               [class.away-event]="event.team.id === fixture.awayTeam.id">
+            <span class="event-details">
+              <span class="minute">{{event.minute}}<ng-container *ngIf="event.extraTime">+{{event.extraTime}}</ng-container></span>
+              <span class="first">{{event.playerIn.name}}</span>
+              <span class="second">{{event.playerOut.name}}</span>
+            </span>
+            <span class="event-type">
+              <app-event-icon [type]="MatchEventEnum.SUBSTITUTION"></app-event-icon>
+            </span>
+            <span></span>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="event.mode === MatchEventEnum.BOOKING">
+          <div class="event"
+               [class.home-event]="event.team.id === fixture.homeTeam.id"
+               [class.away-event]="event.team.id === fixture.awayTeam.id">
+            <span class="event-details">
+              <span class="minute">{{event.minute}}<ng-container *ngIf="event.extraTime">+{{event.extraTime}}</ng-container></span>
+              <span class="first">{{event.player.name}}</span>
+            </span>
+            <span class="event-type">
+              <app-event-icon [type]="event.card"></app-event-icon>
+            </span>
+            <span></span>
+          </div>
+        </ng-container>
+
+    </ng-container>
+  </div>
+</ng-container>

@@ -1,0 +1,90 @@
+{
+  "home": {
+    "competitions": "Compétitions"
+  },
+  "menu": {
+    "home": "Accueil",
+    "last-matches": "Vidéos",
+    "news": "Actualités",
+    "today": "Matches du jour",
+    "competition": "Compétition"
+  },
+  "meta": {
+    "description": "Les dernières news du foot, le live scores, les résultats, les classements des grandes compétitions d'europe"
+  },
+  "result": {
+    "label": "Resultat",
+    "group_stage": "Phase des groupes",
+    "final_stage": "Phase finale",
+    "matchDay": "Journée",
+    "8th_finals": "8e de finale",
+    "quarterfinal": "Quart de finale",
+    "semifinal": "Demi finale",
+    "final": "finale"
+  },
+  "table": {
+    "group": "Groupe",
+    "label": "Classement",
+    "ranking": "Pos",
+    "team": "équipe",
+    "played": "Joué",
+    "win": "G",
+    "draw": "N",
+    "lost": "P",
+    "diff": "Diff",
+    "points": "Pts"
+  },
+  "scorers": {
+    "label": "Buteurs",
+    "player": "Joueur",
+    "team": "équipe",
+    "nationality": "Nationalité",
+    "ranking": "Pos",
+    "numberOfGoals": "Buts"
+  },
+  "match": {
+    "linups": "Compositions",
+    "results": "Resultat",
+    "details": "Détails",
+    "standing": "Classement",
+    "lineup": "Equipes de départ",
+    "bench": "Remplaçants",
+    "coach": "Entraîneur",
+    "status": {
+      "POSTPONED": "REP",
+      "CANCELED": "ANN",
+      "PAUSED": "MT",
+      "FINISHED": "FINI",
+      "SUSPENDED": "SUS"
+    }
+  },
+  "no_matches": "Pas de matches",
+  "ROUND_OF_16": "8e de finale",
+  "QUARTER_FINALS": "Quart de finale",
+  "SEMI_FINALS": "Demi finale",
+  "FINAL": "finale",
+  "GROUP_A": "GROUPE A",
+  "GROUP_B": "GROUPE B",
+  "GROUP_C": "GROUPE C",
+  "GROUP_D": "GROUPE D",
+  "GROUP_E": "GROUPE E",
+  "GROUP_F": "GROUPE F",
+  "GROUP_G": "GROUPE G",
+  "GROUP_H": "GROUPE H",
+  "more": "Plus",
+  "today": "Aujourd'hui",
+  "video": "Vidéos",
+  "penalty": "TAB",
+  "own_goal": "CSC",
+  "player_position": {
+    "GK": "GB",
+    "DEF": "DEF",
+    "MID": "MIL",
+    "ATT": "ATT",
+    "coach": "ENT"
+  },
+  "error": {
+    "title": "Oups",
+    "text": "Une erreur est survenue, veuillez réessayer"
+  }
+}

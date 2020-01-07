@@ -1,0 +1,111 @@
+@import '~@angular/material/theming';
+.fixture{
+  display: flex;
+  justify-content: center;
+  background: mat-color($mat-grey, 200);
+  position: relative;
+  font-size: 1.8em;
+  @media screen and (max-width: 840px) {
+    font-size: 1.4em;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 1em;
+  }
+  .scorers{
+    font-size: 0.4em;
+    @media screen and (max-width: 840px) {
+      font-size: 0.7em;
+    }
+    text-align: left;
+    margin: 10px;
+    span{
+      display: block;
+      float: left;
+      margin: 0 5px;
+    }
+  }
+  .date{
+    font-size: 0.5em;
+    @media screen and (max-width: 840px) {
+      font-size: 0.7em;
+    }
+    position: absolute;
+    bottom: 10px;
+  }
+  .team{
+    padding: 20px 0;
+    flex: 7;
+    text-align: center;
+  }
+  .status-container {
+    font-size: 0.5em;
+    @media screen and (max-width: 840px) {
+      font-size: 0.7em;
+    }
+    position: absolute;
+    top: 0;
+  }
+  .result{
+    margin: 40px 0;
+    flex: 3;
+    text-align: center;
+    letter-spacing: 5px;
+  }
+  .regular {
+    font-size: 2.5em;
+    @media screen and (max-width: 840px) {
+      font-size: 2em;
+    }
+  }
+  .extra, .peno {
+    color: mat-color($mat-grey, 500);
+    font-size: 0.5em;
+  }
+}
+.fixture-details {
+
+}
+.winner{
+  font-weight: bold;
+}
+.logo svg {
+  max-width: none;
+  max-height: none;
+  width: 100px;
+}
+
+.lineups-content,
+.details-content{
+  display: flex;
+  justify-content: center;
+  h5{
+    margin-bottom: 0;
+    background: mat-color($mat-grey, 200);
+    padding: 10px;
+    border-bottom: none;
+  }
+  .details{
+    h5{
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+  }
+  .home-details, .away-details{
+    flex: 7;
+  }
+  .separator{
+    flex: 2;
+  }
+  .home-lineups{
+    flex: 2;
+    margin-right: 20px;
+  }
+  .away-lineups{
+    flex: 2;
+  }
+
+}
+.mdc-layout-grid {
+  padding: 0;
+}

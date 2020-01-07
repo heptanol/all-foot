@@ -1,0 +1,18 @@
+<ng-container *ngFor="let groupTable of tables; let i = index">
+  <mat-toolbar class="group-head">
+    <mat-toolbar-row>{{groupTable.group | translate}} </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="table-item header">
+    <div class="tab-header position">{{'table.ranking' | translate}}</div>
+    <div class="tab-header phone-no-display"></div>
+    <div class="tab-header team" >{{'table.team' | translate}}</div>
+    <div class="tab-header">{{'table.played' | translate}}</div>
+    <div class="tab-header phone-no-display"  >{{'table.win' | translate}}</div>
+    <div class="tab-header phone-no-display"  >{{'table.draw' | translate}}</div>
+    <div class="tab-header phone-no-display"  >{{'table.lost' | translate}}</div>
+    <div class="tab-header"  >{{'table.diff' | translate}}</div>
+    <div class="tab-header"  >{{'table.points' | translate}}</div>
+  </div>
+
+  <app-table-team *ngFor="let tab of groupTable.table; let odd=odd;" [teamTable]="tab" [class.odd]="odd"></app-table-team>
+</ng-container>

@@ -1,14 +1,28 @@
-<h1>
-  Journée {{matchDay}}
-</h1>
-<div *ngIf="fixtures" role="list">
-  <div *ngFor="let fixture of fixtures" role="listitem" class="border mt-3 mb-3">
-    <mat-grid-list cols="12" rowHeight="48px">
-      <mat-grid-tile [colspan]="5" [rowspan]="3" >{{fixture.homeTeamName}}</mat-grid-tile>
-      <mat-grid-tile [colspan]="1" [rowspan]="2" >{{fixture.result.goalsHomeTeam}}</mat-grid-tile>
-      <mat-grid-tile [colspan]="1" [rowspan]="2" >{{fixture.result.goalsAwayTeam}}</mat-grid-tile>
-      <mat-grid-tile [colspan]="5" [rowspan]="3" >{{fixture.awayTeamName}}</mat-grid-tile>
-      <mat-grid-tile [colspan]="2" [rowspan]="1" >{{fixture.date | date: 'EEEE dd/MM/yyyy H:mm'}}</mat-grid-tile>
-    </mat-grid-list>
+<ng-container>
+  <mat-toolbar class="match-day">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="getData(competition.competition.id, matchDay - 1)"  [disabled]="matchDay === 1">
+        <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_left</mat-icon>
+      </button>
+      <span>{{'result.matchDay' | translate}} {{matchDay}}</span>
+      <button mat-icon-button (click)="getData(competition.competition.id, matchDay + 1)" [disabled]="matchDay === (fixtures$ | async)?.totalMatchDays">
+        <mat-icon aria-label="Example icon-button with a heart icon">keyboard_arrow_right</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div *ngIf="!!(fixtures$ | async)" role="list">
+    <div *ngFor="let fixture of (fixtures$ | async)?.matches |  groupBy:'day'" role="listitem" class="border mt-3 mb-3">
+      <mat-toolbar class="day">
+        <mat-toolbar-row>
+          {{fixture.key  | date: 'EEEE dd MMMM yyyy'}}
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <ng-container *ngIf="device === deviceList.DESKTOP">
+        <app-fixture *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [competition]="competition.competition" [class.odd]="odd"></app-fixture>
+      </ng-container>
+      <ng-container *ngIf="device !== deviceList.DESKTOP">
+        <app-fixture-min *ngFor="let fix of fixture.value; let odd=odd;" [fixture]="fix" [competition]="competition.competition" [class.odd]="odd"></app-fixture-min>
+      </ng-container>
+    </div>
   </div>
-</div>
+</ng-container>
