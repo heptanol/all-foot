@@ -1,10 +1,10 @@
 # Dockerfile
-FROM node:8.16.2-alpine3.9
+FROM node:10
+RUN mkdir -p /app
 WORKDIR /app
+COPY package*.json /app/
+RUN npm install
+COPY . /app/
+EXPOSE 4200
 
-COPY . /app
-RUN apk add --no-cache bash coreutils grep sed
-
-CMD npm install -g @angular/cli@1
-CMD npm install
-CMD npm start
+CMD ["npm", "start"]
