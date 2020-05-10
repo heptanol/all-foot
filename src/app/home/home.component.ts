@@ -16,8 +16,7 @@ export class HomeComponent implements OnInit {
   deviceList = Devices;
   leagues = [];
   cups = [];
-  hideToday = false;
-
+  
   constructor(
     private commonService: CommonService,
     private translateService: TranslateService,
@@ -60,10 +59,4 @@ export class HomeComponent implements OnInit {
       return 2;
     }
   }
-
-  setNoMatches() {
-    this.hideToday = true;
-  }
-
-
 }

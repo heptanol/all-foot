@@ -19,18 +19,24 @@ export class DetailsComponent implements OnInit{
   }
 
   setEvents(): void {
-    this.fixture.bookings.forEach((book) => {
-      book['mode'] = MatchEventEnum.BOOKING;
-      this.events.push(book);
-    });
-    this.fixture.goals.forEach((goal) => {
-      goal['mode'] = MatchEventEnum.GOAL;
-      this.events.push(goal);
-    });
-    this.fixture.substitutions.forEach((substitution) => {
-      substitution['mode'] = MatchEventEnum.SUBSTITUTION;
-      this.events.push(substitution);
-    });
+    if (this.fixture.bookings) {
+      this.fixture.bookings.forEach((book) => {
+        book['mode'] = MatchEventEnum.BOOKING;
+        this.events.push(book);
+      });
+    }
+    if (this.fixture.goals) {
+      this.fixture.goals.forEach((goal) => {
+        goal['mode'] = MatchEventEnum.GOAL;
+        this.events.push(goal);
+      });
+    }
+    if (this.fixture.substitutions) {
+      this.fixture.substitutions.forEach((substitution) => {
+        substitution['mode'] = MatchEventEnum.SUBSTITUTION;
+        this.events.push(substitution);
+      });
+    }
   }
 
   isEventHome(event: Goal): boolean {

@@ -1,5 +1,5 @@
-<ng-container *ngIf="(matches$ | async)">
-  <div *ngFor="let fixture of (matches$ | async) |  groupBy:'competitionName'" role="listitem" class="border mt-3 mb-3">
+<ng-container *ngIf="matches">
+  <div *ngFor="let fixture of matches |  groupBy:'competitionName'" role="listitem" class="border mt-3 mb-3">
     <mat-toolbar class="day">
       <mat-toolbar-row>
         <h2>{{fixture.key }}</h2>
@@ -13,6 +13,6 @@
   </div>
 </ng-container>
 
-<ng-container *ngIf="!(matches$ | async)">
+<ng-container *ngIf="!matches">
   <h3>{{ 'no_matches' | translate }}</h3>
 </ng-container>
