@@ -9,7 +9,7 @@ import { Devices } from '../shared/enum';
   templateUrl: './today.component.html',
   styleUrls: ['./today.component.scss']
 })
-export class TodayComponent implements OnInit, OnChanges {
+export class TodayComponent implements OnInit {
   fixtures: any[];
   fixtures$: Observable<any[]>;
   device: Devices;
@@ -25,12 +25,10 @@ export class TodayComponent implements OnInit, OnChanges {
     this.getData();
   }
 
-  ngOnChanges() {
-    this.getData();
-  }
-
   getData() {
-    this.fixtures$ = this.apiService.getTodayMatches();
+    this.apiService.getTodayMatches().subscribe(data => {
+      this.fixtures = data;
+    });
   }
 
   @HostListener('window:resize', ['$event'])

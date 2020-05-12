@@ -48,6 +48,10 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
+              "assets": [
+                { "glob": "**/*", "input": "src/assets/", "output": "src/assets/" },
+                { "glob": "favicon.ico", "input": "src/", "output": "/" }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

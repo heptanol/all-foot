@@ -1,0 +1,12 @@
+# Dockerfile
+FROM node:10 as builder
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY . /app/
+
+RUN npm install && \
+    npm run build-prod
+
+FROM nginx:alpine
+COPY --from=builder /app/dist/* /usr/share/nginx/html/

@@ -11,12 +11,11 @@
       </mat-grid-list>
     </div>
     <div
-      class="mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone"
-      [class.mdc-layout-grid__cell--span-12-desktop]="hideToday">
-      <app-news [limit]="12" [isBloc]="true" [column]="hideToday ? 3 : 2"></app-news>
+      class="mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone">
+      <app-news [limit]="12" [isBloc]="true" [column]="2"></app-news>
     </div>
-    <div *ngIf="!hideToday" class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone">
-      <app-today (noMatches)="setNoMatches()"></app-today>
+    <div class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-12-tablet mdc-layout-grid__cell--span-12-phone">
+      <app-today></app-today>
     </div>
   </div>
 </div>

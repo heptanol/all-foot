@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { Match } from '../shared/model';
@@ -11,7 +10,7 @@ import { FootApiService } from '../shared/foot-api.service';
   styleUrls: ['./last-matches.component.scss']
 })
 export class LastMatchesComponent implements OnInit {
-  matches$: Observable<Match[]>;
+  matches: Match[];
 
   constructor(
     private apiService: FootApiService,
@@ -23,7 +22,9 @@ export class LastMatchesComponent implements OnInit {
   }
 
   getData() {
-    this.matches$ = this.apiService.getLastImportantMatches();
+    this.apiService.getLastImportantMatches().subscribe(data => {
+      this.matches = data;
+    });
   }
 
   getVideoQuery(match: Match): string {

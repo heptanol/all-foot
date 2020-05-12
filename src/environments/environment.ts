@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost/public/',
+  apiUrl: 'http://localhost:8080/public',
   google_analytics_code: ''
 };
